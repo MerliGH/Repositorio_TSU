@@ -1,0 +1,53 @@
+<h4>Descripcion</h4>
+
+<br>
+
+<p>¡Deslumbra en tu próxima gala con este impresionante vestido en color café claro que te hará lucir elegante y sexy a la vez!</p>
+
+<p>Este magnifico diseño te brinda la libertad que tu necesitas, siente la elegancia de un vestido fino así a su vez que se tiene un toque juvenil. Al contar con una manga larga y otro brazo descubierto, te brinda la flexibilidad que necesitas para que estes cómoda. De color cafe claro con tonalidades de beige. Está fabricado 10% con elastano y 90% con poliéster para darte todo lo necesario para tu noche especial.</p>
+<br>
+
+<h4>CARACTERÍSTICAS</h4>
+
+<br>
+
+<div class="mobile">
+	<div class="fila">
+		<div class="columna">
+			<div>
+				<div class="header">Marca</div>
+				<div class="contenido">Elegance Couture</div>	
+			</div>
+		</div>
+        <div class="columna">
+			<div>
+				<div class="header">Exclusivo en línea</div>
+				<div class="contenido">Sí</div>	
+			</div>
+		</div>
+        <div class="columna">
+			<div>
+				<div class "header">Color</div>
+				<div class="contenido">Café Claro</div>
+			</div>
+		</div>
+        <div class="columna">
+			<div>
+				<div class="header">Estilo</div>
+				<div class="contenido">Gala</div>	
+			</div>
+		</div>
+        <div class="columna">
+			<div>
+				<div class="header">Composición</div>
+				<div class="contenido">5% spandex, 95% poliéster</div>	
+			</div>
+		</div>
+        <div class="columna">
+			<div>
+				<div class="header">Disponibilidad</div>
+				<div class="contenido">Disponible</div>	
+			</div>
+		</div>
+	</div>
+</div>

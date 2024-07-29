@@ -1,0 +1,53 @@
+<h4>Descripcion</h4>
+
+<br>
+
+<p>¡Luce maravillosa con este vestido con moño!</p>
+
+<p>Escote en V tanto en el frente como en la espalda. Sin mangas, tirantes spaghetti. Detalle anudado y de autolazo en el busto. Recorte en la zona de la cintura. Falda midi con volante, dobladillo alto-bajo. Cierre trasero oculto. Forrado. Poliéster/elastano. Lavado en seco.</p>
+<br>
+
+<h4>Características</h4>
+
+<br>
+
+<div class="mobile">
+    <div class="fila">
+        <div class="columna">
+            <div>
+                <div class="header">Marca</div>
+                <div class="contenido">Elegancia con Moño</div>    
+            </div>
+        </div>
+        <div class="columna">
+            <div>
+                <div class="header">Exclusivo en línea</div>
+                <div class="contenido">Sí</div>    
+            </div>
+        </div>
+        <div class="columna">
+            <div>
+                <div class="header">Color</div>
+                <div class="contenido">Varía según disponibilidad</div>
+            </div>
+        </div>
+        <div class="columna">
+            <div>
+                <div class="header">Estilo</div>
+                <div class="contenido">Elegante con Moño</div>    
+            </div>
+        </div>
+        <div class="columna">
+            <div>
+                <div class="header">Composición</div>
+                <div class="contenido"> 60% Poliéster, 40% elastano</div>    
+            </div>
+        </div>
+        <div class="columna">
+            <div>
+                <div class="header">Instrucciones de Cuidado</div>
+                <div class="contenido">Lavado en seco</div>
+            </div>
+        </div>
+    </div>
+</div>

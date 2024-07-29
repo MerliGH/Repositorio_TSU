@@ -1,0 +1,54 @@
+<h4>Descripcion</h4>
+
+<br>
+
+<p>Llega a cualquier evento luciendo espectacular con este vestido especializado para cuerpos Petite</p>
+
+<p>NOTA IMPORTANTE: Este producto viene con una etiqueta de garantia, Si esta etiqueta es removida, el articulo no podra ser devuelto</p>
+<br>
+
+<h4>CARACTERISTICAS</h4>
+
+<br>
+
+<div class="mobile">
+	<div class="fila">
+		<div class="columna">
+			<div>
+				<div class="header">Marca</div>
+				<div class="contenido">Betsy & Adam</div>	
+			</div>
+		</div>
+        <div class="columna">
+			<div>
+				<div class="header">Exclusivo en línea</div>
+				<div class="contenido">Exclusivo en línea</div>	
+			</div>
+		</div>
+        <div class="columna">
+			<div>
+				<div class="header">Lavado</div>
+				<div class="contenido">Lavado En Sexo</div>	
+			</div>
+		</div>
+        <div class="columna">
+			<div>
+				<div class="header">Composicion</div>
+				<div class="contenido">Spandex y poliéster</div>	
+			</div>
+		</div>
+        <div class="columna">
+			<div>
+				<div class="header">Disponibilidad</div>
+				<div class="contenido">Disponible</div>	
+			</div>
+		</div>
+        <div class="columna">
+			<div>
+				<div class="header">Hecho en</div>
+				<div class="contenido">Mexico</div>	
+			</div>
+		</div>
+	</div>
+
+</div>

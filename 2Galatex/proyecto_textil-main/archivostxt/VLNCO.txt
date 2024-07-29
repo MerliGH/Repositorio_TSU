@@ -1,0 +1,53 @@
+<h4>Descripcion</h4>
+
+<br>
+
+<p>¡Un estilo radiante para cualquier ocasión!</p>
+
+<p>Atrevete a probar un vestido distinto, con un diseño inigualable. Cuenta con dos comodas mangas a lo largo que dan la escencia de gala que necesitas, y su cuello en V te hará sentir genial. De color perla radiante, ¡te quedará espectacular!. Está fabricado 30% con elastano y 70% con poliéster.</p>
+<br>
+
+<h4>Características</h4>
+
+<br>
+
+<div class="mobile">
+    <div class="fila">
+        <div class="columna">
+            <div>
+                <div class="header">Marca</div>
+                <div class="contenido">Radiant Fashion</div>    
+            </div>
+        </div>
+        <div class="columna">
+            <div>
+                <div class="header">Exclusivo en línea</div>
+                <div class="contenido">Sí</div>    
+            </div>
+        </div>
+        <div class="columna">
+            <div>
+                <div class="header">Color</div>
+                <div class="contenido">Perla Radiante</div>
+            </div>
+        </div>
+        <div class="columna">
+            <div>
+                <div class="header">Estilo</div>
+                <div class="contenido">Versátil</div>    
+            </div>
+        </div>
+        <div class="columna">
+            <div>
+                <div class="header">Composición</div>
+                <div class="contenido">30% elastano, 70% poliéster</div>    
+            </div>
+        </div>
+        <div class="columna">
+            <div>
+                <div class="header">Disponibilidad</div>
+                <div class="contenido">Disponible</div>    
+            </div>
+        </div>
+    </div>
+</div>

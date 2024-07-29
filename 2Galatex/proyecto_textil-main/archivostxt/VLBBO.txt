@@ -1,0 +1,53 @@
+<h4>Descripcion</h4>
+
+<br>
+
+<p>¡Sientete fresca y bella con este vestido con cuello en V!</p>
+
+<p>Este espectacular diseño te brinda el estilo sofisticado que tanto necesitas. Al contar con Mangas esculpidas y un hermoso cuello en V, sientete la estrella del momento. Gracias a su corte sirena sientate libre de encajar donde sea. De color rojo garnet, ¡sientete única!. Está fabricado 20% con elastano y 80% con poliéster, nuestros productos son libre de crueldad animal.</p>
+<br>
+
+<h4>Características</h4>
+
+<br>
+
+<div class="mobile">
+    <div class="fila">
+        <div class="columna">
+            <div>
+                <div class="header">Marca</div>
+                <div class="contenido">Elegance Couture</div>    
+            </div>
+        </div>
+        <div class="columna">
+            <div>
+                <div class="header">Exclusivo en línea</div>
+                <div class="contenido">Sí</div>    
+            </div>
+        </div>
+        <div class="columna">
+            <div>
+                <div class="header">Color</div>
+                <div class="contenido">Café Claro</div>
+            </div>
+        </div>
+        <div class="columna">
+            <div>
+                <div class="header">Estilo</div>
+                <div class="contenido">Gala</div>    
+            </div>
+        </div>
+        <div class="columna">
+            <div>
+                <div class="header">Composición</div>
+                <div class="contenido">20% elastano, 80% poliéster</div>    
+            </div>
+        </div>
+        <div class="columna">
+            <div>
+                <div class="header">Disponibilidad</div>
+                <div class="contenido">Disponible</div>    
+            </div>
+        </div>
+        <div class="columna">
+            <div

@@ -1,0 +1,122 @@
+@import url(//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css);
+
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body{
+  background-color: #f1f1f1 ;
+}
+
+/*MENU PRINCIPAL*/
+
+  /*FIN*/
+
+
+/* imagen del vestido */
+.importante{
+  width: 60%;
+  height: 400px;
+  margin: 0 auto;
+  margin-top: 50px;
+}
+
+.importante img{
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+}
+
+.section-info{
+  width: 80%;
+  height: fit-content;
+  text-align: center;
+  margin: 30px auto;
+  /*align-items: center;*/  
+  padding: 30px;  
+}
+
+.section-info h1{
+
+  border-bottom: solid 4px rgb(108 52 40 / 79%);
+  padding-bottom: 15px;
+
+}
+
+.section-info p{
+  padding-top: 10px;
+}
+
+
+/*informacion de vestidos*/
+.fila{
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;  
+}
+
+
+.cards{
+  margin: 15px; 
+  height: fit-content;
+  background-color: white;
+  border-radius: 8px;
+  border: 1px solid #dadce0;
+  box-shadow: 0px 0px 1px #171a1f, 0px 0px 2px #171a1f;
+  transition: transform .4s; /* Animation */
+}
+
+.cards:hover {
+  transform: scale(1.1);
+  transition: all 0.1s ease-in-out;
+  background-color: white;
+}
+
+.img{
+  height: 200px;
+  display: block;
+}
+
+.img-card{
+  object-fit:scale-down;
+  width: 100%;
+  height: 100%;
+  border-radius: 8px 8px 0 0;
+  border-bottom: solid rgb(218,220,224) 1px;
+}
+
+
+.title{
+  margin: 5px 0  13px 20px;
+}
+
+.cards a{
+  text-decoration: none;
+  border: solid 1px rgb(108 52 40 / 79%);
+  color: rgb(108 52 40 / 79%);
+  padding: 5px;
+  border-radius: 6px;
+  margin: 0 0 20px 20px;
+}
+.cards a:hover{
+  background-color:rgb(108 52 40 / 79%) ;
+  color: white;
+}
+
+
+/*Pie de pagina*/
+
+footer{
+  background-color:#F8F9FAFF;
+  text-align: center;
+  margin-top: 40px;
+}
+.foot{
+  display: inline-block;
+  padding: 5px;
+  margin-top: 10px;
+}
+

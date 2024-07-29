@@ -1,0 +1,53 @@
+<h4>Descripcion</h4>
+
+<br>
+
+<p>¡No dudes en probarlo, es para ti!</p>
+
+<p>Nuestro producto tiene buena calidad y hermoso en diseño. Nuestros vestidos son modernos y tienen un diseño único. Haz una interpretación perfecta para que puedas asistir a varias ocasiones.</p>
+<br>
+
+<h4>Características</h4>
+
+<br>
+
+<div class="mobile">
+    <div class="fila">
+        <div class="columna">
+            <div>
+                <div class="header">Marca</div>
+                <div class="contenido">Moda Elegante</div>    
+            </div>
+        </div>
+        <div class="columna">
+            <div>
+                <div class="header">Exclusivo en línea</div>
+                <div class="contenido">Sí</div>    
+            </div>
+        </div>
+        <div class="columna">
+            <div>
+                <div class="header">Color</div>
+                <div class="contenido">Varía según disponibilidad</div>
+            </div>
+        </div>
+        <div class="columna">
+            <div>
+                <div class="header">Estilo</div>
+                <div class="contenido">Moderno y Único</div>    
+            </div>
+        </div>
+        <div class="columna">
+            <div>
+                <div class="header">Composición</div>
+                <div class="contenido">Varía según el diseño</div>    
+            </div>
+        </div>
+        <div class="columna">
+            <div>
+                <div class="header">Instrucciones de Cuidado</div>
+                <div class="contenido">Lavado según etiqueta del producto</div>
+            </div>
+        </div>
+    </div>
+</div>

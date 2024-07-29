@@ -1,0 +1,51 @@
+<h4>Descripcion</h4>
+
+<br>
+
+<p>Sientete comoda y a la vez a la moda con este vestido pensado para para ti, con cristales a los costados y magnifica pedreria que dejaria a cualquiera sorprendido
+de tu estilo innovador</p>
+
+<p>Recien salido de Mac Duggal, con la mejor calidad de materiales como chifon de un magnifico color porcelana</p>
+
+
+<br>
+
+<h4>CARACTERISTICAS</h4>
+
+<br>
+
+<div class="mobile">
+	<div class="fila">
+		<div class="columna">
+			<div>
+				<div class="header">Marca</div>
+				<div class="contenido">Mac Duggal</div>	
+			</div>
+		</div>
+        <div class="columna">
+			<div>
+				<div class="header">Exclusivo en línea</div>
+				<div class="contenido">Exclusivo en línea</div>	
+			</div>
+		</div>
+        <div class="columna">
+			<div>
+				<div class="header">Hecho en</div>
+				<div class="contenido">Mexico</div>	
+			</div>
+		</div>
+        <div class="columna">
+			<div>
+				<div class="header">Composicion</div>
+				<div class="contenido">100% poliéster</div>	
+			</div>
+		</div>
+        <div class="columna">
+			<div>
+				<div class="header">Disponibilidad</div>
+				<div class="contenido">Disponible</div>	
+			</div>
+		</div>
+	</div>
+
+</div>
