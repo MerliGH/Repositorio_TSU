@@ -1,0 +1,589 @@
+body 
+{
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    zoom: 95%;
+}
+
+body 
+{
+  background-image: url('images/taberna.jpg');
+  background-size: 100% 100%; /* Para cubrir toda la pantalla */
+  background-position: center; /* Para centrar la imagen */
+  background-repeat: no-repeat; /* Para evitar que la imagen se repita */
+  filter: brightness(120%); /* Ajusta la claridad al 120% */
+}
+
+
+
+/*-------------------------------------------------------------------------------------------------------------*/
+/*-------------------------------   CONTENEDOR TITULO CONOCE MAS ETC         ---------------------------------------*/
+/*-------------------------------------------------------------------------------------------------------------*/
+.container 
+  {
+    max-width: 1500px;
+    margin: 0px ;
+    padding: 10px;
+  }
+
+  .header 
+  {
+    background-color: #333; 
+    color: #fff; 
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+    border: 2px solid #6c757d; 
+    border-radius: 10px; 
+  
+}
+
+/*-------------------------------------------------------------------------------------------------------------*/
+/*-------------------------------               HEADERS           ---------------------------------------*/
+/*-------------------------------------------------------------------------------------------------------------*/
+
+.header h1 
+{
+  margin: 0; 
+  margin-right: 40px;
+}
+
+.header2 p 
+{
+  margin: 0; 
+  margin-right: 40px; 
+}   
+
+
+.header2 
+{
+    background-color: #e6b87d; /* Color café clarito */
+    color: #333; /* Color de texto */
+    padding: 1px; /* Espaciado interno */
+    text-align: center; /* Centrar el texto */
+}
+
+/* Estilos para el texto del header */
+.header2 h3 {
+    margin: 0; /* Eliminar el margen del h1 */
+}
+
+
+  .menu {
+    margin-left: auto; /* Ajustar el margen izquierdo para separar los elementos */
+    display: flex;
+    list-style: none; /* Remove default bullet points */
+    padding: 0; /* Remove default padding */
+    margin: 0; /* Remove default margin */
+
+  }
+
+  /*Muestra espacio entre el titulo y los demas elementos*/
+  .menu a + a {
+    margin-left: 170px; /* Agrega un espacio entre los elementos del menú */
+  }
+  .menu li {
+    margin-right: 10px; /* Add space between menu items */
+  }
+  
+  .menu a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 18px;
+    padding: 10px;
+  }
+  
+  .menu a:hover {
+    background-color: #f0f0f0;
+    color: #333;
+  }
+  
+  .menu a.titulo:hover {
+    background-color: transparent; /* Hacer transparente el fondo al pasar el cursor */
+    color: #fff; /* Mantener el color de texto blanco */
+  }
+
+  /*MUEVE A CONOCE MAS, INICIO, CERVERCERIAS, COMENTARIOS A LA IZQUIERDA NO AFECTA TITULO*/
+  .menu a:not(.titulo) {
+    margin-left: 165px; /* Aplica el margen izquierdo a todos los elementos del menú excepto al que tiene la clase "titulo" */
+}
+
+  .main-content {
+    padding: 20px;
+  }
+
+
+
+  .casco 
+    {
+    width: 40px; /* Ajusta el ancho según tu preferencia */
+    height: 35px ; /* Para mantener la proporción */
+    margin-right: 2px; /* Espacio entre la imagen y el texto */
+    margin-left: 10px;
+    }
+
+    .cheve 
+    {
+    width: 55px; /* Ajusta el ancho según tu preferencia */
+    height: 37px ; /* Para mantener la proporción */
+    margin-right: 10px;
+    margin-left: 0px;
+    
+    }
+
+    /*Para que se vea la manita al pasarlo por las imagenes*/
+      .casco, .cheve 
+    {
+      cursor: pointer;
+  }
+  
+  
+
+/*-------------------------------------------------------------------------------------------------------------*/
+/*-------------------------------               DESMADRE FOOTER 1       ---------------------------------------*/
+/*-------------------------------------------------------------------------------------------------------------*/
+
+footer 
+{
+  background-color: #000;
+  color: #fff;
+  padding: 20px;
+  margin-top: 80px ;
+}
+
+.footer-container 
+{
+  border-top: 1px solid #ccc;
+  padding: 20px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 40px;
+}
+
+.footer-top 
+{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-center 
+{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-column 
+{
+  width: calc(33.33% - 20px);
+  margin-right: 20px; 
+}
+
+.footer-column:last-child 
+{
+  margin-right: 0; 
+}
+
+.footer-column h2 
+{
+  margin-bottom: 10px;
+}
+
+.social-icons 
+{
+  display: flex;
+}
+
+.social-icons a 
+{
+  /*ESPACIO ENTRE ICONOS*/
+  margin-right: 10px; 
+}
+
+.contact-info 
+{
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-info p 
+{
+  margin: 5px 0;
+}
+
+.footer-bottom ul 
+{
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+}
+
+.logo
+{
+  margin-left: 40px;
+  width: 220px;
+  height:220px;
+}
+
+
+/*-------------------------------------------------------------------------------------------------------------*/
+/*-------------------------------               IMAGENES DE CONTACTO    ---------------------------------------*/
+/*-------------------------------------------------------------------------------------------------------------*/
+.contact-info img 
+{
+  width: 30px; 
+  height: 30px; 
+  margin-right: 10px; 
+}
+
+.contact-item 
+{
+  display: flex;
+  align-items: center; /* Alinea verticalmente los elementos */
+  margin-bottom: 10px; /* Ajusta el espacio entre cada elemento */
+}
+
+.contact-item img 
+{
+  margin-right: 10px; /* Ajusta el espacio entre la imagen y el texto */
+}
+
+.phone-numbers p 
+{
+  margin: 5px 0;
+}
+
+.footer-top 
+{
+  display: flex;
+  align-items: flex-start; /* Alinea los elementos al inicio */
+  justify-content: space-between;
+}
+
+.footer-column 
+{
+  flex: 1;
+}
+
+.social-contact-container 
+{
+  display: flex;
+  flex-direction: column;
+}
+
+.social-icons 
+{
+  margin-left: -70px;
+}
+
+
+/*-------------------------------------------------------------------------------------------------------------*/
+/*-------------------------------           ICONOS REDES SOCIALES       ---------------------------------------*/
+/*-------------------------------------------------------------------------------------------------------------*/
+.social-icons a img 
+{
+  width: 30px; 
+}
+
+.social-icons 
+{
+  display: flex;
+  align-items: center;
+}
+
+.social-icons img 
+{
+  width: 40px; 
+  height: auto; 
+}
+
+.social-icons p 
+{
+  margin: 0;
+  padding-left: 10px; 
+}
+
+.contact-item 
+{
+  display: flex;
+  align-items: center;
+}
+
+.contact-item p 
+{
+  margin: 0;
+  padding-left: 10px; 
+}
+
+.phone-numbers p 
+{
+  margin: 5px 0;
+}
+
+.title 
+{
+  text-align: center;
+}
+
+.social-contact-container 
+{
+  display: -100px;
+  justify-content: -100px;
+  margin-left: -120px; 
+}
+
+.social-icons 
+{
+  margin-top: 15px;
+  margin-left: -60px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); 
+  grid-gap: 20px; 
+}
+
+.social-icons a 
+{
+  display: block; 
+}
+
+.social-icons img 
+{
+  width: 30px;
+  margin-right: -20px;
+}
+
+/*MUEVE EL TITULO DE REDES SOCIALES*/
+.social-contact-container h2
+{
+  margin-left: 120px; 
+}
+
+/*MUEVE EL TITULO DE CONTACTO*/
+.social-contact-container2 h2 
+{
+  margin-left: 180px; 
+}
+
+.social-item 
+{
+  display: flex;
+  align-items: center;
+}
+
+.data 
+{
+  margin-left: 10px; 
+}
+
+.data p 
+{
+  margin: 0;
+}
+
+/*-------------------------------------------------------------------------------------------------------------*/
+/*-------------------------------                     FOOTER 2          ---------------------------------------*/
+/*-------------------------------------------------------------------------------------------------------------*/
+
+.footer2 
+{
+  background-color: #e6b87d; 
+  color: #333; 
+  padding: 0px; 
+  text-align: center;
+  margin-top: 0px;
+  width: 100%; 
+  
+}
+
+.footer2 h3 
+{
+  margin: 0; 
+  font-size: 14px; 
+}
+
+
+
+/* Añade estos estilos al final de tu archivo CSS */
+
+.description2 {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.map-container {
+  height: 400px; /* Altura del mapa */
+  width: 400px; /* Ancho del mapa */
+  margin-left: 40px;
+  margin-bottom: 20px;
+  margin-top:30px;
+}
+
+.text-container {
+  width: 400px; /* Ancho fijo para la descripción */
+}
+
+.text-box {
+  margin-top: 28px;
+  margin-left:-14px;
+  background-color: rgba(255, 238, 205, 0.5); /* Color café */
+  padding: 10px;
+  border-radius: 10px;
+  height: 385px;
+  width: 400px; /* Altura fija para el cuadro de texto */
+  overflow: auto; /* Agregar desplazamiento vertical si el contenido es demasiado largo */
+}
+
+.text-box h2 {
+  color: white;
+  font-size: 35px;
+  text-align: center;
+
+}
+
+.description-text2 {
+  color: white;
+  font-size: 18px;
+  overflow: auto; /* Agregar desplazamiento vertical si el contenido es demasiado largo */
+}
+
+.image-container {
+
+  width: 400px; /* Ancho fijo para el contenedor de la imagen */
+  height: 400px; /* Altura fija para el contenedor de la imagen */
+}
+.image-container {
+  margin-top: 26px;
+  position: relative;
+  width: 400px;
+  height: 400px;
+  margin-right: -33px;
+}
+
+
+
+.beer-image {
+  width: 80%;
+  height: 102%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(255, 235, 205, 0.5);
+  border-radius: 20px;
+
+}
+
+.beer-image img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+
+}
+
+.comments-section {
+  background-color: #f8f9fa;
+  padding: 20px;
+  border-radius: 10px;
+  margin: 20px;
+}
+
+.comments-section h2 {
+  margin-bottom: 15px;
+}
+
+.comments-section form {
+  margin-bottom: 20px;
+}
+
+.comments-section label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.comments-section input[type="text"],
+.comments-section textarea {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.comments-section button[type="submit"] {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.comments-section button[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
+.comments-section .comentarios {
+  margin-top: 20px;
+}
+
+.comments-section .comentarios p {
+  background-color: #fff;
+  border-radius: 5px;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.comments-section .comentarios p strong {
+  color: #007bff;
+}
+
+.add-comment {
+  background-color: #ffffff;
+  border-radius: 10px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.comment-list {
+  background-color: #f8f9fa;
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.comments-section {
+  display: flex;
+  justify-content: space-between;
+}
+
+.add-comment, .comment-list {
+  flex-basis: 48%; /* Ajustar según el espacio deseado */
+  background-color: #f8f9fa;
+  border-radius: 10px;
+  padding: 20px;
+  border: 1px solid #ccc; /* Añadido para un borde */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Añadido para un efecto de sombra */
+}
+
+/* Estilos para la sección de agregar comentario */
+.add-comment {
+  background-color: #ffffff; /* Fondo blanco */
+  border-radius: 10px; /* Bordes redondeados */
+  padding: 20px; /* Espaciado interno */
+  margin-bottom: 20px; /* Espaciado inferior */
+}
+
+/* Estilos para la sección de lista de comentarios */
+.comment-list {
+  background-color: #f8f9fa; /* Fondo gris claro */
+  border-radius: 10px; /* Bordes redondeados */
+  padding: 20px; /* Espaciado interno */
+}

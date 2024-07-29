@@ -1,0 +1,689 @@
+  body 
+  {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      zoom: 95%;
+  }
+  
+  body 
+  {
+    background-image: url('images/taberna.jpg');
+    background-size: 100% 100%; /* Para cubrir toda la pantalla */
+    background-position: center; /* Para centrar la imagen */
+    background-repeat: no-repeat; /* Para evitar que la imagen se repita */
+    filter: brightness(120%); /* Ajusta la claridad al 120% */
+  }
+
+/*-------------------------------------------------------------------------------------------------------------*/
+/*-------------------------------   CONTENEDOR TITULO CONOCE MAS ETC         ---------------------------------------*/
+/*-------------------------------------------------------------------------------------------------------------*/
+.container 
+  {
+    max-width: 1500px;
+    margin: 0px ;
+    padding: 10px;
+  }
+
+  .header 
+  {
+    background-color: #333; 
+    color: #fff; 
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+    border: 2px solid #6c757d; 
+    border-radius: 10px; 
+  
+}
+
+/*-------------------------------------------------------------------------------------------------------------*/
+/*-------------------------------               HEADERS           ---------------------------------------*/
+/*-------------------------------------------------------------------------------------------------------------*/
+
+.header h1 
+{
+  margin: 0; 
+  margin-right: 40px;
+}
+
+.header2 p 
+{
+  margin: 0; 
+  margin-right: 40px; 
+}   
+
+
+.header2 
+{
+    background-color: #e6b87d; /* Color café clarito */
+    color: #333; /* Color de texto */
+    padding: 1px; /* Espaciado interno */
+    text-align: center; /* Centrar el texto */
+}
+
+/* Estilos para el texto del header */
+.header2 h3 {
+    margin: 0; /* Eliminar el margen del h1 */
+}
+
+
+  .menu {
+    margin-left: auto; /* Ajustar el margen izquierdo para separar los elementos */
+    display: flex;
+    list-style: none; /* Remove default bullet points */
+    padding: 0; /* Remove default padding */
+    margin: 0; /* Remove default margin */
+
+  }
+
+  /*Muestra espacio entre el titulo y los demas elementos*/
+  .menu a + a {
+    margin-left: 170px; /* Agrega un espacio entre los elementos del menú */
+  }
+  .menu li {
+    margin-right: 10px; /* Add space between menu items */
+  }
+  
+  .menu a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 18px;
+    padding: 10px;
+  }
+  
+  .menu a:hover {
+    background-color: #f0f0f0;
+    color: #333;
+  }
+  
+  .menu a.titulo:hover {
+    background-color: transparent; /* Hacer transparente el fondo al pasar el cursor */
+    color: #fff; /* Mantener el color de texto blanco */
+  }
+
+  /*MUEVE A CONOCE MAS, INICIO, CERVERCERIAS, COMENTARIOS A LA IZQUIERDA NO AFECTA TITULO*/
+  .menu a:not(.titulo) {
+    margin-left: 165px; /* Aplica el margen izquierdo a todos los elementos del menú excepto al que tiene la clase "titulo" */
+}
+
+  .main-content {
+    padding: 20px;
+  }
+
+
+
+  .casco 
+    {
+    width: 40px; /* Ajusta el ancho según tu preferencia */
+    height: 35px ; /* Para mantener la proporción */
+    margin-right: 2px; /* Espacio entre la imagen y el texto */
+    margin-left: 10px;
+    }
+
+    .cheve 
+    {
+    width: 55px; /* Ajusta el ancho según tu preferencia */
+    height: 37px ; /* Para mantener la proporción */
+    margin-right: 10px;
+    margin-left: 0px;
+    
+    }
+
+    /*Para que se vea la manita al pasarlo por las imagenes*/
+      .casco, .cheve 
+    {
+      cursor: pointer;
+  }
+  
+  
+
+/*-------------------------------------------------------------------------------------------------------------*/
+/*-------------------------------               CABEZA VIKINGA          ---------------------------------------*/
+/*-------------------------------------------------------------------------------------------------------------*/
+
+/*-------------------------------------------------------------------------------------------------------------*/
+/*-------------------------------               DESMADRE FOOTER 1       ---------------------------------------*/
+/*-------------------------------------------------------------------------------------------------------------*/
+
+footer 
+{
+  background-color: #000;
+  color: #fff;
+  padding: 20px;
+  margin-top: 80px ;
+}
+
+.footer-container 
+{
+  border-top: 1px solid #ccc;
+  padding: 20px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 40px;
+}
+
+.footer-top 
+{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-center 
+{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-column 
+{
+  width: calc(33.33% - 20px);
+  margin-right: 20px; 
+}
+
+.footer-column:last-child 
+{
+  margin-right: 0; 
+}
+
+.footer-column h2 
+{
+  margin-bottom: 10px;
+}
+
+.social-icons 
+{
+  display: flex;
+}
+
+.social-icons a 
+{
+  /*ESPACIO ENTRE ICONOS*/
+  margin-right: 10px; 
+}
+
+.contact-info 
+{
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-info p 
+{
+  margin: 5px 0;
+}
+
+.footer-bottom ul 
+{
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+}
+
+.logo
+{
+  margin-left: 40px;
+  width: 220px;
+  height:220px;
+}
+
+
+/*-------------------------------------------------------------------------------------------------------------*/
+/*-------------------------------               IMAGENES DE CONTACTO    ---------------------------------------*/
+/*-------------------------------------------------------------------------------------------------------------*/
+.contact-info img 
+{
+  width: 30px; 
+  height: 30px; 
+  margin-right: 10px; 
+}
+
+.contact-item 
+{
+  display: flex;
+  align-items: center; /* Alinea verticalmente los elementos */
+  margin-bottom: 10px; /* Ajusta el espacio entre cada elemento */
+}
+
+.contact-item img 
+{
+  margin-right: 10px; /* Ajusta el espacio entre la imagen y el texto */
+}
+
+.phone-numbers p 
+{
+  margin: 5px 0;
+}
+
+.footer-top 
+{
+  display: flex;
+  align-items: flex-start; /* Alinea los elementos al inicio */
+  justify-content: space-between;
+}
+
+.footer-column 
+{
+  flex: 1;
+}
+
+.social-contact-container 
+{
+  display: flex;
+  flex-direction: column;
+}
+
+.social-icons 
+{
+  margin-left: -70px;
+}
+
+
+/*-------------------------------------------------------------------------------------------------------------*/
+/*-------------------------------           ICONOS REDES SOCIALES       ---------------------------------------*/
+/*-------------------------------------------------------------------------------------------------------------*/
+.social-icons a img 
+{
+  width: 30px; 
+}
+
+.social-icons 
+{
+  display: flex;
+  align-items: center;
+}
+
+.social-icons img 
+{
+  width: 40px; 
+  height: auto; 
+}
+
+.social-icons p 
+{
+  margin: 0;
+  padding-left: 10px; 
+}
+
+.contact-item 
+{
+  display: flex;
+  align-items: center;
+}
+
+.contact-item p 
+{
+  margin: 0;
+  padding-left: 10px; 
+}
+
+.phone-numbers p 
+{
+  margin: 5px 0;
+}
+
+.title 
+{
+  text-align: center;
+}
+
+.social-contact-container 
+{
+  display: -100px;
+  justify-content: -100px;
+  margin-left: -120px; 
+}
+
+.social-icons 
+{
+  margin-top: 15px;
+  margin-left: -60px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); 
+  grid-gap: 20px; 
+}
+
+.social-icons a 
+{
+  display: block; 
+}
+
+.social-icons img 
+{
+  width: 30px;
+  margin-right: -20px;
+}
+
+/*MUEVE EL TITULO DE REDES SOCIALES*/
+.social-contact-container h2
+{
+  margin-left: 120px; 
+}
+
+/*MUEVE EL TITULO DE CONTACTO*/
+.social-contact-container2 h2 
+{
+  margin-left: 180px; 
+}
+
+.social-item 
+{
+  display: flex;
+  align-items: center;
+}
+
+.data 
+{
+  margin-left: 10px; 
+}
+
+.data p 
+{
+  margin: 0;
+}
+
+/*-------------------------------------------------------------------------------------------------------------*/
+/*-------------------------------                     FOOTER 2          ---------------------------------------*/
+/*-------------------------------------------------------------------------------------------------------------*/
+
+.footer2 
+{
+  background-color: #e6b87d; 
+  color: #333; 
+  padding: 0px; 
+  text-align: center;
+  margin-top: 0px;
+  width: 100%; 
+  
+}
+
+.footer2 h3 
+{
+  margin: 0; 
+  font-size: 14px; 
+}
+
+/*-------------------------------------------------------------------------------------------------------------*/
+/*-------------------------------      CUADRITOS INDEX 2                ---------------------------------------*/
+/*-------------------------------------------------------------------------------------------------------------*/
+
+/* Estilo para el contenedor de los cuadros */
+.cuadritos {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Tres columnas de igual tamaño */
+  grid-gap: 20px; /* Espacio entre los cuadros */
+  margin-top: 30px;
+  margin-left: 20px;
+}
+.cuadritos .description {
+  position: relative;
+  border: 1px solid #ccc;
+  padding: 10px; /* Reduce el padding para hacer los cuadros más pequeños */
+  margin: 0 auto; /* Centra los cuadros horizontalmente */
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.9);
+  width: 470px; /* Establece el ancho de cada cuadro */
+  
+}
+
+.cuadritos .description .beer-image {
+  object-fit: cover;
+  max-height: 200px; /* Reduce la altura máxima de la imagen */
+  overflow: hidden;
+  margin-top: 10px; /* Añade margen superior para separar la imagen del texto */
+}
+
+.cuadritos .description h2 {
+  font-size: 18px; /* Reduce el tamaño del título */
+  margin-bottom: 5px;
+}
+
+.cuadritos .description p {
+  margin: 0;
+  font-size: 14px; /* Reduce el tamaño del texto */
+}
+
+.cuadritos .description-text {
+  max-height: 3em; /* Reduce la altura máxima del texto descriptivo */
+  overflow: hidden;
+}
+
+
+
+/*-------------------------------------------------------------------------------------------------------------*/
+/*-------------------------------                   TEXTOS              ---------------------------------------*/
+/*-------------------------------------------------------------------------------------------------------------*/
+.beer-name1 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 27px;
+  color: #8B4513; /* Color inicial (marrón oscuro, que combina con la cerveza) */
+  text-align: center;
+  animation: glow 1s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+  100% {
+    text-shadow: 0 0 5px #8B4513, 0 0 10px #D2B48C, 0 0 15px #8B4513; /* Brillo inicial (marrón oscuro) */
+  }
+  70% {
+    text-shadow: 0 0 5px #CD853F, 0 0 10px #FFDAB9, 0 0 15px #CD853F; /* Brillo intermedio (dorado) */
+  }
+  100% {
+    text-shadow: 0 0 5px #9a6540, 0 0 10px #D2B48C, 0 0 15px #8B4513; /* Brillo final (marrón oscuro) */
+  }
+}
+
+
+.beer-tagline {
+  /* Estilos para la nueva clase */
+  font-size: 24px !important;
+  font-style: italic;
+}
+
+.first-brewed {
+  font-size: 20px !important;
+  font-weight: bold;
+}
+
+.beer-description2 {
+  font-size: 22px !important;
+  margin-bottom: -15px !important;
+  font-style: italic;
+}
+.beer-description3 strong {
+  position: relative;
+  font-family: Georgia, 'Times New Roman', Times, serif;
+  text-decoration: underline; /* Añadir subrayado */
+  font-size: 24px ;
+  color: #000000; /* Color base del texto */
+  font-style: italic;
+  animation: burn 1.5s infinite alternate;
+}
+
+.beer-description3 strong::after {
+  content: attr(data-text); /* Contenido del pseudo-elemento igual al texto */
+  position: absolute;
+  bottom: 0;
+  left: -15px; /* Extensión a la izquierda */
+  right: -15px; /* Extensión a la derecha */
+  opacity: 0.5; /* Opacidad inicial del pseudo-elemento */
+  color: #dfb042; /* Color del pseudo-elemento (más claro que el texto base) */
+  animation: shadowMove 2.5s infinite alternate;
+}
+
+@keyframes burn {
+  0% {
+    text-shadow: none; /* Sin sombra al principio */
+  }
+  50% {
+    text-shadow: 0 0 10px #ff6600, 0 0 20px #ff9900, 0 0 30px #ffcc00; /* Sombras progresivas */
+  }
+  100% {
+    text-shadow: none; /* Sin sombra al final */
+  }
+}
+
+@keyframes shadowMove {
+  0% {
+    transform: translateY(0); /* Sin movimiento al principio */
+  }
+  50% {
+    transform: translateY(-5px); /* Movimiento hacia arriba */
+  }
+  100% {
+    transform: translateY(0); /* Sin movimiento al final */
+  }
+}
+
+
+.beer-description {
+  font-size: 18px !important;
+  margin-bottom: 10px;
+}
+
+.beer-ingredients-container {
+  margin-top: 10px;
+  
+  border: 1.5px ;
+  border-radius: 4.5px; /* Bordes más redondeados */
+  overflow-x: auto;
+  padding: 25px;
+}
+
+.beer-ingredients {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.beer-ingredients th:first-child,
+.beer-ingredients th:last-child {
+  color: #ffffff; /* Color de letra */
+}
+
+
+.beer-ingredients th,
+.beer-ingredients td {
+  padding: 12px;
+  text-align: left;
+  border-radius: .5px; /* Bordes más redondeados */
+  border: 2.5px solid #2f200c; /* Mismo color de borde para todas las celdas */
+  
+}
+
+
+.beer-ingredients th {
+  
+  background-color: #2f200c;
+  border-bottom: 1px solid #671d1d; /* Borde inferior más grueso */
+}
+
+.beer-ingredients tr:nth-child(even) {
+  background-color: #e3cdbf;
+}
+
+
+.beer-ingredients tr:nth-child(odd) {
+  background-color: #ad968e; /* Mantener el fondo blanco para las filas impares */
+}
+
+
+
+
+/*-------------------------------------------------------------------------------------------------------------------*/
+.search-text 
+{
+  color: white;
+  font-size: 50px !important; /* Ajusta el tamaño de fuente según sea necesario */
+  display: flex;
+  justify-content: center; /* Centra horizontalmente */
+  align-items: center; /* Centra verticalmente */
+  height: 100px; /* Establece la altura deseada */
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-weight: bold;
+  font-style: italic;
+  
+}
+
+.search-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 20px; /* Ajusta el espacio debajo de la sección de búsqueda */
+}
+
+
+
+.search-container {
+  display: flex;
+  align-items: center;
+}
+
+.search-box {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px; /* Ajusta el espacio entre la barra de búsqueda y el botón */
+}
+
+.search-box input[type="text"] {
+  width: 200px;
+  margin-right: 20px; /* Espacio entre la barra de búsqueda y el botón */
+}
+
+.search-box button {
+  margin-right: 20px; /* Espacio entre el botón y la barra de filtrado */
+}
+
+.filter-box {
+  display: flex;
+  align-items: center;
+  margin-right: 40px; /* Ajusta el margen derecho para mover la barra de filtrado */
+  width: 800px !important;
+}
+
+#orden {
+  width: 250px !important; /* Cambia este valor según lo que necesites */
+  /* Otros estilos */
+}
+
+
+.filter-box label {
+  margin-right: 10px; /* Ajusta el margen derecho para separar el espacio */
+}
+
+.search-box label {
+  margin-right: 10px; /* Ajusta el margen derecho para separar el espacio */
+}
+
+.filter-box select {
+  width: 150px;
+}
+
+.filter-box select {
+  width: 150px;
+}
+.text-container {
+  display: flex;
+  align-items: flex-start; /* Alinea los elementos a la izquierda */
+  
+}
+
+.check-text {
+  color: white;
+  font-size: 16px; /* Tamaño de fuente según sea necesario */
+  margin-top: 5px; /* Espacio entre los textos */
+}
+
+
+label[for="txtingredient"], label[for="orden"] {
+  color: white;
+}
+/*------------------------------------------------------------------------*/

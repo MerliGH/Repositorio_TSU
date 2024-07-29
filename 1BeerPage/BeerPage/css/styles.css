@@ -1,0 +1,676 @@
+  body 
+  {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      zoom: 95%;
+  }
+  
+  body 
+  {
+    background-image: url('images/taberna.jpg');
+    background-size: cover; /* Para cubrir toda la pantalla */
+    background-position: center; /* Para centrar la imagen */
+    background-repeat: no-repeat; /* Para evitar que la imagen se repita */
+    filter: brightness(120%); /* Ajusta la claridad al 120% */
+  }
+
+/*-------------------------------------------------------------------------------------------------------------*/
+/*-------------------------------   CONTENEDOR TITULO CONOCE MAS ETC         ---------------------------------------*/
+/*-------------------------------------------------------------------------------------------------------------*/
+.container 
+  {
+    max-width: 1500px;
+    margin: 0px ;
+    padding: 10px;
+  }
+
+  .header 
+  {
+    background-color: #333; 
+    color: #fff; 
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+    border: 2px solid #6c757d; 
+    border-radius: 10px; 
+}
+
+/*-------------------------------------------------------------------------------------------------------------*/
+/*-------------------------------               HEADERS           ---------------------------------------*/
+/*-------------------------------------------------------------------------------------------------------------*/
+
+.header h1 
+{
+  margin: 0; 
+  margin-right: 40px;
+}
+
+.header2 p 
+{
+  margin: 0; 
+  margin-right: 40px; 
+}   
+
+
+.header2 
+{
+    background-color: #e6b87d; /* Color café clarito */
+    color: #333; /* Color de texto */
+    padding: 1px; /* Espaciado interno */
+    text-align: center; /* Centrar el texto */
+}
+
+/* Estilos para el texto del header */
+.header2 h3 {
+    margin: 0; /* Eliminar el margen del h1 */
+}
+
+
+  .menu {
+    margin-left: auto; /* Ajustar el margen izquierdo para separar los elementos */
+    display: flex;
+    list-style: none; /* Remove default bullet points */
+    padding: 0; /* Remove default padding */
+    margin: 0; /* Remove default margin */
+  }
+
+  /*Muestra espacio entre el titulo y los demas elementos*/
+  .menu a + a {
+    margin-left: 170px; /* Agrega un espacio entre los elementos del menú */
+  }
+  .menu li {
+    margin-right: 10px; /* Add space between menu items */
+  }
+  
+  .menu a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 18px;
+    padding: 10px;
+  }
+  
+  .menu a:hover {
+    background-color: #f0f0f0;
+    color: #333;
+  }
+  
+  .menu a.titulo:hover {
+    background-color: transparent; /* Hacer transparente el fondo al pasar el cursor */
+    color: #fff; /* Mantener el color de texto blanco */
+  }
+
+  /*MUEVE A CONOCE MAS, INICIO, CERVERCERIAS, COMENTARIOS A LA IZQUIERDA NO AFECTA TITULO*/
+  .menu a:not(.titulo) {
+    margin-left: 165px; /* Aplica el margen izquierdo a todos los elementos del menú excepto al que tiene la clase "titulo" */
+}
+
+  .main-content {
+    padding: 20px;
+  }
+
+/*-------------------------------------------------------------------------------------------------------------*/
+/*-------------------------------           CUADROS DESCRIPTIVOS        ---------------------------------------*/
+/*-------------------------------------------------------------------------------------------------------------*/
+
+.descriptions 
+{
+  display: grid;
+  grid-template-columns: repeat(2, 450px); /* Cambia el tamaño de los cuadros a 300px */
+  grid-gap: 20px;
+  margin-top: 30px;
+  margin-left: 20px;
+}
+
+  
+.description 
+{
+  position: relative; 
+  border: 1px solid #ccc;
+  padding: 20px;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.9); 
+}
+
+  .beer-image 
+  {
+    object-fit: cover;
+    max-height: 300px; /* Altura máxima de la imagen */
+    overflow: hidden; /* Oculta el exceso de imagen */
+    margin-top: 0px;
+  }
+  
+  .description h2 {
+    font-size: 20px;
+    margin-bottom: 5px;
+  }
+  
+  .description p {
+    margin: 0;
+    font-size: 16px;
+  }
+  
+  @media screen and (min-width: 1024px) {
+    .container {
+        max-width: 90%; /* Ancho máximo del contenedor en escritorios */
+    }
+}
+
+    /* Establecer una altura máxima para la descripción y ocultar el exceso de texto */
+.description-text {
+    max-height: 4em; /* Altura máxima de tres líneas */
+    overflow: hidden;
+  }
+  
+  /* Estilos específicos para el botón "Ver más" */
+  .read-more-btn {
+    display: inline-block;
+    width: 100px;
+    height: 40px;
+    margin-left: 300px;
+    background-color: #8B4513;
+    border: none;
+    color: #fff;
+    font-size: 14px;
+    text-align: center;
+    font-weight: bold;
+    line-height: 40px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-top: 10px;
+    border-radius: 20px; /* Bordes redondeados */
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5); /* Sombra con contorno */
+  }
+  
+  
+
+
+
+  .casco 
+    {
+    width: 40px; /* Ajusta el ancho según tu preferencia */
+    height: 35px ; /* Para mantener la proporción */
+    margin-right: 2px; /* Espacio entre la imagen y el texto */
+    margin-left: 10px;
+    }
+
+    .cheve 
+    {
+    width: 55px; /* Ajusta el ancho según tu preferencia */
+    height: 37px ; /* Para mantener la proporción */
+    margin-right: 10px;
+    margin-left: 0px;
+    
+    }
+
+    /*Para que se vea la manita al pasarlo por las imagenes*/
+      .casco, .cheve 
+    {
+      cursor: pointer;
+  }
+  
+  
+
+/*-------------------------------------------------------------------------------------------------------------*/
+/*-------------------------------               CABEZA VIKINGA          ---------------------------------------*/
+/*-------------------------------------------------------------------------------------------------------------*/
+
+.cabeza-vikinga 
+{
+  position: fixed;
+  top: 30%;
+  right: 100px;
+  transform: translateY(0%);
+  opacity: 0;
+  width: 300px;
+  height: 300px;
+  animation: fadeInFromRight 2s ease-in-out forwards;
+  animation-delay: 1s;
+  z-index: 3; 
+}
+
+
+.cabeza-container 
+{
+  position: fixed;
+  top: 30%;
+  right: 100px;
+  transform: translateY(-180%);
+  opacity: 0;
+  animation: fadeInFromRight 2s ease-in-out forwards;
+  animation-delay: 1.5s;
+  z-index: 1; /* Asegura que la cabeza esté por encima del cuadro */
+}
+
+
+.titulo-container {
+  position: absolute;
+  top: 50%;
+  left: 102%;
+  transform: translate(-125%, -50%);
+  background-color: rgba(255, 255, 255, 0.8);
+  color: #333;
+  padding: 30px 20px;
+  border-radius: 5px;
+  width: 400px; /* Ajusta el ancho según sea necesario */
+  height: 400px;
+  z-index: -1; /* Asegura que el cuadro esté detrás de la cabeza */
+  
+}
+
+.cabeza-container ::before 
+{
+  content: "Welcome!"; /* Define el contenido del pseudo-elemento */
+  position: absolute; /* Establece la posición absoluta para colocar el texto sobre la imagen */
+  /*BAJA EL SUBE O BAJA DE WELCOME*/
+  top: 20%; /* Centra verticalmente el texto */
+  left: 50%; /* Centra horizontalmente el texto */
+  transform: translate(-50%, -50%); /* Centra el texto completamente */
+  z-index: 2; /* Asegura que el texto "Welcome" esté por encima de la imagen */
+  font-size: 80px; /* Tamaño de la fuente */
+  font-weight: bold; /* Texto en negrita */
+  color: #412804; /* Color del texto */
+}
+
+.cabeza-container::after 
+{
+  content: "Take a seat!"; /* Define el contenido del segundo pseudo-elemento */
+  position: relative; /* Establece la posición relativa al contenedor padre */
+  z-index: 2; /* Asegura que el texto esté por encima de la imagen */
+  font-size: 40px; /* Tamaño de la fuente */
+  font-weight: bold; /* Texto en negrita */
+  color: #412804; /* Color del texto */
+  left: -296px; /* Mueve el texto 20px hacia la izquierda */
+  top: 180px;
+}
+
+
+.titulo-container p {
+  margin-top: 161px; /* Mueve el texto hacia abajo del contenedor de la cabeza flotante */
+  font-size: 18px;
+  font-weight: normal;
+  color: #333333;
+  text-align: justify; /* Justifica el texto */
+  margin-bottom: 10px;
+}
+
+
+@keyframes fadeInFromRight 
+{
+  from 
+  {
+    opacity: 0;
+    right: -100px;
+  }
+  to 
+  {
+    opacity: 1;
+    right: 0;
+  }
+}
+
+/*-------------------------------------------------------------------------------------------------------------*/
+/*-------------------------------               DESMADRE FOOTER 1       ---------------------------------------*/
+/*-------------------------------------------------------------------------------------------------------------*/
+
+footer 
+{
+  background-color: #000;
+  color: #fff;
+  padding: 20px;
+  margin-top: 30px;
+}
+
+.footer-container 
+{
+  border-top: 1px solid #ccc;
+  padding: 20px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 40px;
+}
+
+.footer-top 
+{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-center 
+{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.footer-column 
+{
+  width: calc(33.33% - 20px);
+  margin-right: 20px; 
+}
+
+.footer-column:last-child 
+{
+  margin-right: 0; 
+}
+
+.footer-column h2 
+{
+  margin-bottom: 10px;
+}
+
+.social-icons 
+{
+  display: flex;
+}
+
+.social-icons a 
+{
+  /*ESPACIO ENTRE ICONOS*/
+  margin-right: 10px; 
+}
+
+.contact-info 
+{
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-info p 
+{
+  margin: 5px 0;
+}
+
+.footer-bottom ul 
+{
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  margin-top: 20px;
+}
+
+.logo
+{
+  margin-left: 40px;
+  width: 220px;
+  height:220px;
+}
+
+
+/*-------------------------------------------------------------------------------------------------------------*/
+/*-------------------------------               IMAGENES DE CONTACTO    ---------------------------------------*/
+/*-------------------------------------------------------------------------------------------------------------*/
+.contact-info img 
+{
+  width: 30px; 
+  height: 30px; 
+  margin-right: 10px; 
+}
+
+.contact-item 
+{
+  display: flex;
+  align-items: center; /* Alinea verticalmente los elementos */
+  margin-bottom: 10px; /* Ajusta el espacio entre cada elemento */
+}
+
+.contact-item img 
+{
+  margin-right: 10px; /* Ajusta el espacio entre la imagen y el texto */
+}
+
+.phone-numbers p 
+{
+  margin: 5px 0;
+}
+
+.footer-top 
+{
+  display: flex;
+  align-items: flex-start; /* Alinea los elementos al inicio */
+  justify-content: space-between;
+}
+
+.footer-column 
+{
+  flex: 1;
+}
+
+.social-contact-container 
+{
+  display: flex;
+  flex-direction: column;
+}
+
+.social-icons 
+{
+  margin-left: -70px;
+}
+
+
+/*-------------------------------------------------------------------------------------------------------------*/
+/*-------------------------------           ICONOS REDES SOCIALES       ---------------------------------------*/
+/*-------------------------------------------------------------------------------------------------------------*/
+.social-icons a img 
+{
+  width: 30px; 
+}
+
+.social-icons 
+{
+  display: flex;
+  align-items: center;
+}
+
+.social-icons img 
+{
+  width: 40px; 
+  height: auto; 
+}
+
+.social-icons p 
+{
+  margin: 0;
+  padding-left: 10px; 
+}
+
+.contact-item 
+{
+  display: flex;
+  align-items: center;
+}
+
+.contact-item p 
+{
+  margin: 0;
+  padding-left: 10px; 
+}
+
+.phone-numbers p 
+{
+  margin: 5px 0;
+}
+
+.title 
+{
+  text-align: center;
+}
+
+.social-contact-container 
+{
+  display: -100px;
+  justify-content: -100px;
+  margin-left: -120px; 
+}
+
+.social-icons 
+{
+  margin-top: 15px;
+  margin-left: -60px;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); 
+  grid-gap: 20px; 
+}
+
+.social-icons a 
+{
+  display: block; 
+}
+
+.social-icons img 
+{
+  width: 30px;
+  margin-right: -20px;
+}
+
+/*MUEVE EL TITULO DE REDES SOCIALES*/
+.social-contact-container h2
+{
+  margin-left: 120px; 
+}
+
+/*MUEVE EL TITULO DE CONTACTO*/
+.social-contact-container2 h2 
+{
+  margin-left: 180px; 
+}
+
+.social-item 
+{
+  display: flex;
+  align-items: center;
+}
+
+.data 
+{
+  margin-left: 10px; 
+}
+
+.data p 
+{
+  margin: 0;
+}
+
+/*-------------------------------------------------------------------------------------------------------------*/
+/*-------------------------------                     FOOTER 2          ---------------------------------------*/
+/*-------------------------------------------------------------------------------------------------------------*/
+
+.footer2 
+{
+  background-color: #e6b87d; 
+  color: #333; 
+  padding: 0px; 
+  text-align: center;
+  margin-top: 0px;
+  width: 100%; 
+  
+}
+
+.footer2 h3 
+{
+  margin: 0; 
+  font-size: 14px; 
+}
+
+/*-------------------------------------------------------------------------------------------------------------*/
+/*-------------------------------      CUADRITOS INDEX 2                ---------------------------------------*/
+/*-------------------------------------------------------------------------------------------------------------*/
+
+/* Estilo para el contenedor de los cuadros */
+.cuadritos {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Tres columnas de igual tamaño */
+  grid-gap: 20px; /* Espacio entre los cuadros */
+  margin-top: 30px;
+  margin-left: 20px;
+}
+.cuadritos .description {
+  position: relative;
+  border: 1px solid #ccc;
+  padding: 10px; /* Reduce el padding para hacer los cuadros más pequeños */
+  margin: 0 auto; /* Centra los cuadros horizontalmente */
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.9);
+  width: 470px; /* Establece el ancho de cada cuadro */
+  
+}
+
+.cuadritos .description .beer-image {
+  object-fit: cover;
+  max-height: 200px; /* Reduce la altura máxima de la imagen */
+  overflow: hidden;
+  margin-top: 10px; /* Añade margen superior para separar la imagen del texto */
+}
+
+.cuadritos .description h2 {
+  font-size: 18px; /* Reduce el tamaño del título */
+  margin-bottom: 5px;
+}
+
+.cuadritos .description p {
+  margin: 0;
+  font-size: 14px; /* Reduce el tamaño del texto */
+}
+
+.cuadritos .description-text {
+  max-height: 3em; /* Reduce la altura máxima del texto descriptivo */
+  overflow: hidden;
+}
+
+
+
+/*-------------------------------------------------------------------------------------------------------------*/
+/*-------------------------------                   TEXTOS              ---------------------------------------*/
+/*-------------------------------------------------------------------------------------------------------------*/
+.beer-name1 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 28px;
+  color: #8B4513; /* Color inicial (marrón oscuro, que combina con la cerveza) */
+  text-align: center;
+  animation: glow 1s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+  100% {
+    text-shadow: 0 0 5px #8B4513, 0 0 10px #D2B48C, 0 0 15px #8B4513; /* Brillo inicial (marrón oscuro) */
+  }
+  70% {
+    text-shadow: 0 0 5px #CD853F, 0 0 10px #FFDAB9, 0 0 15px #CD853F; /* Brillo intermedio (dorado) */
+  }
+  100% {
+    text-shadow: 0 0 5px #9a6540, 0 0 10px #D2B48C, 0 0 15px #8B4513; /* Brillo final (marrón oscuro) */
+  }
+}
+
+
+.tagline 
+{
+  font-size: 24px;
+  font-style: italic;
+}
+
+
+
+a {
+  color: rgb(255, 255, 255); /* Cambia el color del texto del enlace a negro */
+  text-decoration: none; /* Elimina el subrayado predeterminado del enlace */
+}
+
+a:hover {
+  color: rgb(224, 202, 163); /* Cambia el color del texto del enlace a azul cuando el mouse pasa por encima */
+}
+
+.description .read-more-btn a {
+  color: black; /* Cambia el color del texto del enlace a negro */
+}
+
+.description .read-more-btn a:hover {
+  color: blue; /* Cambia el color del texto del enlace a azul cuando el mouse pasa por encima */
+}
