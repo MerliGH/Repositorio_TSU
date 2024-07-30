@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>GardenOnGears Shop</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="apple-touch-icon" href="assets/img/apple-icon.png">
+    <link rel="shortcut icon" type="image/x-icon" href="assets/img/favicon.ico">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/templatemo.css">
+    <link rel="stylesheet" href="assets/css/custom.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;700;900&display=swap">
+    <link rel="stylesheet" href="assets/css/fontawesome.min.css">
+</head>
+
+<body>
+    <!-- Header -->
+    <nav class="navbar navbar-expand-lg navbar-light shadow">
+        <div class="container d-flex justify-content-between align-items-center">
+
+            <a class="navbar-brand text-success logo h1 align-self-center" href="index.html">
+            <img class = "gog-logo" src="assets/img/apple-icon.png">   
+            </a>
+
+            <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#templatemo_main_nav" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="align-self-center collapse navbar-collapse flex-fill  d-lg-flex justify-content-lg-between" id="templatemo_main_nav">
+                <div class="flex-fill">
+                    <ul class="nav navbar-nav d-flex justify-content-between mx-lg-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="index.html">Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="shop.html">Shop</a>
+                        </li>
+                        <li class="nav-item">
+                            <a id="linkPlantas" class="nav-link" href="./userPage/userPlants.html">Plantas</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="navbar align-self-center d-flex">
+
+                    <a class="nav-icon position-relative text-decoration-none" href="./carrito.html">
+                        <i class="fa fa-fw fa-cart-arrow-down text-dark mr-1"></i>
+                        <span class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark"></span>
+                    </a>
+                    <a id="linkPerfil" class="nav-icon position-relative text-decoration-none" href="profile.html">
+                        <i class="fa fa-fw fa-user text-dark mr-3"></i>
+                        <span class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark"></span>
+                    </a>
+                    <a id="linkLogout" class="nav-icon position-relative text-decoration-none" href="#" onclick="logout()">
+                        <i class="fa fa-fw fa-sign-out-alt text-dark mr-4"></i>
+                        <span class="position-absolute top-0 left-100 translate-middle badge rounded-pill bg-light text-dark"></span>
+                    </a>
+                   
+                </div>
+            </div>
+
+        </div>
+    </nav>
+    <!-- Close Header -->
+
+    <!-- Modal -->
+
+
+    <!-- Close Header -->
+
+    <!-- Modal -->
+    <div class="modal fade bg-white" id="templatemo_search" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="w-100 pt-1 mb-5 text-right">
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form action="" method="get" class="modal-content modal-body border-0 p-0">
+                <div class="input-group mb-2">
+                    <input type="text" class="form-control" id="inputModalSearch" name="q" placeholder="Search ...">
+                    <button type="submit" class="input-group-text bg-success text-light">
+                        <i class="fa fa-fw fa-search text-white"></i>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Start Content -->
+    <div class="container py-5">
+        <div class="row">
+            <div class="col-lg-9">
+                <div class="row">
+                    <div class="col-md-6">
+                    </div>
+                    <div class="col-md-6 pb-4">
+                        <div class="d-flex">
+                        </div>
+                    </div>
+                </div>
+                <div class="row" id="product-list">
+                    <!-- Productos serán insertados aquí por JavaScript -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Content -->
+
+    <!-- Start Script -->
+    <script src="assets/js/jquery-1.11.0.min.js"></script>
+    <script src="assets/js/jquery-migrate-1.2.1.min.js"></script>
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/templatemo.js"></script>
+    <script src="assets/js/custom.js"></script>
+    <script src="https://js.stripe.com/v3/"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            fetch("https://localhost:44313/api/Productos")
+                .then(response => response.json())
+                .then(data => {
+                    let productList = document.getElementById('product-list');
+                    data.forEach(product => {
+                        let productHtml = `
+                            <div class="col-md-4">
+                                <div class="card mb-4 product-wap rounded-0">
+                                    <div class="card rounded-0">
+                                        <img class="card-img rounded-0 img-fluid" src="${product.imagen}" alt="${product.nombre}">
+                                        <div class="card-img-overlay rounded-0 product-overlay d-flex align-items-center justify-content-center">
+                                            <ul class="list-unstyled">
+                                                <li><a class="btn btn-success text-white" href="shop-single.html?id=${product.id}"><i class="far fa-heart"></i></a></li>
+                                                <li><a class="btn btn-success text-white mt-2" href="shop-single.html?id=${product.id}"><i class="far fa-eye"></i></a></li>
+                                                <li><a class="btn btn-success text-white mt-2 add-to-cart" data-id="${product.id}" data-name="${product.nombre}" data-price="${product.precio}" data-image="${product.imagen}"><i class="fas fa-cart-plus"></i></a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="card-body">
+                                        <a href="shop-single.html?id=${product.id}" class="h3 text-decoration-none">${product.nombre}</a>
+                                        <ul class="w-100 list-unstyled d-flex justify-content-between mb-0">
+                                            <li class="pt-2">
+                                                <span class="product-color-dot color-dot-red float-left rounded-circle ml-1"></span>
+                                                <span class="product-color-dot color-dot-blue float-left rounded-circle ml-1"></span>
+                                                <span class="product-color-dot color-dot-black float-left rounded-circle ml-1"></span>
+                                                <span class="product-color-dot color-dot-light float-left rounded-circle ml-1"></span>
+                                                <span class="product-color-dot color-dot-green float-left rounded-circle ml-1"></span>
+                                            </li>
+                                        </ul>
+                                        <ul class="list-unstyled d-flex justify-content-center mb-1">
+                                        </ul>
+                                        <p class="text-center mb-0">$${product.precio}</p>
+                                    </div>
+                                </div>
+                            </div>`;
+                        productList.insertAdjacentHTML('beforeend', productHtml);
+                    });
+
+                    // Add to cart functionality
+                    document.querySelectorAll('.add-to-cart').forEach(button => {
+                        button.addEventListener('click', function() {
+                            let product = {
+                                id: this.getAttribute('data-id'),
+                                name: this.getAttribute('data-name'),
+                                price: this.getAttribute('data-price'),
+                                image: this.getAttribute('data-image')
+                            };
+
+                            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+                            cart.push(product);
+                            localStorage.setItem('cart', JSON.stringify(cart));
+                            alert('Product added to cart');
+                        });
+                    });
+
+                    $(document).ready(function() {
+                        var userName = localStorage.getItem('nombreUsuario');
+                        var userToken = localStorage.getItem('userToken');
+                        if (userName && userToken) {
+                            $("#join-banner").html('<p>Bienvenido, ' + userName + '</p>');
+                            $("#infobanner1, #infobanner2").hide();
+                            $("#linkPlantas, #linkPerfil, #linkLogout").show();
+                        } else {
+                            $("#linkPlantas, #linkPerfil, #linkLogout").hide();
+                        }
+                    });
+
+                    
+                });
+        });
+        function logout() {
+                        localStorage.removeItem('userToken');
+                        localStorage.removeItem('nombreUsuario');
+                        alert("Sesión cerrada correctamente");
+                        window.location.href = './index.html';
+        }
+    </script>
+    <!-- End Script -->
+</body>
+</html>

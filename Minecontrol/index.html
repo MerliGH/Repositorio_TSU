@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>~ AstraCloud ~</title>
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" type="image/x-icon" href="assets/img/AC.ico">
+
+    <!-- Stylesheets -->
+     
+    <link rel="stylesheet" href="components/footer/footer.css">
+    <link rel="stylesheet" href="components/header/header.css">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    
+    <link rel="stylesheet" href="assets/css/fontawesome.min.css">
+    <link rel="stylesheet" href="assets/css/templatemo.css">
+    <link rel="stylesheet" href="assets/css/custom.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;700;900&display=swap">
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/paho-mqtt/1.0.1/mqttws31.js"></script>
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/stock/highstock.js"></script>
+    <script src="https://code.highcharts.com/stock/modules/exporting.js"></script>
+    <script src="assets/js/jquery-1.11.0.min.js"></script>
+    <script src="assets/js/jquery-migrate-1.2.1.min.js"></script>
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/templatemo.js"></script>
+    <script src="assets/js/custom.js"></script>
+</head>
+
+
+<div id="header-placeholder"></div>
+
+    <!-- Scripts -->
+    <script>
+        $(function(){
+            $("#header-placeholder").load("components/header/header.html");
+        });
+    </script>
+
+    <script src="components/header/header.js"></script>
+
+
+
+<body>
+    <!-- Header -->
+ 
+
+
+
+    
+<div id="header-placeholder"></div>
+
+<!-- Scripts -->
+<script>
+    $(function(){
+        $("#header-placeholder").load("components/header/header.html");
+    });
+</script>
+
+<script src="components/header/header.js"></script>
+
+
+
+
+    <!-- Main Content -->
+    <!-- Main Content -->
+<div id="infobanner1">
+    <div class="text-container">
+        <h1 id="infoTitle1">Gestiona el sector minero... 
+            <br> <i>¡desde un solo lugar!</i>
+        </h1>
+        <p id="infotxt1">¡Contáctanos! Somos tu solución ideal. <br> <br>AstraCloud es una empresa pionera que desarrolla software para ver en tiempo real el comportamiento de las minas. Surge de la necesidad de monitorear las condiciones peligrosas y ambientales a las que se exponen los trabajadores en los sectores mineros, así como optimizar su productividad.</p>
+    </div>
+    <img class="show-img" src="assets/img/mineros.jpeg" alt="Mockup Page">
+</div>
+
+<div id="additional-text-container">
+    <p class="additional-text">Empleamos tecnología sofisticada que facilita la actividad del sector minero.</p>
+</div>
+
+<!-- Cuadro con la Imagen -->
+<div id="infobanner2" class="info-box">
+    <img class="show-img2" src="assets/img/carritos.jpeg" alt="Data Demo">
+    <div class="text-overlay">
+        <h1 id="infoTitle2"> ¿Sabias qué?</h1>
+        <p id="infotxt2">Según datos de la Organización Internacional del Trabajo (OIT)  el sector minero <br>es uno de los más peligrosos,  con una tasa de fatalidad sumamente  alta, <br>alcanzando hasta 50 muertes por cada 100,000 trabajadores.</p>
+    </div>
+    <!-- Agregado: Rectángulo encima de la imagen -->
+    <div class="overlay-rectangle">
+        <h1 id="infoTitle3"> ¡No te arriesgues!</h1>
+        <p id="infotxt3">Actualiza tu sector minero con dispositivos y la tecnologia de Internet de las cosas. <br>
+            De esta manera, lograrás sacar el máximo provecho, así como salvaguardar la  <br>integridad de tus empleados,
+            conocer los niveles de gases a los que estan <br> expuestos  y mucho más.
+        </p>
+        <div class="text-center mt-3">
+            <a href="servicios.html" class="btn btn-primary">Conoce más</a>
+        </div>
+    </div>
+    
+</div>
+
+
+
+
+    <!-- Scripts -->
+    <script>
+        $(document).ready(function() {
+            var userName = localStorage.getItem('nombreUsuario');
+            var userToken = localStorage.getItem('userToken');
+            if (userName && userToken) {
+                $("#join-banner").html('<p>Bienvenido, ' + userName + '</p>');
+                $("#infobanner1, #infobanner2").hide();
+                $("#linkPlantas, #linkPerfil, #linkLogout, #linkCarrito").show();
+            } else {
+                $("#linkPlantas, #linkPerfil, #linkLogout, #linkCarrito").hide();
+            }
+        });
+
+        function logout() {
+            localStorage.removeItem('userToken');
+            localStorage.removeItem('nombreUsuario');
+            localStorage.removeItem('cart');
+            alert("Sesión cerrada correctamente");
+            window.location.href = 'index.html';
+        }
+    </script>
+
+
+
+<!-- White Boxes Section -->
+<div id="additional-text-container">
+    <p class="additional-text">Todo al alcance de tu mano</p>
+</div>
+
+
+<div class="white-boxes-container">
+    <div class="header-text">
+        <p class="mano"></p>
+        
+    </div>
+    <div class="white-box">
+        <h3>Uso de indicadores</h3>
+        <img src="assets/img/gauge.png" alt="Uso de indicadores" class="white-box-image">
+        <p class="mano1">Con nuestro software <i>MineControl ®</i> de AstraCloud ™, podrá revisar los niveles
+            de diversas lecturas de sensores, tal como evaluar la temperatura, el monitoreo de polvo,
+            o ver a que magnitud se estan exponiendo sus trabajadores al Monoxido de Carbono,
+             por mencionar algunos.
+
+
+        </p>
+    </div>
+    <div class="white-box">
+        <h3>Gráficos</h3>
+        <img src="assets/img/temp.png" alt="Gráficos" class="white-box-image4">
+        
+        <p class="mano1">Podrá ver el comportaminento de los sensores en las minas en tiempo real, 
+            nunca más tendrá retardos con las alertas o cosas inusuales en el sector minero.
+        </p>
+    </div>
+    <div class="white-box">
+        <h3>Tecnología de IoT</h3>
+        <img src="assets/img/iot.png" alt="Sistemas embebidos" class="white-box-image2">
+        
+        <p class="mano1">Los tiempos cambian para mejorar, es por ello que brindamos una solución tecnológica implementando Internet de las cosas en nuestros
+            sistemas embebidos, conectados a traves de wifi, donde enviamos los datos a una base de datos en la nube.
+        </p>
+    </div>
+    <div class="white-box">
+        <h3>Seguridad desde cualquier sitio</h3>
+        <img src="assets/img/app.png" alt="Suscripciones a tu tiempo" class="white-box-image3">
+        
+        <p>Nuestro software no solo esta disponible para navegadores web, <i><b>
+            ¡ahora también desde tu dispositivo movil!</b></i>
+         
+        </p>
+    </div>
+</div>
+
+<div id="additional-text-container">
+    <p class="additional-text">¡Contamos con opciones que se ajustan a tu bolsillo!</p>
+</div>
+
+
+
+
+
+<div class="boxes-container">
+    <div class="headerZ-text">
+        <p class="pie">Gestiona tus suscripciones</p>
+        <p class="pieses">En AstraCloud, entendemos que cada cliente tiene necesidades y presupuestos únicos. Por eso, ofrecemos una gama de opciones de suscripción flexibles, diseñadas para adaptarse a cualquier situación y garantizar que obtenga el máximo valor según sus requerimientos específicos. Desde planes mensuales ideales para evaluaciones iniciales, hasta opciones semestrales y anuales que proporcionan una gestión continua y eficiente, estamos comprometidos a ofrecer soluciones que se ajusten perfectamente a sus necesidades.</p>
+
+    </div>
+    <div class="subscription-box">
+        <h3>Mensual</h3>
+        <img src="assets/img/SEMESTRAL.png" alt="Suscripción Mensual" class="subscription-image2">
+        <p class="subscription-description">Accede a todas las funcionalidades de nuestro software durante un mes. Ideal para una evaluación inicial o necesidades temporales en la gestión de tus minas.</p>
+    </div>
+    <div class="subscription-box">
+        <h3>Semestral</h3>
+        <img src="assets/img/MENSUAL.png" alt="Suscripción Semestral" class="subscription-image1">
+        <p class="subscription-description">Opta por el plan semestral para una gestión más estable de tus minas, con un ahorro en comparación con el mensual. Perfecto para proyectos de mediana duración y para una supervisión continua.</p>
+    </div>
+    <div class="subscription-box">
+        <h3>Anual</h3>
+        <img src="assets/img/ANUAL.png" alt="Suscripción Anual" class="subscription-image">
+        <p class="subscription-description">Elige el plan anual para una gestión completa de tus minas durante todo el año. Obtén el mejor valor y asegúrate una supervisión ininterrumpida con acceso total a todas las funciones del software.</p>
+    </div>
+</div>
+
+
+
+
+
+</body>
+
+<div id="footer-container"></div>
+  <div id="footer-placeholder"></div>
+
+    <!-- Scripts -->
+    <script>
+        $(function(){
+            $("#footer-placeholder").load("components/footer/footer.html");
+        });
+    </script>
+
+
+    <script src="components/footer/footer.js"></script>
+
+</html>

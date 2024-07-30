@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro</title>
+    <link rel="stylesheet" href="./assets/css/registro.css">
+    <meta name="author" content="Tu Nombre">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+
+<body>
+    <main>
+        <section class="contact_form">
+            <div class="formulario">
+                <h1>Registro</h1>
+                <form id="registroForm">
+                    <div class="form-group">
+                        <label for="nombre">Primer Nombre <span class="obligatorio">*</span></label>
+                        <input type="text" id="nombre" name="nombre" maxlength="30" placeholder="Escribe aquí tu nombre" spellcheck="true" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="apellidoPaterno">Apellido Paterno <span class="obligatorio">*</span></label>
+                        <input type="text" id="apellidoPaterno" name="apellidoPaterno" maxlength="30" placeholder="Tu primer apellido" spellcheck="true" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="apellidoMaterno">Apellido Materno</label>
+                        <input type="text" id="apellidoMaterno" name="apellidoMaterno" maxlength="30" placeholder="Tu segundo apellido" spellcheck="true">
+                    </div>
+                    <div class="form-group">
+                        <label for="correo">Correo del Contacto <span class="obligatorio">*</span></label>
+                        <input type="email" id="correo" name="correo" maxlength="30" placeholder="Escribe correo del contacto" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="nombreUsuario">Nombre de Usuario <span class="obligatorio">*</span></label>
+                        <input type="text" id="nombreUsuario" name="nombreUsuario" maxlength="20" placeholder="Tu apodo para tu perfil" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="contrasena">Contraseña <span class="obligatorio">*</span></label>
+                        <input type="password" id="contrasena" name="contrasena" minlength="8" maxlength="20" placeholder="Escribe tu contraseña" required>
+                    </div>
+                    <button type="button" onclick="registrarUsuario()">Registrar</button>
+                </form>
+                <a href="./index.html" class="cancelar">Cancelar</a>
+                <div class="aviso">
+                    <span class="obligatorio">*</span> Los campos son obligatorios.
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        function registrarUsuario() {
+            var usuario = {
+                id: "",  // Inicialmente vacío
+                nombreUsuario: $("#nombreUsuario").val(),
+                nombreCompleto: {
+                    nombre: $("#nombre").val(),
+                    apPaterno: $("#apellidoPaterno").val(),
+                    apMaterno: $("#apellidoMaterno").val()
+                },
+                correo: $("#correo").val(),
+                contrasena: $("#contrasena").val(),
+                tipoUsuario: "C",
+                fechaRegistro: new Date().toISOString()
+            };
+
+            $.ajax({
+                url: 'https://localhost:44313/api/Usuarios',
+                type: 'POST',
+                contentType: 'application/json',
+                data: JSON.stringify(usuario),
+                success: function(response) {
+                    if (response && response.id) {
+                        localStorage.setItem('userId', response.id);
+                        alert("Usuario registrado exitosamente");
+                        window.location.href = './jardinRegistro.html?userId=' + response.id;
+                    } else {
+                        alert("Error: ID del usuario no recibido.");
+                    }
+                },
+                error: function(jqXHR, textStatus, errorThrown) {
+                    console.error("Error en el registro del usuario:", jqXHR.responseText);
+                    alert("Error en el registro del usuario: " + jqXHR.responseText);
+                }
+            });
+        }
+    </script>
+</body>
+
+</html>

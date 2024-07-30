@@ -1,0 +1,304 @@
+    /* Define las variables en :root */
+    :root {
+        --header-bg-color: #333; /* Color de fondo del header */
+        --nav-link-color: white; /* Color de los enlaces de navegación */
+        --nav-link-hover-bg-color: #555; /* Color de fondo en hover para los enlaces de navegación */
+        --nav-link-hover-shadow: rgba(0, 0, 0, 0.3); /* Sombra en hover para los enlaces de navegación */
+        --btn-bg-color: #fff; /* Color de fondo de los botones */
+        --btn-border-color: #ddd; /* Color del borde de los botones */
+        --btn-font-size: 12px; /* Tamaño de fuente de los botones */
+        --btn-hover-bg-color: #203636ba; /* Color de fondo en hover para los botones */
+        --btn-hover-border-color: #192933; /* Color del borde en hover para los botones */
+        --btn-hover-text-color: white; /* Color del texto en hover para los botones */
+        --info-banner-bg-color: #e8f6f3; /* Color de fondo de los banners de información */
+        --info-title-color: #333; /* Color de los títulos de información */
+        --info-text-color: #555; /* Color del texto de información */
+    }
+
+    
+/* Estilos para el botón "Conoce más" */
+
+
+
+    /* Header Styles */
+    .navbar {
+        background-color: var(--header-bg-color); /* Color de fondo del header */
+    }
+
+    .navbar a {
+        color: var(--nav-link-color) !important; /* Color de los enlaces de navegación */
+        font-weight: bold; /* Texto en negrita */
+    }
+
+    .navbar-toggler-icon {
+        background-color: var(--nav-link-color); /* Color del icono del toggle */
+    }
+
+    .navbar-nav {
+        margin-left: 0; /* Empuja los elementos de navegación a la derecha */
+    }
+
+    .navbar-nav .nav-link {
+        color: var(--nav-link-color) !important; /* Color de los enlaces de navegación */
+        padding: 10px 25px; /* Espaciado alrededor de los enlaces */
+        font-weight: bold !important; /* Texto en negrita */
+        font-size: 16.5px !important; /* Aumenta el tamaño de la fuente */
+        transition: all 0.3s ease; /* Transición suave para efectos de hover */
+        
+    }
+
+    /* Efecto de sombra en hover */
+    .navbar-nav .nav-link:hover {
+        background-color: var(--nav-link-hover-bg-color); /* Color de fondo en hover */
+        border-radius: 5px; /* Bordes redondeados */
+        box-shadow: 0 4px 8px var(--nav-link-hover-shadow); /* Efecto de sombra */
+    }
+
+    /* Navbar Brand Logo */
+    .navbar-brand .gog-logo {
+        max-height: 60px; /* Ajustar el tamaño del logo según sea necesario */
+        margin-top: 5px;
+    }
+
+    /* Asegura que los elementos de navegación estén alineados a la derecha */
+    .navbar-collapse {
+        justify-content: flex-end; /* Alinea los elementos de navegación a la derecha */
+    }
+
+    .auth-buttons-container {
+        position: fixed; /* Fijo en la parte superior */
+        top: 96.5px; /* Espaciado desde la parte superior */
+        left: 0px; /* Espaciado desde la derecha */
+        z-index: 100; /* Asegurarse de que esté por encima de otros elementos */
+        background-color: var(--btn-bg-color); /* Fondo blanco */
+        padding: 5px 10px; /* Reducir el espaciado interno */
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra suave */
+        border-radius: 5px; /* Bordes redondeados */
+        width: calc(100% - 50px); /* Ajustar el ancho automáticamente */
+        display: flex; /* Flexbox para los botones */
+        gap: 5px; /* Espacio reducido entre los botones */
+        width: 1600px;
+        justify-content: flex-end;
+        margin-left: -80px; 
+    }
+
+    .auth-buttons-container .btn {
+        font-weight: bold; /* Texto en negrita */
+        border: 1px solid var(--btn-border-color); /* Borde ligero */
+        padding: 1px 8px; /* Reducir el espaciado interno del botón */
+        font-size: 12px, var(--btn-font-size); /* Tamaño de fuente más pequeño */
+        border-radius: 4px; /* Bordes más redondeados */
+        transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease; /* Transiciones suaves */
+        margin-left: 10px; /* Espacio entre los botones, si es necesario */
+        justify-content: flex-end;
+        margin-right: 2px;
+    }
+
+    .auth-buttons-container .btn:hover {
+        background-color: var(--btn-hover-bg-color); /* Fondo en hover */
+        border-color: var(--btn-hover-border-color); /* Borde en hover */
+        color: var(--btn-hover-text-color); /* Texto en hover */
+    }
+
+    /* Otros estilos */
+    #infobanner1 {
+        display: flex;
+        align-items: center; /* Centra verticalmente el contenido */
+        justify-content: space-between; /* Espacio entre el texto y la imagen */
+        margin-top: 80px; /* Espaciado superior para el banner */
+        padding: 20px; /* Opcional: Espaciado interno para el banner */
+        background-color: #a1a1a1;
+    }
+
+    /* Asegúrate de que el contenedor #infobanner2 tenga posición relativa */
+#infobanner2 {
+    position: relative; /* Permite que los elementos posicionados absolutamente se ubiquen dentro de este contenedor */
+   
+    border-radius: 10px; /* Bordes redondeados */
+    padding: 20px; /* Espaciado interno */
+    margin: 0px ; /* Espacio fuera del cuadro y centrado horizontalmente */
+    text-align: center; /* Centra el texto dentro del cuadro */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra suave opcional */
+}
+
+/* Ajusta la imagen para que el cuadro se posicione sobre ella */
+#infobanner2 .show-img2 {
+    width: 100%; /* Asegura que la imagen ocupe todo el ancho del contenedor */
+    height: auto; /* Mantiene la proporción de la imagen */
+    border-radius: 8px; /* Bordes redondeados para la imagen */
+}
+
+/* Estilo para el cuadro de texto sobre la imagen */
+ .text-overlay {
+    position: absolute; /* Posiciona el cuadro sobre la imagen */
+    top: 22%; /* Ajusta la posición vertical */
+    left: -400px; /* Ajusta la posición horizontal */
+    transform: translate(-50%, -50%); /* Centra el cuadro sobre la imagen */
+    background-color: rgba(255, 255, 255, 0.8); /* Fondo blanco con opacidad */
+    border: 2px solid #1a473a; /* Borde azul del cuadro */
+    border-radius: 10px; /* Bordes redondeados */
+    padding: 20px; /* Espaciado interno */
+    width: 140%; /* Ancho del cuadro sobre la imagen */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra suave opcional */
+    text-align: end; /* Centra el texto dentro del cuadro */
+    
+}
+    /* Ajusta el estilo del contenedor de texto */
+.text-container {
+    flex: 1; /* Permite que el contenedor de texto use el espacio disponible */
+    margin-right: 20px; /* Espacio entre el texto y la imagen */
+    display: flex;
+    flex-direction: column; /* Coloca el contenido en una columna */
+    justify-content: flex-start; /* Alinea el contenido al inicio del contenedor */
+     /* Ajusta el espaciado superior del texto */
+}
+
+
+.text-overlay-right {
+    position: absolute; /* Posiciona el cuadro sobre la imagen */
+    top: 30%; /* Ajusta la posición vertical */
+    right: 0; /* Ajusta la posición horizontal al lado derecho */
+    transform: translate(50%, -50%); /* Centra el cuadro sobre la imagen */
+    background-color: rgba(255, 255, 255, 0.8); /* Fondo blanco con opacidad */
+    border: 2px solid #1a473a; /* Borde azul del cuadro */
+    border-radius: 10px; /* Bordes redondeados */
+    padding: 20px; /* Espaciado interno */
+    width: 30%; /* Ajusta el ancho del cuadro */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra suave opcional */
+    text-align: left; /* Alinea el texto a la izquierda */
+    z-index: 5; /* Asegura que esté por encima de la imagen */
+}
+
+    .show-img {
+        width: 50%; /* Ajusta el tamaño según sea necesario */
+        height: auto;
+        border-radius: 15px; /* Bordes redondeados para la imagen */
+        margin-top: 14px;
+    }
+
+
+
+    #infoTitle1, #infotxt1 {
+        margin-top: 70px; /* Elimina el margen superior para que el texto esté alineado arriba */
+    }
+ #infotxt1 {
+        margin-top: 20px; /* Elimina el margen por defecto */
+        color: var(--info-title-color); /* Usa el color definido en :root */
+        text-align: justify;
+    }
+
+    .show-img2 {
+        width: 100%;
+        height: auto;
+        
+        margin-top: 23px ; /* Espaciado inferior */
+    }
+
+     #infoTitle2 
+     {
+        width: 100%;
+        color: var(--info--color);
+        margin-top: 0px;
+    }
+
+
+
+    /* Animación avanzada */
+    @keyframes barridoDerechaAvanzado {
+        0% {
+            transform: translateX(-100%) scale(1.2); /* Empieza fuera del contenedor y más grande */
+            opacity: 0; /* Transparente al inicio */
+        }
+        50% {
+            transform: translateX(10%) scale(1.1); /* Desplazamiento parcial y ligeramente más pequeño */
+            opacity: 1; /* Totalmente visible */
+        }
+        70% {
+            transform: translateX(-5%) scale(1.05); /* Pequeño ajuste para el efecto de rebote */
+        }
+        100% {
+            transform: translateX(0) scale(1); /* Posición final y tamaño normal */
+        }
+    }
+
+
+    #infoTitle1 {
+        display: inline-block;
+        animation: barridoDerechaAvanzado 1.3s ease-out; /* Duración de la animación */
+        font-size: 2.5em; /* Tamaño de fuente grande para mayor impacto */
+        color: #333; /* Color del texto */
+        font-weight: bold; /* Negrita para destacar el texto */
+        margin-top:10px;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Sombra para darle profundidad */
+    }
+
+    #infotxt1, #infotxt2 {
+        color: #333;
+    }
+
+
+    /* Información Banner 2 */
+#infobanner2 {
+    position: relative;
+
+}
+
+#infobanner2 .show-img2 {
+    width: 100%;
+    height: auto;
+}
+
+
+
+#infoTitle2 {
+    font-size: 29px !important;
+    font-weight: bold;
+}
+
+#infotxt2 {
+    font-size: 16px;
+    margin-top: 10px;
+    margin-left:10px;
+}
+
+
+
+
+/* .overlay-rectangle {
+    position: absolute;
+    top: 20px; 
+    left: 0px; 
+    width: 400px; 
+    height: 300px;
+    background-color: rgba(0, 0, 0, 0.5); 
+    border-radius: 5px;
+    z-index: 10; 
+} 
+*/
+
+
+/* Estilo del contenedor del texto */
+.info-text-container {
+    display: flex;
+    flex-direction: column; /* Coloca el título y el texto en columna */
+    justify-content: flex-start; /* Alinea el contenido al inicio del contenedor */
+    text-align: right; /* Alinea el texto a la derecha */
+    margin: 0; /* Elimina el margen si es necesario */
+}
+
+/* Estilo del título */
+#infoTitle2 {
+    font-size: 24px;
+    font-weight: bold;
+    color: var(--info-title-color); /* Color del título */
+    margin-top: 0;
+}
+
+/* Estilo del texto */
+#infotxt2 {
+    font-size: 16px;
+    color: var(--info-text-color); /* Color del texto */
+    margin-top: 10px;
+}
+
+
