@@ -1,0 +1,222 @@
+/* Estilos para el contenedor principal */
+/* Estilos generales */
+body {
+    width: 100%;
+    margin: 0;
+    background-color: #acd4d4
+    ;
+}
+
+h4 {
+    text-align: center;
+}
+
+
+#infobannerX {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    background-color: #232323 !important; /* Puedes ajustar el color de fondo si lo prefieres */
+    margin-top: 115px; /* Ajusta el margen superior según la altura de tu header */
+    
+}
+
+/* Estilos para el contenedor de texto */
+.text-containeX {
+    max-width: 60%; /* Ajusta el tamaño máximo del contenedor de texto */
+}
+
+#infoTitleX {
+    font-size: 2em;
+    margin-top:-300px;
+    margin-bottom: 10px;
+    margin-left: 1%;
+}
+
+#infotxtX {
+    font-size: 1em !important; /* Cambia el tamaño de la fuente según tu necesidad */
+    line-height: 1.4; /* Ajusta el espacio entre líneas */
+    margin-left: 1%; /* Ajusta el margen izquierdo */
+    text-align: justify; /* Justifica el texto */
+    color: rgb(0, 0, 0) !important;
+}
+
+
+
+
+#infotxtZ {
+    font-size: 1em !important; /* Cambia el tamaño de la fuente según tu necesidad */
+    line-height: 1.4; /* Ajusta el espacio entre líneas */
+    margin-left: 1%; /* Ajusta el margen izquierdo */
+    text-align: justify; /* Justifica el texto */
+    color: white !important;
+}
+
+
+
+
+/* Estilos para la imagen */
+.show-utt{
+
+   width: 700px ;/* Ajusta el tamaño máximo de la imagen */
+    height: 570px;
+    border-radius: 8px; /* Agrega bordes redondeados si lo prefieres */
+    margin-right:60px;
+    margin-top: -170px;
+    margin-left: 100px;
+}
+.show-utt2{
+
+    width: 250px;/* Ajusta el tamaño máximo de la imagen */
+     height: 20%;
+     border-radius: 8px; /* Agrega bordes redondeados si lo prefieres */
+     margin-right: -17px;
+     margin-top: 40px;
+
+ }
+ 
+
+ 
+/* Estilos para el texto adicional */
+#additional-text-containerX {
+    text-align: center;
+    padding: 10px;
+    background-color: #eaeaea;
+    margin-top: 10px; /* Ajusta el color de fondo si lo prefieres */
+}
+
+.additional-textX {
+    font-size: 1.2em;
+    margin: 0;
+}
+
+
+
+
+#additional-text-containerZ {
+    
+    padding: 10px;
+    background-color: #232323;
+    margin-top: 137.5px !important;
+    width: 400px;
+
+}
+
+.additional-textZ {
+    font-size: 1.2em;
+    margin: 0;
+    color: white;
+}
+
+
+
+
+
+/* Estilos para el contenedor general de la historia */
+.history-content {
+    background-color: #141414; /* Color de fondo para el contenedor */
+    padding: 50px;
+    width: 117.89%; /* Asegura que el contenedor ocupe todo el ancho disponible */
+    box-sizing: border-box; /* Incluye el padding en el cálculo del ancho total */
+    margin: 0 auto; /* Alinea el contenedor al centro si hay restricciones de ancho máximo */
+    margin-left: -120px   ;
+}
+
+/* Estilos para el texto del encabezado */
+.history-content h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    margin-top: -10px;
+    font-size: 1.5rem;
+    color: #ffffff;
+    
+}
+
+/* Estilos para el contenedor de los cuadros de historia */
+.history-boxes {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-content: space-between;
+    gap: 10px;
+    margin-top: 40px;
+    
+}
+
+/* Estilos para los cuadros de historia */
+.history-box {
+    background-color: #ffffff; /* Color de fondo para los cuadros */
+    border: 3px solid #1a473a; /* Color del borde */
+    border-radius: 5px; /* Bordes redondeados */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra para darle profundidad */
+    padding: 20px;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 490px;
+    box-sizing: border-box;
+}
+
+/* Estilos para los títulos dentro de los cuadros */
+.history-box h3 {
+    margin-top: 0;
+    font-size: 1.25rem; /* Tamaño de fuente del título */
+}
+
+/* Estilos para la descripción dentro de los cuadros */
+.history-description {
+    font-size: 16px;
+    color: #000000;
+    text-align: justify;
+    margin-top: 10px;
+}
+.history-description {
+    color: #000000 !important; /* Cambia el color del texto a un tono naranja. Ajusta según tu preferencia */
+    font-weight: bold !important; /* Opcional: hace el texto más negrita */
+    font-size: 20px !important;
+}
+
+
+.position-description {
+    font-size: 14px; /* Tamaño de fuente para la descripción adicional */
+    color: #000000 !important; /* Color del texto para la descripción */
+    margin-top: 5px; /* Espacio superior para separar del texto anterior */
+    text-align: center; /* Alineación centrada */
+    line-height: 1.5; /* Espaciado entre líneas para mejorar la legibilidad */
+}
+
+
+
+
+/* Estilos para las imágenes dentro de los cuadros */
+.history-image {
+    max-width: 180px; /* Asegura que la imagen no se desborde del cuadro */
+    height: auto; /* Mantiene la proporción de la imagen */
+    margin-bottom: 10px; /* Espacio entre la imagen y el título */
+}
+
+/* Imágenes específicas con tamaños ajustados */
+.history-image1 {
+    max-width: 210px;
+}
+
+.history-image2 {
+    max-width: 300px;
+}
+
+
+.history-content p {
+
+    color: #cccccc; /* Color del texto del párrafo */
+text-align: justify;}
+    
+
+
+.highlighted-textZ {
+    font-weight: 600; /* Hacer el texto más grueso */
+    color: #b7e7d6; /* Cambiar el color del texto */
+    padding: 2px; /* Opcional: agregar un poco de espacio alrededor del texto */
+    border-radius: 3px; /* Opcional: bordes redondeados para el fondo */
+}
+
