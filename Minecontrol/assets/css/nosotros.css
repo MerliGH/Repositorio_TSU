@@ -17,21 +17,27 @@ h4 {
     align-items: center;
     justify-content: space-between;
     padding: 20px;
-    background-color: #232323 !important; /* Puedes ajustar el color de fondo si lo prefieres */
-    margin-top: 115px; /* Ajusta el margen superior según la altura de tu header */
-    
+    background-color: #c0c0c0!important; /* Puedes ajustar el color de fondo si lo prefieres */
+    margin-top: 40px; /* Ajusta el margen superior según la altura de tu header */
+    width: 1550px;
+    height: 300px;
+   
 }
+
+
 
 /* Estilos para el contenedor de texto */
 .text-containeX {
     max-width: 60%; /* Ajusta el tamaño máximo del contenedor de texto */
+    
 }
 
 #infoTitleX {
     font-size: 2em;
-    margin-top:-300px;
+    margin-top:0px;
     margin-bottom: 10px;
     margin-left: 1%;
+    
 }
 
 #infotxtX {
@@ -50,7 +56,7 @@ h4 {
     line-height: 1.4; /* Ajusta el espacio entre líneas */
     margin-left: 1%; /* Ajusta el margen izquierdo */
     text-align: justify; /* Justifica el texto */
-    color: white !important;
+    color: rgb(0, 0, 0) !important;
 }
 
 
@@ -59,13 +65,16 @@ h4 {
 /* Estilos para la imagen */
 .show-utt{
 
-   width: 700px ;/* Ajusta el tamaño máximo de la imagen */
-    height: 570px;
+   width: 1000px ;/* Ajusta el tamaño máximo de la imagen */
+    height: 520px;
     border-radius: 8px; /* Agrega bordes redondeados si lo prefieres */
     margin-right:60px;
-    margin-top: -170px;
-    margin-left: 100px;
+    margin-top: 160px;
+    margin-left: 70px;
+    margin-bottom: 100px;
+    margin-right: 90px;
 }
+
 .show-utt2{
 
     width: 250px;/* Ajusta el tamaño máximo de la imagen */
@@ -77,7 +86,12 @@ h4 {
  }
  
 
- 
+ #additional-text-containerH {
+    text-align: center;
+    padding: 10px;
+    background-color: #4b4b4b;
+    margin-top: 150px; /* Ajusta el color de fondo si lo prefieres */
+}
 /* Estilos para el texto adicional */
 #additional-text-containerX {
     text-align: center;
@@ -115,7 +129,7 @@ h4 {
 
 /* Estilos para el contenedor general de la historia */
 .history-content {
-    background-color: #141414; /* Color de fondo para el contenedor */
+    background-color: #333; /* Color de fondo para el contenedor */
     padding: 50px;
     width: 117.89%; /* Asegura que el contenedor ocupe todo el ancho disponible */
     box-sizing: border-box; /* Incluye el padding en el cálculo del ancho total */

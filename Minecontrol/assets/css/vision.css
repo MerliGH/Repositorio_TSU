@@ -1,0 +1,480 @@
+/* Estilos para el contenedor principal */
+/* Estilos generales */
+body {
+    width: 100%;
+    margin: 0;
+    background-color: #acd4d4;
+}
+
+h4 {
+    text-align: center;
+}
+
+
+
+    .mission-objective-vision-values-box .title-container {
+        display: flex; /* Usa flexbox para alinear el contenido horizontalmente */
+    align-items: center; /* Centra verticalmente los íconos y el título */
+    justify-content: center; /* Centra horizontalmente el contenido */
+    gap: 10px; /* Espacio entre el título y los íconos */
+       border-radius: 8px; /* Coincide con el border-radius del cuadro */
+    
+    
+}
+
+.mission-objective-vision-values-box .title-container i {
+    font-size: 1.5em; /* Tamaño de los íconos */
+    color: #543d04; /* Color de los íconos */
+}
+
+.mission-objective-vision-values-box h3 {
+    font-size: 1.5em; /* Tamaño del texto del título */
+    margin: 0; /* Elimina el margen por defecto del título */
+    text-align: center; /* Centra el texto del título */
+}
+
+
+/* Estilos para la sección de Misión, Objetivo, Visión y Valores */
+#mission-objective-vision-values {
+    padding: 40px;
+    background-color: #efefef; /* Color de fondo para la sección */
+}
+
+#mission-objective-vision-values h2 {
+    text-align: center;
+    font-size: 2em;
+    margin-bottom: 30px;
+    color: #333;
+}
+
+.mission-objective-vision-values-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 2 columnas iguales */
+    grid-template-rows: repeat(2, auto); /* 2 filas que se ajustan automáticamente */
+    gap: 20px;
+}
+
+.mission-objective-vision-values-box {
+    background-color: #ffffff; /* Color de fondo para los cuadros */
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra para dar profundidad */
+    border: 2px solid #511313; /* Borde del cuadro */
+    text-align: center;
+}
+#mission-box {
+    background-color: #b0b0b0; /* Lila claro para Misión */
+    color: #b0b0b0; /* Color de texto blanco para contraste */
+}
+
+h3 {
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+
+#objective-box {
+    background-color: #acd4c5dd; /* Azul claro y brillante para Objetivo */
+    color: #ffffff; /* Color de texto blanco para contraste */
+}
+
+#vision-box {
+    background-color: #add3ee; /* Azul claro para Visión */
+    color: #000000; /* Color de texto negro para contraste */
+}
+
+#values-box {
+    background-color: #dfd3be; /* Rosa claro para Valores */
+    color: #000000; /* Color de texto negro para contraste */
+}
+
+.mission-objective-vision-values-box h3 {
+    font-size: 1.5em;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.mission-objective-vision-values-box p {
+    font-size: 1em;
+    color: #666;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Estilos para el contenedor principal */
+#infobannervision {
+    position: relative; /* Permite que los elementos posicionados absolutamente se ubiquen dentro de este contenedor */
+    border-radius: 10px; /* Bordes redondeados */
+    padding: 20px; /* Espaciado interno */
+    margin: 0px; /* Espacio fuera del cuadro y centrado horizontalmente */
+    text-align: center; /* Centra el texto dentro del cuadro */
+    overflow: hidden; /* Asegura que el contenido no sobresalga del contenedor */
+}
+
+.show-img2vision {
+    width: 100%; /* Asegura que la imagen ocupe todo el ancho del contenedor */
+    height: auto; /* Mantiene la proporción de la imagen */
+    border-radius: 10px; /* Bordes redondeados para la imagen */
+}
+
+.text-overlayvision {
+    position: absolute; /* Posiciona el cuadro sobre la imagen */
+    top: 22%; /* Ajusta la posición vertical */
+    left: 5%; /* Ajusta la posición horizontal */
+    transform: translate(-50%, -50%); /* Centra el cuadro sobre la imagen */
+    background-color: rgba(255, 255, 255, 0.95); /* Fondo blanco con opacidad */
+    border: 2px solid #003366; /* Borde azul oscuro del cuadro */
+    border-radius: 10px; /* Bordes redondeados */
+    padding: 20px; /* Espaciado interno */
+    width: 45%; /* Ancho del cuadro sobre la imagen */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra suave opcional */
+    text-align: left; /* Alinea el texto a la izquierda */
+    z-index: 5; /* Asegura que esté por encima de la imagen */
+}
+
+.overlay-rectanglevision {
+    position: absolute; /* Posiciona el cuadro sobre la imagen */
+    bottom: 20px; /* Ajusta la posición vertical al fondo del contenedor */
+    right: 20px; /* Ajusta la posición horizontal */
+    background-color: rgba(255, 255, 255, 0.95); /* Fondo blanco con opacidad */
+    border: 2px solid #ff0000; /* Borde rojo del cuadro */
+    border-radius: 10px; /* Bordes redondeados */
+    padding: 20px; /* Espaciado interno */
+    width: 30%; /* Ancho del cuadro */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra suave opcional */
+    text-align: center; /* Centra el texto dentro del cuadro */
+    z-index: 5; /* Asegura que esté por encima de la imagen */
+}
+
+.overlay-rectanglevision h1,
+.overlay-rectanglevision p {
+    color: #000000; /* Color del texto */
+}
+
+.show-img2vision {
+    width: 100%; /* Asegura que la imagen ocupe todo el ancho del contenedor */
+    height: auto; /* Mantiene la proporción de la imagen */
+    border-radius: 10px; /* Bordes redondeados para la imagen */
+    margin-top: -20px; /* Ajusta el margen superior */
+}
+
+#infoTitle2vision {
+    color: #003366; /* Azul oscuro para el título */
+}
+
+#infotxt2vision {
+    color: #333; /* Color del texto */
+    text-align: justify;
+}
+
+#infoTitle3vision {
+    color: #ff0000; /* Rojo para el título */
+}
+
+#infotxt3vision {
+    color: #333; /* Color del texto */
+}
+
+.text-center {
+    text-align: center; /* Centra el contenido */
+}
+
+
+
+
+
+.show-imgvision {
+    width: 25%; /* Ajusta el tamaño según sea necesario */
+    height: auto;
+    border-radius: 15px; /* Bordes redondeados para la imagen */
+    margin-top: 14px;
+}
+
+#infobannervisionZ {
+    display: flex;
+    align-items: center; /* Centra verticalmente el contenido */
+    justify-content: space-between; /* Espacio entre el texto y la imagen */
+    margin-top: 120px; /* Espaciado superior para el banner */
+    padding: 20px; /* Opcional: Espaciado interno para el banner */
+    background-color: #aac6b1;
+}
+
+
+
+#infoTitle1V
+ 
+{
+    margin-top: -100px !important; /* Elimina el margen superior para que el texto esté alineado arriba */
+    margin-left: 8px;
+}
+
+
+/* Animación avanzada */
+@keyframes barridoDerechaAvanzado {
+    0% {
+        transform: translateX(-100%) scale(1.2); /* Empieza fuera del contenedor y más grande */
+        opacity: 0; /* Transparente al inicio */
+    }
+    50% {
+        transform: translateX(10%) scale(1.1); /* Desplazamiento parcial y ligeramente más pequeño */
+        opacity: 1; /* Totalmente visible */
+    }
+    70% {
+        transform: translateX(-5%) scale(1.05); /* Pequeño ajuste para el efecto de rebote */
+    }
+    100% {
+        transform: translateX(0) scale(1); /* Posición final y tamaño normal */
+    }
+}
+
+
+#infoTitle1V {
+    display: inline-block;
+    animation: barridoDerechaAvanzado 1.3s ease-out; /* Duración de la animación */
+    font-size: 2.5em; /* Tamaño de fuente grande para mayor impacto */
+    color: #333; /* Color del texto */
+    font-weight: bold; /* Negrita para destacar el texto */
+    margin-top:10px;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2); /* Sombra para darle profundidad */
+}
+
+
+.vaina {
+    font-family: Arial, sans-serif; /* Fuente moderna y legible */
+    font-size: 16px; /* Tamaño de fuente legible */
+    color: #333; /* Color de texto oscuro para buena legibilidad */
+    line-height: 1.6; /* Espaciado entre líneas para mejorar la legibilidad */
+    margin: 20px 0; /* Espaciado vertical para separar del contenido circundante */
+    padding: 10px; /* Espaciado interno para darle un poco de relleno */
+
+    border-radius: 5px; /* Bordes redondeados para un toque moderno */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Asegurando que los cuadros tengan una altura específica */
+
+
+/* Estilizando las imágenes para que encajen en los cuadros */
+.objective-content {
+    width: 100%; /* Asegura que tome todo el ancho del contenedor padre */
+    display: flex;
+    justify-content: center; /* Alinea las imágenes horizontalmente al centro */
+    align-items: center; /* Alinea las imágenes verticalmente al centro */
+    height: 100%; /* Ocupa el 80% de la altura del contenedor padre */
+}
+
+/* Estilos para la imagen 1 */
+.custom-image-1 {
+    width: 300px; /* Ancho específico para la primera imagen */
+    height: 200px; /* Altura específica para la primera imagen */
+    object-fit: cover; /* Mantiene la proporción de la imagen y recorta si es necesario */
+}
+
+/* Estilos para la imagen 2 */
+.custom-image-2 {
+    margin-top: 1px;
+    width: 710px; /* Ancho específico para la segunda imagen */
+    height: 230px; /* Altura específica para la segunda imagen */
+    object-fit: fill; /* Mantiene la proporción de la imagen y recorta si es necesario */
+    
+    border-radius: 8px; /* Coincide con el border-radius del cuadro */
+    border: 2px solid #1a473a; 
+}
+
+/* Estilos para la imagen 3 */
+.custom-image-3 {
+    margin-top: 1px;
+    width: 710px; /* Ancho específico para la segunda imagen */
+    height: 230px; /* Altura específica para la segunda imagen */
+    object-fit: fill; /* Mantiene la proporción de la imagen y recorta si es necesario */
+    
+    border-radius: 8px; /* Coincide con el border-radius del cuadro */
+    border: 2px solid #1a473a; 
+}
+
+/* Estilos para la imagen 4 */
+.custom-image-4 {
+    margin-top: 1px;
+    width: 710px; /* Ancho específico para la segunda imagen */
+    height: 230px; /* Altura específica para la segunda imagen */
+    object-fit: cover; /* Mantiene la proporción de la imagen y recorta si es necesario */
+    
+    border-radius: 8px; /* Coincide con el border-radius del cuadro */
+    border: 3px solid #1a473a; 
+}
+
+/* Estilos para la imagen 5 */
+.custom-image-5 {
+    margin-top: 1px;
+    width: 710px; /* Ancho específico para la segunda imagen */
+    height: 230px; /* Altura específica para la segunda imagen */
+    object-fit: contain; /* Mantiene la proporción de la imagen y recorta si es necesario */
+    
+    border-radius: 8px; /* Coincide con el border-radius del cuadro */
+    border: 2px solid #1a473a; 
+    background-color: #430611dd;
+}
+
+
+/* Opcional: Asegura que el texto dentro de los cuadros no se superponga con las imágenes */
+.mission-objective-vision-values-box h3, .mission-objective-vision-values-box p {
+    margin: 0;
+    padding: 10px 0;
+}
+.objective-content img {
+    max-width: 100%; /* Hace que la imagen sea responsive */
+    max-height: 100%; /* Asegura que no exceda la altura del contenedor */
+    height: 300px; /* Mantiene la proporción de la imagen */
+    border-radius: 8px; /* Coincide con el border-radius del cuadro */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Estilos para la sección de valores pequeños */
+#small-values-section {
+    padding: 40px;
+    background-color: #333; /* Color de fondo para la sección */
+    text-align: center; /* Centra el texto dentro del contenedor */
+}
+
+#small-values-section h2 {
+    font-size: 2em;
+    margin-bottom: 20px;
+    color: #000000;
+}
+
+.small-values-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 columnas iguales */
+    gap: 20px; /* Espacio entre los cuadros */
+    margin-left: 100px;
+   
+}
+
+.small-value-box {
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra para dar profundidad */
+    border: 2px solid #ddd; /* Borde del cuadro */
+    height: 300px;
+    width: 330px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff; /* Color de texto por defecto */
+    margin-top: 15px;
+}
+
+#value-box-1 {
+    background-color: #f0e0c0; /* Lila claro para Valor 1 */
+    color: #000000; /* Color de texto negro para contraste */
+    border: 8px solid #052103;
+}
+
+#value-box-2 {
+    background-color: #acd4c5dd; /* Azul claro y brillante para Valor 2 */
+    color: #080808; /* Color de texto blanco para contraste */
+    border: 8px solid #006a6a;
+}
+
+#value-box-3 {
+    background-color: #f0e0c0; /* Azul claro para Valor 3 */
+    color: #000000; /* Color de texto negro para contraste */
+    border: 8px solid #052103;
+}
+
+#value-box-4 {
+    background-color: #acd4c5dd; /* Rosa claro para Valor 4 */
+    color: #000000; /* Color de texto negro para contraste */
+    border: 8px solid #006a6a;
+}
+
+#value-box-5 {
+    background-color: #f0e0c0; /* Naranja claro para Valor 5 */
+    color: #000000; /* Color de texto negro para contraste */
+    border: 8px solid #052103;
+}
+
+#value-box-6 {
+    background-color:#acd4c5dd; /* Amarillo claro para Valor 6 */
+    color: #000000; /* Color de texto negro para contraste */
+    border: 8px solid #006a6a;
+}
+
+.small-value-box h4 {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+.small-value-box p {
+    font-size: 1em;
+}
+
+
+
+.company-values-heading {
+    font-size: 1.6em !important; /* Tamaño de fuente */
+    font-weight: bold; /* Negrita */
+    color: #efefef !important; /* Color del texto */
+    text-align: center; /* Centra el texto */
+    margin-bottom: 30px; /* Espacio debajo del encabezado */
+    padding: 0 20px; /* Espacio a los lados */
+    line-height: 1.4; /* Altura de línea para mejorar la legibilidad */
+}
+
+
+.value-heading {
+    font-size: 1.9em !important; /* Ajusta el tamaño de fuente aquí */
+    font-weight: bold; /* Hacer el texto en negrita, opcional */
+    color: #333333; /* Color del texto, opcional */
+    margin-top: -20px;
+    margin-bottom: 60px !important;
+}
