@@ -18,9 +18,9 @@ h4 {
     justify-content: space-between;
     padding: 20px;
     background-color: #c0c0c0!important; /* Puedes ajustar el color de fondo si lo prefieres */
-    margin-top: 40px; /* Ajusta el margen superior según la altura de tu header */
+    margin-top: 0px; /* Ajusta el margen superior según la altura de tu header */
     width: 1550px;
-    height: 300px;
+    height: 480px;
    
 }
 
@@ -38,6 +38,13 @@ h4 {
     margin-bottom: 10px;
     margin-left: 1%;
     
+}
+
+#infoTitle1 {
+    font-size: 2em;
+    margin-top:-200px !important;
+    margin-bottom: 10px;
+    margin-left: 1%;
 }
 
 #infotxtX {
@@ -65,11 +72,11 @@ h4 {
 /* Estilos para la imagen */
 .show-utt{
 
-   width: 1000px ;/* Ajusta el tamaño máximo de la imagen */
-    height: 520px;
+   width: 1200px ;/* Ajusta el tamaño máximo de la imagen */
+    height: 580px;
     border-radius: 8px; /* Agrega bordes redondeados si lo prefieres */
     margin-right:60px;
-    margin-top: 160px;
+    margin-top: 120px;
     margin-left: 70px;
     margin-bottom: 100px;
     margin-right: 90px;
@@ -90,7 +97,7 @@ h4 {
     text-align: center;
     padding: 10px;
     background-color: #4b4b4b;
-    margin-top: 150px; /* Ajusta el color de fondo si lo prefieres */
+    margin-top: 80px; /* Ajusta el color de fondo si lo prefieres */
 }
 /* Estilos para el texto adicional */
 #additional-text-containerX {

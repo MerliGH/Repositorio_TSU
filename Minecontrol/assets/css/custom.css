@@ -12,6 +12,19 @@ h4 {
     text-align: center;
 }
 
+.vaina {
+    font-family: Arial, sans-serif; /* Fuente moderna y legible */
+    font-size: 16px; /* Tamaño de fuente legible */
+    color: #333; /* Color de texto oscuro para buena legibilidad */
+    line-height: 1.6; /* Espaciado entre líneas para mejorar la legibilidad */
+    margin: 20px 0; /* Espaciado vertical para separar del contenido circundante */
+    padding: 10px; /* Espaciado interno para darle un poco de relleno */
+
+    border-radius: 5px; /* Bordes redondeados para un toque moderno */
+}
+
+
+
 
 .highlighted-text {
     font-style: italic; /* Aplica cursiva */
