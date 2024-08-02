@@ -1,0 +1,16 @@
+{
+    "comments": [
+        {
+            "name": "MerliGH",
+            "email": "me@gmail.com",
+            "subject": "Hola",
+            "message": "Probando"
+        },
+        {
+            "name": "Mariela Higuera",
+            "email": "merligh@gmail.com",
+            "subject": "Probando 2",
+            "message": "Probando JSON local"
+        }
+    ]
+}

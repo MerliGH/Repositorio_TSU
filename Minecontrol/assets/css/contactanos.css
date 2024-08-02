@@ -3,11 +3,159 @@ body {
     width: 100%;
     margin: 0;
     background-color: #acd4d4;
+    font-family: 'Roboto', sans-serif; /* Asegura que la fuente Roboto se aplique correctamente */
 }
 
-h4 {
+h1, h4 {
     text-align: center;
+    color: #ffffff; /* Color de texto para encabezados */
+    margin-bottom: 70px;
+    margin-top:20px;
+}
+
+/* Estilos para la sección de contacto */
+#contact {
+    width: 100%;
+    background-color: #313a3e; /* Color de fondo para toda la sección de contacto */
+    padding: 50px 0; /* Espaciado interno */
+    margin-top: 100px; /* Margen superior */
+    margin-bottom: 10px; /* Margen inferior */
+}
+
+#contact .container {
+    max-width: 1300px; /* Limita el ancho máximo del contenedor */
+    margin: 0 auto; /* Centra el contenedor */
+    padding: 30px; /* Ajusta el relleno interno del contenedor */
+    color: #ffffff; /* Color del texto dentro del contenedor */
+}
+
+/* Estilo para el título de la sección de contacto */
+#infoTitleC {
+    font-size: 2.5em;
+    color: #ffffff; /* Color del texto */
+    margin-bottom: 4000px; /* Espacio debajo del título */
+    text-shadow: 2px 2px 4px rgba(143, 212, 203, 0.5); /* Sombra para darle profundidad */
+    animation: barridoDerechaAvanzado 2s ease-out; /* Aplica la animación */
+    margin-top: 30px !important;
+}
+
+#contact .col-md-4 .form-group{
+    margin-bottom: 20px; /* Ajusta este valor para mover el formulario hacia arriba */
+    margin-top: -0px;
+}
+
+/* Estilo para el párrafo de introducción */
+#contact p {
+    font-size: 1.1rem;
+    color: #e4e4e4;
+    margin-bottom: 20px; /* Espacio debajo del párrafo */
+    margin-top: 10px;
+}
+
+/* Estilos para el formulario de contacto */
+#contact .form-group {
+    margin-bottom: 15px; /* Espacio entre los campos del formulario */
+}
+
+#contact .form-group label {
+    font-weight: bold; /* Negrita en las etiquetas de los campos del formulario */
+}
+
+#contact .form-control {
+    border-radius: 0; /* Elimina el borde redondeado por defecto */
+    border: 1px solid #ddd; /* Color del borde de los campos */
+}
+
+/* Estilo para el botón de Enviar Mensaje */
+
+/* Estilo para el botón de Enviar Mensaje */
+#contact .btn-primary {
+    background-color: #acced4; /* Color de fondo del botón (verde claro) */
+    border: 2px solid #192933; /* Color del borde del botón (oscuro) */
+    padding: 10px 20px; /* Espaciado interno del botón */
+    font-size: 1rem; /* Tamaño del texto del botón */
+    color: #192933; /* Color del texto del botón (oscuro) */
+    border-radius: 5px; /* Bordes redondeados del botón */
+    transition: background-color 0.3s, border-color 0.3s, color 0.3s; /* Transición suave para cambios de color */
+    margin-right: 100px !important; /* Margen a la derecha */
+}
+
+#contact .btn-primary:hover {
+    background-color: #027777; /* Color de fondo del botón al pasar el cursor (verde más oscuro) */
+    border-color: #000000; /* Color del borde del botón al pasar el cursor (negro) */
+    color: #ffffff; /* Color del texto del botón al pasar el cursor (blanco) */
 }
 
 
 
+/* Estilo para la información de contacto */
+.contact-info {
+    font-size: 16px; /* Tamaño de fuente específico */
+    color: #ffffff; /* Color de texto específico */
+    margin-bottom: 20px; /* Espacio debajo de la información de contacto */
+}
+
+
+/* Estilo para la información de contacto y el mapa */
+.contact-info-and-map {
+    display: flex; /* Utiliza flexbox para el diseño */
+    flex-direction: row; /* Organiza los elementos horizontalmente */
+    justify-content: space-between; /* Espacia los elementos de manera equitativa */
+    
+
+}
+
+
+#contact .container {
+    padding: 10px; /* Ajusta el relleno interno del contenedor */
+    /* Puedes aumentar el valor para añadir más espacio interno */
+}
+
+
+
+#contact .container > * {
+    margin: -70px;
+    margin-top: 120px; /* Ajusta este valor para aumentar o reducir el espacio entre los elementos */
+}
+.contact-info {
+    flex: 1; /* Hace que el contenedor de la información de contacto ocupe el espacio necesario */
+    margin-right: 20px; /* Espacio a la derecha del contenedor de información de contacto */
+}
+
+.map-container {
+    flex: 1 ; /* Hace que el mapa ocupe el doble de espacio que la información de contacto */
+    
+}
+
+.map-container iframe {
+    width: 100%; /* Asegura que el mapa ocupe el ancho completo del contenedor */
+    height: 450px; /* Altura específica para el mapa */
+    border: 0;
+    border-radius: 8px; /* Bordes redondeados para el iframe */
+}
+
+/* Animación del título */
+@keyframes barridoDerechaAvanzado {
+    0% {
+        transform: translateX(-100%) scale(1.2);
+        opacity: 0;
+    }
+    50% {
+        transform: translateX(10%) scale(1.1);
+        opacity: 1;
+    }
+    70% {
+        transform: translateX(-5%) scale(1.05);
+    }
+    100% {
+        transform: translateX(0) scale(1);
+    }
+}
+
+
+#relleno {
+    background-color: #313a3e; /* Cambia esto al color que desees */
+    width: 100%; /* O ajusta el ancho según tus necesidades */
+    height: 30px; /* O ajusta la altura según tus necesidades */
+    margin-top: -10px ; 
+}
