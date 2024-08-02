@@ -4,9 +4,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registro</title>
+    <title>Registro de Empleado</title>
     <link rel="stylesheet" href="./assets/css/registro.css">
     <meta name="author" content="Tu Nombre">
+    
+    <link rel="stylesheet" href="components/footer/footer.css">
+    <link rel="stylesheet" href="assets/css/fontawesome.min.css">
+    <link rel="stylesheet" href="assets/css/templatemo.css">
+    <link rel="stylesheet" href="assets/css/custom.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;700;900&display=swap">
+
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 
@@ -14,33 +21,21 @@
     <main>
         <section class="contact_form">
             <div class="formulario">
-                <h1>Registro</h1>
+                <h1>Registro de Empleado</h1>
                 <form id="registroForm">
                     <div class="form-group">
-                        <label for="nombre">Primer Nombre <span class="obligatorio">*</span></label>
-                        <input type="text" id="nombre" name="nombre" maxlength="30" placeholder="Escribe aquí tu nombre" spellcheck="true" required>
+                        <label for="nombre">Nombre <span class="obligatorio">*</span></label>
+                        <input type="text" id="nombre" name="nombre" maxlength="50" placeholder="Tu nombre" required>
                     </div>
                     <div class="form-group">
                         <label for="apellidoPaterno">Apellido Paterno <span class="obligatorio">*</span></label>
-                        <input type="text" id="apellidoPaterno" name="apellidoPaterno" maxlength="30" placeholder="Tu primer apellido" spellcheck="true" required>
+                        <input type="text" id="apellidoPaterno" name="apellidoPaterno" maxlength="50" placeholder="Tu apellido paterno" required>
                     </div>
                     <div class="form-group">
-                        <label for="apellidoMaterno">Apellido Materno</label>
-                        <input type="text" id="apellidoMaterno" name="apellidoMaterno" maxlength="30" placeholder="Tu segundo apellido" spellcheck="true">
+                        <label for="apellidoMaterno">Apellido Materno <span class="obligatorio">*</span></label>
+                        <input type="text" id="apellidoMaterno" name="apellidoMaterno" maxlength="50" placeholder="Tu apellido materno" required>
                     </div>
-                    <div class="form-group">
-                        <label for="correo">Correo del Contacto <span class="obligatorio">*</span></label>
-                        <input type="email" id="correo" name="correo" maxlength="30" placeholder="Escribe correo del contacto" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="nombreUsuario">Nombre de Usuario <span class="obligatorio">*</span></label>
-                        <input type="text" id="nombreUsuario" name="nombreUsuario" maxlength="20" placeholder="Tu apodo para tu perfil" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="contrasena">Contraseña <span class="obligatorio">*</span></label>
-                        <input type="password" id="contrasena" name="contrasena" minlength="8" maxlength="20" placeholder="Escribe tu contraseña" required>
-                    </div>
-                    <button type="button" onclick="registrarUsuario()">Registrar</button>
+                    <button type="button" onclick="registrarEmpleado()">Registrar</button>
                 </form>
                 <a href="./index.html" class="cancelar">Cancelar</a>
                 <div class="aviso">
@@ -51,42 +46,40 @@
     </main>
 
     <script>
-        function registrarUsuario() {
-            var usuario = {
-                id: "",  // Inicialmente vacío
-                nombreUsuario: $("#nombreUsuario").val(),
+        function registrarEmpleado() {
+            // Crear el objeto empleado
+            var empleado = {
                 nombreCompleto: {
                     nombre: $("#nombre").val(),
                     apPaterno: $("#apellidoPaterno").val(),
                     apMaterno: $("#apellidoMaterno").val()
                 },
-                correo: $("#correo").val(),
-                contrasena: $("#contrasena").val(),
-                tipoUsuario: "C",
-                fechaRegistro: new Date().toISOString()
+                rol: "empresa", // Valor por defecto
+                mina_id: "M001", // Valor por defecto
+                status: "true" // Valor por defecto
             };
-
+            // Hacer una solicitud POST para registrar el empleado
             $.ajax({
-                url: 'https://localhost:44313/api/Usuarios',
+                url: 'https://polliwog-desired-egret.ngrok-free.app/empleados/', // Asegúrate de usar el endpoint correcto
                 type: 'POST',
                 contentType: 'application/json',
-                data: JSON.stringify(usuario),
+                data: JSON.stringify(empleado),
                 success: function(response) {
                     if (response && response.id) {
-                        localStorage.setItem('userId', response.id);
-                        alert("Usuario registrado exitosamente");
-                        window.location.href = './jardinRegistro.html?userId=' + response.id;
+                        alert("Empleado registrado exitosamente");
+                        window.location.href = './index.html'; // Ajusta la redirección según sea necesario
                     } else {
-                        alert("Error: ID del usuario no recibido.");
+                        alert("Error: ID del empleado no recibido.");
                     }
                 },
                 error: function(jqXHR, textStatus, errorThrown) {
-                    console.error("Error en el registro del usuario:", jqXHR.responseText);
-                    alert("Error en el registro del usuario: " + jqXHR.responseText);
+                    console.error("Error en el registro del empleado:", jqXHR.responseText);
+                    alert("Error en el registro del empleado: " + jqXHR.responseText);
                 }
             });
         }
     </script>
 </body>
 
+<script src="components/footer/footer.js"></script>
 </html>
