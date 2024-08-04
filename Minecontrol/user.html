@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lista de Usuarios</title>
+    <title>Actualizar Usuario</title>
     <link rel="stylesheet" href="./assets/css/registro.css" type="text/css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
@@ -11,59 +11,75 @@
     <main>
         <section class="contact_form">
             <div class="formulario">
-                <h1>Iniciar Sesión</h1> 
-                <form id="inicioSesionForm">
+                <h1>Actualizar Usuario</h1>
+                <form id="updateUserForm">
                     <div class="form-group">
-                        <label for="nombreUsuario">Nombre de Usuario <span class="obligatorio">*</span></label>
-                        <input type="text" id="nombreUsuario" name="nombreUsuario" maxlength="20" placeholder="Tu nombre de usuario" required>
+                        <label for="userId">ID del Usuario <span class="obligatorio">*</span></label>
+                        <input type="text" id="userId" name="userId" maxlength="50" placeholder="ID del usuario" required>
                     </div>
                     <div class="form-group">
-                        <label for="contrasena">Contraseña <span class="obligatorio">*</span></label>
-                        <input type="password" id="contrasena" name="contrasena" minlength="8" maxlength="20" placeholder="Escribe tu contraseña" required>
+                        <label for="userEmail">Nuevo Email <span class="obligatorio">*</span></label>
+                        <input type="email" id="userEmail" name="userEmail" maxlength="100" placeholder="Nuevo email" required>
                     </div>
-                    <button type="button" onclick="iniciarSesion()">Iniciar Sesión</button>
+                    <button type="button" id="updateUserBtn">Actualizar Usuario</button>
                 </form>
-                <a href="./index.html" class="cancelar">Cancelar</a>
                 <div class="aviso">
-                    <span class="obligatorio">*</span> Los campos son obligatorios.
+                    <span class="obligatorio">*</span> Todos los campos son obligatorios.
                 </div>
+            </div>
+        </section>
+        
+        <section class="view_users">
+            <div class="formulario">
+                <h1>Lista de Usuarios</h1>
+                <button id="obtenerUsuariosBtn">Obtener Usuarios</button>
+                <ul id="listaUsuarios"></ul>
             </div>
         </section>
     </main>
 
-
     <script>
-        function iniciarSesion() {
-            var empleadoId = $("#empleadoId").val();
-            var password = $("#password").val();
-    
-            $.ajax({
-                url: 'https://polliwog-desired-egret.ngrok-free.app/usuarios/ ', // Endpoint de la colección de usuarios
-                type: 'GET',
-                success: function(response) {
-                    // Encuentra el usuario que coincide con el empleado_id
-                    var usuario = response.find(user => user.empleado_id === empleadoId);
-    
-                    if (usuario) {
-                        // Verifica la contraseña
-                        if (usuario.password === password) {
-                            localStorage.setItem('userToken', usuario.empleado_id); // Guarda el ID del usuario como token
-                            localStorage.setItem('empleadoId', usuario.empleado_id); // Guarda el ID del empleado
-                            alert("Inicio de sesión exitoso");
-                            // Redirige al perfil o página principal
-                        } else {
-                            alert("Contraseña incorrecta.");
-                        }
-                    } else {
-                        alert("Empleado ID no encontrado.");
-                    }
-                },
-                error: function(jqXHR, textStatus, errorThrown) {
-                    console.error("Error en el inicio de sesión:", jqXHR.responseText);
-                    alert("Error en el inicio de sesión: " + jqXHR.responseText);
-                }
+        $(document).ready(function() {
+            $('#obtenerUsuariosBtn').click(function() {
+                fetch('http://127.0.0.1:8000/usuarios2/')
+                    .then(response => response.json())
+                    .then(data => {
+                        const listaUsuarios = $('#listaUsuarios');
+                        listaUsuarios.empty(); 
+
+                        data.forEach(usuario => {
+                            const listItem = $('<li>').text(`ID USUARIO: ${usuario.id}, Email: ${usuario.correo}`);
+                            listaUsuarios.append(listItem);
+                        });
+                    })
+                    .catch(error => console.error('Error:', error));
             });
-        }
+
+            $('#updateUserBtn').click(function() {
+                const userId = $('#userId').val();
+                const newEmail = $('#userEmail').val();
+
+                const updatedData = {
+                    correo: newEmail
+                };
+
+                $.ajax({
+                    url: `http://127.0.0.1:8000/usuarios2/${userId}`,
+                    type: 'PUT',
+                    contentType: 'application/json',
+                    data: JSON.stringify(updatedData),
+                    success: function(response) {
+                        alert("Usuario actualizado exitosamente");
+                        $('#userId').val('');
+                        $('#userEmail').val('');
+                    },
+                    error: function(jqXHR, textStatus, errorThrown) {
+                        console.error("Error en la actualización del usuario:", jqXHR.responseText);
+                        alert("Error en la actualización del usuario: " + jqXHR.responseText);
+                    }
+                });
+            });
+        });
     </script>
 </body>
 </html>

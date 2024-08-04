@@ -1,0 +1,6 @@
+@MineCorp_HostAddress = http://localhost:5058
+
+GET {{MineCorp_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
