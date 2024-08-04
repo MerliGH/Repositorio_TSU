@@ -36,7 +36,7 @@ function anchoPage() {
 
 anchoPage();
 
-function iniciarSesion() {
+function iniciarSesion2() {
     if (window.innerWidth > 850) {
         formulario_login.style.display = "block";
         contenedor_login_register.style.left = "10px";
@@ -52,7 +52,7 @@ function iniciarSesion() {
     }
 }
 
-function register() {
+function register2() {
     if (window.innerWidth > 850) {
         formulario_register.style.display = "block";
         contenedor_login_register.style.left = "410px";
@@ -71,22 +71,3 @@ function register() {
 
 //SE AGREGA EVENTO CON LOS IDS QUE SE PUSIERON, SI SE ACTIVA EL BOTON, VALIDA SI EXISTE
 //EL CORREO JUNTO CON EL PASSWORD EN EL JSON ANTERIOR, SI ES ASI, PUEDE REDIRIGIR AL INVENTARIO, SINO, PUES NO
-
-document.getElementById('login-form').addEventListener('submit', function(event) 
-{
-    event.preventDefault();
-
-    const loginEmail = document.getElementById('login-email').value;
-    const loginPassword = document.getElementById('login-password').value;
-
-    const user = registeredUsers.find(  user => user.email === loginEmail && 
-                                        user.password === loginPassword);
-
-    if (user) 
-    {
-        window.location.href = 'inventario.html';
-    } else 
-    {
-        alert('Correo electrónico o contraseña incorrectos');
-    }
-});

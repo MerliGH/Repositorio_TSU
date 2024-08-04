@@ -112,11 +112,11 @@ main {
 
 .contenedor__login-register .formulario__login {
     margin-top: 50px;
-    display: block; /* Ocultamos el formulario de login por defecto */
+    display: none; /* Ocultamos el formulario de login por defecto */
 }
 
 .contenedor__login-register .formulario__register {
-    display: none; /* Mostramos el formulario de registro por defecto */
+    display: block; /* Mostramos el formulario de registro por defecto */
     margin-top: 35px;
     height: 630px;
 }
@@ -192,7 +192,6 @@ main {
 
 /* Estilos para el botón de Iniciar Sesión */
 #btn__iniciar-sesion {
-    padding: 10px 40px;
     border: 2px solid #000000; /* Color del borde del botón (negro) */
     font-size: 14px; 
     background-color: #027777; /* Color de fondo del botón (verde oscuro) */
@@ -201,9 +200,13 @@ main {
     cursor: pointer;
     outline: none;
     transition: background-color 0.3s, border-color 0.3s, color 0.3s; /* Transición suave para cambios de color */
-    margin-left: 80px;
+    margin-left: 130px;
     border-radius: 8px;
     border: 2px solid #192933; 
+    width: 150px;
+    
+    margin-top: 20px !important;
+    
 
 }
 
@@ -214,6 +217,7 @@ main {
     color: #192933; /* Color del texto del botón al pasar el cursor (oscuro) */
     border-radius: 8px;
     border: 2px solid #192933; 
+
 }
 
 
@@ -262,5 +266,7 @@ main {
     margin-top: 4px !important; /* Espacio superior */
     margin-bottom: 10px !important; /* Espacio inferior */
 }
+
+
 
 

@@ -75,7 +75,7 @@
         background-color: white; /* Fondo blanco */
         padding: 5px 10px; /* Reducir el espaciado interno */
         box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra suave */
-        border-radius: 5px; /* Bordes redondeados */
+        border-radius: 0px; /* Bordes redondeados */
         width: calc(100% - 50px); /* Ajustar el ancho automáticamente */
         display: flex; /* Flexbox para los botones */
         gap: 5px; /* Espacio reducido entre los botones */

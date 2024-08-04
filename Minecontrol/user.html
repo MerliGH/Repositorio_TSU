@@ -32,54 +32,12 @@
         <section class="view_users">
             <div class="formulario">
                 <h1>Lista de Usuarios</h1>
-                <button id="obtenerUsuariosBtn">Obtener Usuarios</button>
+                <button id="obtenerUsuariosBtn" onclick="obtenerUsuarios()">Obtener Usuarios</button>
                 <ul id="listaUsuarios"></ul>
             </div>
         </section>
     </main>
 
-    <script>
-        $(document).ready(function() {
-            $('#obtenerUsuariosBtn').click(function() {
-                fetch('http://127.0.0.1:8000/usuarios2/')
-                    .then(response => response.json())
-                    .then(data => {
-                        const listaUsuarios = $('#listaUsuarios');
-                        listaUsuarios.empty(); 
-
-                        data.forEach(usuario => {
-                            const listItem = $('<li>').text(`ID USUARIO: ${usuario.id}, Email: ${usuario.correo}`);
-                            listaUsuarios.append(listItem);
-                        });
-                    })
-                    .catch(error => console.error('Error:', error));
-            });
-
-            $('#updateUserBtn').click(function() {
-                const userId = $('#userId').val();
-                const newEmail = $('#userEmail').val();
-
-                const updatedData = {
-                    correo: newEmail
-                };
-
-                $.ajax({
-                    url: `http://127.0.0.1:8000/usuarios2/${userId}`,
-                    type: 'PUT',
-                    contentType: 'application/json',
-                    data: JSON.stringify(updatedData),
-                    success: function(response) {
-                        alert("Usuario actualizado exitosamente");
-                        $('#userId').val('');
-                        $('#userEmail').val('');
-                    },
-                    error: function(jqXHR, textStatus, errorThrown) {
-                        console.error("Error en la actualización del usuario:", jqXHR.responseText);
-                        alert("Error en la actualización del usuario: " + jqXHR.responseText);
-                    }
-                });
-            });
-        });
-    </script>
+    <script src="./assets/js/registro.js"></script>
 </body>
 </html>
