@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registro de Empleado</title>
+    <title>Registro, Eliminación y Consulta de Empleados</title>
     <link rel="stylesheet" href="./assets/css/registro.css">
     <meta name="author" content="Tu Nombre">
     
@@ -42,31 +42,56 @@
                 </div>
             </div>
         </section>
+        
+        <section class="delete_employee">
+            <div class="formulario">
+                <h1>Eliminar Empleado</h1>
+                <form id="eliminarForm">
+                    <div class="form-group">
+                        <label for="empleadoId">ID del Empleado <span class="obligatorio">*</span></label>
+                        <input type="text" id="empleadoId" name="empleadoId" maxlength="50" placeholder="ID del empleado" required>
+                    </div>
+                    <button type="button" onclick="eliminarEmpleado()">Eliminar</button>
+                </form>
+                <div class="aviso">
+                    <span class="obligatorio">*</span> El ID del empleado es obligatorio.
+                </div>
+            </div>
+        </section>
+
+        <section class="view_employees">
+            <div class="formulario">
+                <h1>Lista de Empleados</h1>
+                <button type="button" onclick="obtenerEmpleados()">Obtener Empleados</button>
+                <div id="empleadosLista">
+                    <!-- Aquí se mostrarán los empleados -->
+                </div>
+            </div>
+        </section>
     </main>
 
     <script>
         function registrarEmpleado() {
-            // Crear el objeto empleado
             var empleado = {
                 nombreCompleto: {
                     nombre: $("#nombre").val(),
                     apPaterno: $("#apellidoPaterno").val(),
                     apMaterno: $("#apellidoMaterno").val()
                 },
-                rol: "empresa", // Valor por defecto
-                mina_id: null, // Valor por defecto
-                status: "true" // Valor por defecto
+                rol: "empresa",
+                mina_id: null,
+                status: "true"
             };
-            // Hacer una solicitud POST para registrar el empleado
+
             $.ajax({
-                url: 'https://polliwog-desired-egret.ngrok-free.app/empleados/', // Asegúrate de usar el endpoint correcto
+                url: 'https://polliwog-desired-egret.ngrok-free.app/empleados/',
                 type: 'POST',
                 contentType: 'application/json',
                 data: JSON.stringify(empleado),
                 success: function(response) {
                     if (response && response.id) {
                         alert("Empleado registrado exitosamente");
-                        window.location.href = './index.html'; // Ajusta la redirección según sea necesario
+                        window.location.href = './index.html';
                     } else {
                         alert("Error: ID del empleado no recibido.");
                     }
@@ -74,6 +99,47 @@
                 error: function(jqXHR, textStatus, errorThrown) {
                     console.error("Error en el registro del empleado:", jqXHR.responseText);
                     alert("Error en el registro del empleado: " + jqXHR.responseText);
+                }
+            });
+        }
+
+        function eliminarEmpleado() {
+            var empleadoId = $("#empleadoId").val();
+
+            $.ajax({
+                url: 'https://polliwog-desired-egret.ngrok-free.app/empleados/' + empleadoId,
+                type: 'DELETE',
+                success: function(response) {
+                    alert("Empleado eliminado exitosamente");
+                    $("#empleadoId").val('');
+                },
+                error: function(jqXHR, textStatus, errorThrown) {
+                    console.error("Error en la eliminación del empleado:", jqXHR.responseText);
+                    alert("Error en la eliminación del empleado: " + jqXHR.responseText);
+                }
+            });
+        }
+
+        function obtenerEmpleados() {
+            $.ajax({
+                url: 'https://polliwog-desired-egret.ngrok-free.app/usuarios/', // Endpoint para obtener empleados
+                type: 'GET',
+                success: function(response) {
+                    console.log("Empleados recibidos:", response); // Verifica la respuesta en la consola
+                    if (Array.isArray(response)) {
+                        var empleadosHtml = '<ul>';
+                        response.forEach(function(empleado) {
+                            empleadosHtml += '<li>ID: ' + empleado.id + ', Nombre: ' + empleado.nombreCompleto.nombre + ' ' + empleado.nombreCompleto.apPaterno + ' ' + empleado.nombreCompleto.apMaterno + ', Rol: ' + empleado.rol + ', Mina ID: ' + empleado.mina_id + ', Status: ' + empleado.status + '</li>';
+                        });
+                        empleadosHtml += '</ul>';
+                        $('#empleadosLista').html(empleadosHtml);
+                    } else {
+                        $('#empleadosLista').html('No se encontraron empleados.');
+                    }
+                },
+                error: function(jqXHR, textStatus, errorThrown) {
+                    console.error("Error al obtener empleados:", jqXHR.responseText);
+                    $('#empleadosLista').html('Error al obtener empleados: ' + jqXHR.responseText);
                 }
             });
         }

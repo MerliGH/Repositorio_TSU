@@ -1,15 +1,12 @@
 <!DOCTYPE html>
-<html lang="es">
-
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Iniciar Sesión</title>
-    <link rel="stylesheet" href="./assets/css/registro.css">
-    <meta name="author" content="Tu Nombre">
+    <title>Lista de Usuarios</title>
+    <link rel="stylesheet" href="./assets/css/registro.css" type="text/css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
-
 <body>
     <main>
         <section class="contact_form">
@@ -34,13 +31,14 @@
         </section>
     </main>
 
+
     <script>
         function iniciarSesion() {
             var empleadoId = $("#empleadoId").val();
             var password = $("#password").val();
     
             $.ajax({
-                url: 'https://jsonplaceholder.typicode.com/users ', // Endpoint de la colección de usuarios
+                url: 'https://polliwog-desired-egret.ngrok-free.app/usuarios/ ', // Endpoint de la colección de usuarios
                 type: 'GET',
                 success: function(response) {
                     // Encuentra el usuario que coincide con el empleado_id
@@ -52,7 +50,7 @@
                             localStorage.setItem('userToken', usuario.empleado_id); // Guarda el ID del usuario como token
                             localStorage.setItem('empleadoId', usuario.empleado_id); // Guarda el ID del empleado
                             alert("Inicio de sesión exitoso");
-                            window.location.href = './index.html'; // Redirige al perfil o página principal
+                            // Redirige al perfil o página principal
                         } else {
                             alert("Contraseña incorrecta.");
                         }
@@ -67,7 +65,5 @@
             });
         }
     </script>
-    
 </body>
-
 </html>

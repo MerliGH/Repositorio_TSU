@@ -13,14 +13,14 @@ body {
     background-repeat: no-repeat;
     background-position: center;
     background-attachment: fixed;
-    margin-top: 10px;
+    margin-top: 170px;
 }
 
 main {
     width: 100%;
     padding: 20px;
     margin: auto;
-    margin-top: 120px;
+    margin-top: 110px;
     margin-bottom: -140px;
 }
 
@@ -109,6 +109,7 @@ main {
     position: absolute;
     border-radius: 20px;
     
+    
 }
 
 .contenedor__login-register .formulario__login {
@@ -119,7 +120,7 @@ main {
 .contenedor__login-register .formulario__register {
     display: block; /* Mostramos el formulario de registro por defecto */
     margin-top: 35px;
-    height: 550px;
+    height: 640px;
 }
 
 .contenedor__login-register form h2 {

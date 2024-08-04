@@ -1,0 +1,109 @@
+/* General Styles */
+body {
+    font-family: 'Roboto', sans-serif;
+    color: #333;
+    margin-top: 130px !important;
+}
+
+#servicios {
+    padding: 60px 0;
+    background-color: #333;
+}
+
+.service-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin-bottom: 30px; /* Espacio entre filas */
+}
+
+.service-box {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+    flex: 1 1 30%; /* Ocupa aproximadamente el 30% del ancho del contenedor */
+    margin: 15px; /* Espacio entre columnas */
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.service-box:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.service-icon {
+    font-size: 100px;
+    color: #394b43b5;
+    margin-bottom: 15px;
+}
+
+.service-box h3 {
+    font-size: 24px;
+    margin-bottom: 15px;
+    color: #333;
+}
+
+.service-box p {
+    font-size: 16px;
+    line-height: 1.6;
+    color: #666;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.mb-4 {
+    margin-bottom: 1.5rem;
+}
+
+
+
+
+/* servicios.css */
+
+/* Define una animación para el título */
+
+/* Animación avanzada */
+@keyframes barridoDerechaAvanzado {
+    0% {
+        transform: translateX(-100%) scale(1.2); /* Empieza fuera del contenedor y más grande */
+        opacity: 0; /* Transparente al inicio */
+    }
+    50% {
+        transform: translateX(10%) scale(1.1); /* Desplazamiento parcial y ligeramente más pequeño */
+        opacity: 1; /* Totalmente visible */
+    }
+    70% {
+        transform: translateX(-5%) scale(1.05); /* Pequeño ajuste para el efecto de rebote */
+    }
+    100% {
+        transform: translateX(0) scale(1); /* Posición final y tamaño normal */
+    }
+}
+.centered-title {
+    animation: barridoDerechaAvanzado 1.3s ease-out; /* Ajusta la duración y el timing según sea necesario */
+    text-align: center;
+    /* Ajusta otros estilos según sea necesario */
+}
+
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .service-box {
+        flex: 1 1 100%; /* Ocupa el 100% del ancho del contenedor en pantallas pequeñas */
+    }
+}
+
+
+.centered-title {
+    text-align: center; /* Centra el texto */
+    font-size: 36px; /* Tamaño de fuente */
+    font-weight: bold; /* Grosor de fuente */
+    color: #ffffff !important; /* Color del texto */
+    margin-bottom: 20px; /* Espacio inferior */
+    margin-left: 10px !important;
+}

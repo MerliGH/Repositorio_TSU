@@ -1,0 +1,31 @@
+.contenedor__login-register {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: 380px;
+    position: relative;
+    top: -185px;
+    left: 10px; /* Ajusta la posición a la izquierda del contenedor */
+    margin-top: -80px;
+    transition: left 500ms cubic-bezier(0.175, 0.885, 0.320, 1.275);
+}
+
+.contenedor__login-register form {
+    width: 100%;
+    padding: 20px 20px;
+    background: white;
+    position: absolute;
+    border-radius: 20px;
+}
+
+
+.contenedor__login-register .formulario__login {
+    margin-top: 50px;
+    display: block; /* Ocultamos el formulario de login por defecto */
+}
+
+.contenedor__login-register .formulario__register {
+    display: none; /* Mostramos el formulario de registro por defecto */
+    margin-top: 35px;
+    height: 550px;
+}

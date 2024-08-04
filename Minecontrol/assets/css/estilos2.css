@@ -13,14 +13,14 @@ body {
     background-repeat: no-repeat;
     background-position: center;
     background-attachment: fixed;
-    margin-top: 10px;
+    margin-top: 170px;
 }
 
 main {
     width: 100%;
     padding: 20px;
     margin: auto;
-    margin-top: 120px;
+    margin-top: 110px;
     margin-bottom: -140px;
 }
 
@@ -89,8 +89,7 @@ main {
     color: #46A2FD;
 }
 
-/* Formularios */
-.contenedor__login-register {
+/* Formularios */.contenedor__login-register {
     display: flex;
     align-items: center;
     width: 100%;
@@ -119,8 +118,10 @@ main {
 .contenedor__login-register .formulario__register {
     display: none; /* Mostramos el formulario de registro por defecto */
     margin-top: 35px;
-    height: 550px;
+    height: 630px;
 }
+
+
 
 .contenedor__login-register form h2 {
     font-size: 30px;

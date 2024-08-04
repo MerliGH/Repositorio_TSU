@@ -93,6 +93,7 @@ h1, h4 {
     font-size: 16px; /* Tamaño de fuente específico */
     color: #ffffff; /* Color de texto específico */
     margin-bottom: 20px; /* Espacio debajo de la información de contacto */
+    margin-top: 10px !important;
 }
 
 
@@ -101,6 +102,7 @@ h1, h4 {
     display: flex; /* Utiliza flexbox para el diseño */
     flex-direction: row; /* Organiza los elementos horizontalmente */
     justify-content: space-between; /* Espacia los elementos de manera equitativa */
+     margin-top: -10px !important;
     
 
 }

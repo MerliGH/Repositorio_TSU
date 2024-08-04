@@ -13,9 +13,20 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;700;900&display=swap">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/estilos2.css">
-
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
+<div id="header-placeholder"></div>
+
+<!-- Scripts -->
+<script>
+    $(function(){
+        $("#header-placeholder").load("components/header/header2.html");
+    });
+</script>
+
+<script src="components/header/header2.js"></script>
+
+
 <body>
     <div id="header-placeholder"></div>
     <main>
@@ -46,25 +57,34 @@
                     <div class="form-group">
                         <label for="nombre">Nombre <span class="obligatorio">*</span></label>
                         <input type="text" id="nombre" name="nombre" maxlength="50" placeholder="Tu nombre" required>
+                        <div id="error-nombre" class="error-message"></div>
                     </div>
                     <div class="form-group">
                         <label for="apellidoPaterno">Apellido Paterno <span class="obligatorio">*</span></label>
                         <input type="text" id="apellidoPaterno" name="apellidoPaterno" maxlength="50" placeholder="Tu apellido paterno" required>
+                        <div id="error-apellidoPaterno" class="error-message"></div>
                     </div>
                     <div class="form-group">
                         <label for="apellidoMaterno">Apellido Materno <span class="obligatorio">*</span></label>
                         <input type="text" id="apellidoMaterno" name="apellidoMaterno" maxlength="50" placeholder="Tu apellido materno" required>
+                        <div id="error-apellidoMaterno" class="error-message"></div>
                     </div>
                     <div class="form-group">
                         <label for="telefono">Teléfono</label>
                         <input type="tel" id="telefono" name="telefono" maxlength="15" placeholder="Tu teléfono">
+                        <div id="error-telefono" class="error-message"></div>
                     </div>
                     <div class="form-group">
                         <label for="correo">Correo Electrónico <span class="obligatorio">*</span></label>
                         <input type="email" id="correo" name="correo" maxlength="50" placeholder="Tu correo electrónico" required>
+                        <div id="error-correo" class="error-message"></div>
                     </div>
-                    
-                    <button type="button" onclick="registrarEmpleado()">Registrarse</button>
+                    <div class="form-group">
+                        <label for="password">Contraseña <span class="obligatorio">*</span></label>
+                        <input type="password" id="password" name="password" maxlength="50" placeholder="Tu contraseña" required>
+                        <div id="error-password" class="error-message"></div>
+                    </div>
+                    <button type="submit">Registrarse</button>
                 </form>
                 <div class="aviso">
                     <a href="./index.html" class="cancelar">Cancelar</a>
@@ -76,101 +96,149 @@
 
     <script src="assets/js/script.js"></script>
     <script>
-        $(function() {
-            $("#header-placeholder").load("components/header/header2.html");
-            $("#footer-placeholder").load("components/footer/footer.html");
-        });
+        $(document).ready(function() {
+            $('#register-form').on('submit', function(event) {
+                event.preventDefault();
+                var valid = true;
 
-        function registrarEmpleado() {
-            console.log("Función registrarEmpleado llamada");
+                // Limpiar mensajes de error
+                $(".error-message").text("");
 
-            var nombre = $("#nombre").val();
-            var apellidoPaterno = $("#apellidoPaterno").val();
-            var apellidoMaterno = $("#apellidoMaterno").val();
-            var telefono = $("#telefono").val();
-            var correo = $("#correo").val();
+                // Validar nombre
+                var nombre = $("#nombre").val().trim();
+                if (!nombre) {
+                    $("#error-nombre").text("Por favor, llena el nombre.");
+                    valid = false;
+                }
 
-            var empleado = {
-                nombreCompleto: {
-                    nombre: nombre,
-                    apPaterno: apellidoPaterno,
-                    apMaterno: apellidoMaterno
-                },
-                rol: "administrador",
-                mina_id: "", // Puede ser vacío o null dependiendo del requerimiento
-                status: "true"
-            };
+                // Validar apellido paterno
+                var apellidoPaterno = $("#apellidoPaterno").val().trim();
+                if (!apellidoPaterno) {
+                    $("#error-apellidoPaterno").text("Por favor, llena el apellido paterno.");
+                    valid = false;
+                }
 
-            var usuario = {
-                empleado_id: null,
-                password: "defaultPassword",
-                telefono: telefono,
-                correo: correo,
-                status: "true"
-            };
+                // Validar apellido materno
+                var apellidoMaterno = $("#apellidoMaterno").val().trim();
+                if (!apellidoMaterno) {
+                    $("#error-apellidoMaterno").text("Por favor, llena el apellido materno.");
+                    valid = false;
+                }
 
-            $.ajax({
-                url: 'https://polliwog-desired-egret.ngrok-free.app/empleados/',
-                type: 'POST',
-                contentType: 'application/json',
-                data: JSON.stringify(empleado),
-                success: function(response) {
-                    if (response && response.id) {
-                        usuario.empleado_id = response.id;
-                        $.ajax({
-                            url: 'https://polliwog-desired-egret.ngrok-free.app/usuarios/',
-                            type: 'POST',
-                            contentType: 'application/json',
-                            data: JSON.stringify(usuario),
-                            success: function(usuarioResponse) {
-                                if (usuarioResponse && usuarioResponse.id) {
-                                    var cliente = {
-                                        nombre: nombre,
-                                        mina_id: [], // Lista vacía para clientes
-                                        status: "true",
-                                        empleado_id: response.id
-                                    };
+                // Validar correo electrónico
+                var correo = $("#correo").val().trim();
+                if (!correo) {
+                    $("#error-correo").text("Por favor, llena el correo electrónico.");
+                    valid = false;
+                } else if (!validateEmail(correo)) {
+                    $("#error-correo").text("Por favor, ingresa un correo electrónico válido.");
+                    valid = false;
+                }
 
-                                    $.ajax({
-                                        url: 'https://polliwog-desired-egret.ngrok-free.app/clientes/',
-                                        type: 'POST',
-                                        contentType: 'application/json',
-                                        data: JSON.stringify(cliente),
-                                        success: function(clienteResponse) {
-                                            if (clienteResponse && clienteResponse.id) {
-                                                alert("¡Datos capturados! Continua en la siguiente ventana.");
-                                                window.location.href = './index.html';
-                                            } else {
-                                                alert("Error: Cliente no registrado.");
-                                            }
-                                        },
-                                        error: function(jqXHR, textStatus, errorThrown) {
-                                            console.error("Error en el registro del cliente:", jqXHR.responseText);
-                                            alert("Error en el registro del cliente: " + jqXHR.responseText);
-                                        }
-                                    });
-                                } else {
-                                    alert("Error: Usuario no registrado.");
-                                }
-                            },
-                            error: function(jqXHR, textStatus, errorThrown) {
-                                console.error("Error en el registro del usuario:", jqXHR.responseText);
-                                alert("Error en el registro del usuario: " + jqXHR.responseText);
-                            }
-                        });
-                    } else {
-                        alert("Error: Empleado no registrado.");
-                    }
-                },
-                error: function(jqXHR, textStatus, errorThrown) {
-                    console.error("Error en el registro del empleado:", jqXHR.responseText);
-                    alert("Error en el registro del empleado: " + jqXHR.responseText);
+                // Validar contraseña
+                var password = $("#password").val().trim();
+                if (!password) {
+                    $("#error-password").text("Por favor, ingresa una contraseña.");
+                    valid = false;
+                }
+
+                // Validar teléfono (solo números)
+                var telefono = $("#telefono").val().trim();
+                if (telefono && isNaN(telefono)) {
+                    $("#error-telefono").text("Solo se aceptan valores numéricos en el teléfono.");
+                    valid = false;
+                }
+
+                if (valid) {
+                    registrarEmpleado();
+                } else {
+                    alert("Por favor, completa todos los campos obligatorios de manera correcta.");
                 }
             });
-        }
-    
-    </script>
 
+            function validateEmail(email) {
+                var re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                return re.test(String(email).toLowerCase());
+            }
+
+            function registrarEmpleado() {
+                console.log("Función registrarEmpleado llamada");
+
+                var nombre = $("#nombre").val();
+                var apellidoPaterno = $("#apellidoPaterno").val();
+                var apellidoMaterno = $("#apellidoMaterno").val();
+                var telefono = $("#telefono").val();
+                var correo = $("#correo").val();
+                var password = $("#password").val();
+
+                // Validar que el campo de teléfono esté vacío antes de la solicitud
+                if (telefono === "") {
+                    telefono = null;
+                }
+
+                var empleado = {
+                    nombreCompleto: {
+                        nombre: nombre,
+                        apPaterno: apellidoPaterno,
+                        apMaterno: apellidoMaterno
+                    },
+                    rol: "Empresa",
+                    mina_id: "", // Puede ser vacío o null dependiendo del requerimiento
+                    status: "true"
+                };
+
+                var usuario = {
+                    empleado_id: null,
+                    password: password,
+                    telefono: telefono,
+                    correo: correo,
+                    status: "true"
+                };
+
+                $.ajax({
+                    url: 'https://polliwog-desired-egret.ngrok-free.app/empleados/',
+                    type: 'POST',
+                    contentType: 'application/json',
+                    data: JSON.stringify(empleado),
+                    success: function(response) {
+                        if (response && response.id) {
+                            usuario.empleado_id = response.id;
+                            $.ajax({
+                                url: 'https://polliwog-desired-egret.ngrok-free.app/usuarios/',
+                                type: 'POST',
+                                contentType: 'application/json',
+                                data: JSON.stringify(usuario),
+                                success: function(response) {
+                                    alert('Registro completado con éxito.');
+                                    // Aquí podrías redirigir al usuario o limpiar el formulario
+                                    $('#register-form').trigger("reset");
+                                },
+                                error: function(xhr, status, error) {
+                                    console.error("Error al registrar usuario:", status, error);
+                                    alert('Favor de llenar el numero telefonico');
+                                }
+                            });
+                        } else {
+                            alert('Error al registrar empleado.');
+                        }
+                    },
+                    error: function(xhr, status, error) {
+                        console.error("Error al registrar empleado:", status, error);
+                        alert('Error al registrar empleado.');
+                    }
+                });
+            }
+
+            $('#btn__registrarse').click(function() {
+                $('.contenedor__login-register').addClass('active');
+            });
+
+            $('#btn__iniciar-sesion').click(function() {
+                $('.contenedor__login-register').removeClass('active');
+            });
+        });
+    </script>
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
 </body>
 <div id="footer-container"></div>
     <div id="footer-placeholder"></div>
@@ -184,6 +252,4 @@
 
 
         <script src="components/footer/footer.js"></script>
-
 </html>
-
