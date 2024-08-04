@@ -71,3 +71,15 @@ function register2() {
 
 //SE AGREGA EVENTO CON LOS IDS QUE SE PUSIERON, SI SE ACTIVA EL BOTON, VALIDA SI EXISTE
 //EL CORREO JUNTO CON EL PASSWORD EN EL JSON ANTERIOR, SI ES ASI, PUEDE REDIRIGIR AL INVENTARIO, SINO, PUES NO
+
+
+// En script.js
+var registrarseBtn = document.getElementById('registrarse-btn');
+if (registrarseBtn) {
+    registrarseBtn.addEventListener('click', function() {
+        // tu código aquí
+        console.log('Botón de registro clickeado');
+    });
+} else {
+    console.error('El botón con ID "registrarse-btn" no se encontró.');
+}

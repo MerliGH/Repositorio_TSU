@@ -1,0 +1,145 @@
+#header-left
+{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    float: left;
+    width: 280px;
+    height: 50px;
+    padding: 4.9px;
+    /* background-color: #2e2d32; */
+}
+
+/*-------------------------------------------------------------------------*/
+
+@keyframes slideIn {
+    0% {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+#typewrighting {
+    color: #fbfbfb;
+    font-size: 19pt;
+    font-family: 'Arial Black', sans-serif;
+    animation: slideIn 1s ease-in-out;
+    text-shadow: 2px 2px 4px rgba(97, 176, 255, 0.5); /* Agregué sombra */
+    font-style: italic; /* Lo incliné */
+}
+
+
+
+/*-------------------------------------------------------------------------*/
+
+
+
+
+
+
+#icon-container {
+    flex: 0 0 auto; /* Prevent the icon container from growing or shrinking */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#title-container {
+    flex: 1; /* Allow the title container to grow and take up the remaining space */
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Center the heading within the remaining space */
+}
+
+#header-right{
+    float: right;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 310px;
+    height: 50px;
+    padding: 5px;
+    /* background-color: #2e2d32 */
+}
+
+#user-photo{
+    margin: 10px;
+    display: flex;
+    align-items: left;
+}
+
+#img-user-photo{
+    width: 45px;
+    height: 45px;
+    border-radius: 25px;
+}
+
+#user-info{
+    width: 100px;
+    margin-right: 10px;
+}
+
+#label-user-name{
+    color: var(--labelLightColor);
+}
+
+#label-user-role{
+    color: var(--labelLightColor);
+}
+
+#label-user-name,
+#label-user-role {
+    margin-bottom: 5px; /* Ajusta el espacio entre los elementos */
+}
+
+#label-language{
+    color: var(--labelLightColor);
+    margin-right: 10px;
+    width: 20px;
+}
+
+#icon-language{
+    margin-right: 10px;
+}
+#icon-language:hover {
+    margin-right: 10px;
+    color: #ffffff;
+}
+
+#icon-theme{
+    margin-right: 10px;
+}
+
+#icon-logout{
+    margin-right: 10px;
+}
+
+#user-icons{
+    width: 200px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+}
+
+#user-icon{
+    width: 40px;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    padding: 5px;
+}
+
+i{
+    color: var(--labelLightColor);
+}
+
+#i-header-menu
+{
+    margin: 5px;
+    font-size: 26px; 
+}
+
+

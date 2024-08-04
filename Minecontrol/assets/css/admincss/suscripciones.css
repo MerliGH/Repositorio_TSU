@@ -1,0 +1,51 @@
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+/* Estilo del encabezado */
+.header {
+    margin-bottom: 30px; /* Espacio debajo del encabezado */
+}
+
+/* Estilo del pie de página */
+.footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    position: fixed;
+    width: 100%;
+    bottom: 0;
+}
+
+/* Estilos de los servicios */
+.service-row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 30px 0; /* Espacio entre filas */
+}
+
+.service-box {
+    background: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+    flex: 1 1 30%; /* Ocupa aproximadamente el 30% del ancho del contenedor */
+    margin: 15px; /* Espacio entre columnas */
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.service-box:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.service-icon {
+    font-size: 3rem; /* Tamaño del ícono */
+    color: #3498db; /* Color del ícono */
+    margin-bottom: 15px; /* Espacio debajo del ícono */
+}
