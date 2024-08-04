@@ -89,15 +89,14 @@ main {
     color: #46A2FD;
 }
 
-/* Formularios */
-.contenedor__login-register {
+/* Formularios */.contenedor__login-register {
     display: flex;
     align-items: center;
     width: 100%;
     max-width: 380px;
     position: relative;
     top: -185px;
-    left: 400px;
+    left: 10px; /* Ajusta la posición a la izquierda del contenedor */
     margin-top: -80px;
     transition: left 500ms cubic-bezier(0.175, 0.885, 0.320, 1.275);
 }
@@ -108,20 +107,22 @@ main {
     background: white;
     position: absolute;
     border-radius: 20px;
-    
-    
 }
 
+
 .contenedor__login-register .formulario__login {
-    margin-top: 50px;
-    display: none; /* Ocultamos el formulario de login por defecto */
+    margin-top: 130px;
+    margin-left: -400px;
+    display: block; /* Ocultamos el formulario de login por defecto */
 }
 
 .contenedor__login-register .formulario__register {
-    display: block; /* Mostramos el formulario de registro por defecto */
+    display: none; /* Mostramos el formulario de registro por defecto */
     margin-top: 35px;
-    height: 640px;
+    height: 630px;
 }
+
+
 
 .contenedor__login-register form h2 {
     font-size: 30px;
@@ -192,7 +193,6 @@ main {
 
 /* Estilos para el botón de Iniciar Sesión */
 #btn__iniciar-sesion {
-    padding: 10px 40px;
     border: 2px solid #000000; /* Color del borde del botón (negro) */
     font-size: 14px; 
     background-color: #027777; /* Color de fondo del botón (verde oscuro) */
@@ -201,9 +201,13 @@ main {
     cursor: pointer;
     outline: none;
     transition: background-color 0.3s, border-color 0.3s, color 0.3s; /* Transición suave para cambios de color */
-    margin-left: 80px;
+    margin-left: 130px;
     border-radius: 8px;
     border: 2px solid #192933; 
+    width: 150px;
+    
+    margin-top: 20px !important;
+    
 
 }
 
@@ -214,6 +218,7 @@ main {
     color: #192933; /* Color del texto del botón al pasar el cursor (oscuro) */
     border-radius: 8px;
     border: 2px solid #192933; 
+
 }
 
 
@@ -264,3 +269,33 @@ main {
 }
 
 
+
+/* Formularios */
+.contenedor__login-register {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Centra el contenido horizontalmente */
+    width: 100%;
+    max-width: 380px;
+    margin: auto;
+    position: relative;
+    top: -185px;
+    left: 10px; /* Ajusta la posición a la izquierda del contenedor */
+    margin-top: -95px;
+}
+
+
+
+
+
+.caja__trasera-login h3,
+.caja__trasera-login p,
+.caja__trasera-login button {
+    margin-left: 420px !important; /* Ajusta el espacio entre los elementos y el borde derecho */
+}
+
+
+#btn__registrarse {
+    margin-left: 520px !important; /* Esto empuja el botón hacia el borde derecho del contenedor */
+ /* Ajusta el espacio a la derecha del botón */
+}
