@@ -1,65 +1,54 @@
+$(document).ready(function() {
+    $('#obtenerUsuariosBtn').click(function() {
+        fetch('http://127.0.0.1:8000/usuarios2/')
+            .then(response => response.json())
+            .then(data => {
+                const listaUsuarios = $('#listaUsuarios');
+                listaUsuarios.empty(); 
+
+                data.forEach(usuario => {
+                    const listItem = $('<li>').text(`ID USUARIO: ${usuario.id}, Email: ${usuario.correo}`);
+                    listaUsuarios.append(listItem);
+                });
+            })
+            .catch(error => console.error('Error:', error));
+    });
+
+    $('#loginBtn').click(function() {
+        iniciarSesion();
+    });
+});
+
+// Función para iniciar sesión
 function iniciarSesion() {
-    console.log("Función iniciarSesion llamada");
+    const email = $('#loginEmail').val().trim();
+    const password = $('#loginPassword').val().trim();
 
-    var correo = $("#login-email").val().trim();
-    var password = $("#login-password").val().trim();
-
-    var valid = true;
-    $(".error-message").text(""); // Limpiar mensajes de error
-
-    // Validar correo electrónico
-    if (!correo) {
-        $("#error-correo-login").text("Por favor, llena el correo electrónico.");
-        valid = false;
-    } else if (!validateEmail(correo)) {
-        $("#error-correo-login").text("Por favor, ingresa un correo electrónico válido.");
-        valid = false;
-    }
-
-    // Validar contraseña
-    if (!password) {
-        $("#error-password-login").text("Por favor, ingresa una contraseña.");
-        valid = false;
-    }
-
-    if (valid) {
-        var usuario = {
-            correo: correo,
-            password: password
-        };
-
-        fetch('https://polliwog-desired-egret.ngrok-free.app/usuarios/', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(usuario)
-        })
-        .then(response => {
-            console.log("Estado de la respuesta:", response.status); // Imprimir el estado de la respuesta
-            return response.json();
-        })
+    // Obtener todos los usuarios
+    fetch('http://127.0.0.1:8000/usuarios2/')
+        .then(response => response.json())
         .then(data => {
-            console.log("Respuesta de la API:", data); // Imprimir la respuesta para depuración
-            if (data && data.token) {
-                alert('Inicio de sesión exitoso.');
-                // Aquí podrías redirigir al usuario o guardar el token
-            } else {
-                // Mensaje cuando la API devuelve una respuesta sin token
-                if (data.message) {
-                    alert(data.message); // Mostrar mensaje específico de la API si está presente
-                } else {
-                    alert('Correo electrónico o contraseña incorrectos2.'); // Mensaje por defecto
+            let loginExitoso = false;
+
+            // Verificar si existe el correo y la contraseña
+            data.forEach(usuario => {
+                if (usuario.correo === email && usuario.password === password) {
+                    loginExitoso = true;
+                    return; // Salir del bucle si encontramos una coincidencia
                 }
+            });
+
+            if (loginExitoso) {
+                alert('Login exitoso');
+                window.location.href = 'index.html'; // Redirigir al usuario a la página principal
+            } else {
+                alert('Correo electrónico o contraseña incorrectos.');
             }
         })
         .catch(error => {
-            console.error("Error al iniciar sesión:", error);
+            console.error('Error:', error);
             alert('Error al iniciar sesión.');
         });
-    } else {
-        alert("Por favor, completa todos los campos obligatorios de manera correcta.");
-    }
 }
 
 // Función de validación de correo electrónico
