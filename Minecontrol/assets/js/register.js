@@ -119,6 +119,7 @@ $(document).ready(function() {
                                 localStorage.setItem('userId', id);
                                 // Construir la URL con el ID del usuario
                                 var url = 'suscripciones.html?id=' + encodeURIComponent(id);
+                                
                                 alert('Registro completado con éxito.');
                                 window.location.href = url;
                             } else {

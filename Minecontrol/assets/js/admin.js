@@ -1,13 +1,28 @@
 document.addEventListener('DOMContentLoaded', function() {
+    function getQueryParam(param) {
+        const urlParams = new URLSearchParams(window.location.search);
+        return urlParams.get(param);
+    }
+
+    const userId = getQueryParam('id');
+    console.log('User ID from URL:', userId); // Mensaje de depuración
+
+    if (userId) {
+        localStorage.setItem('userId', userId);
+    } else {
+        console.log('No user ID found in URL');
+    }
+});
+
+document.addEventListener('DOMContentLoaded', function() {
     const userId = localStorage.getItem('userId');
-    
+    console.log('Stored User ID:', userId); // Mensaje de depuración
+
     if (userId) {
         const monthlyPlanBtn = document.getElementById('monthly-plan-btn');
         if (monthlyPlanBtn) {
             monthlyPlanBtn.onclick = function() {
-                // Guarda el ID en localStorage (esto ya debería estar hecho en el registro)
                 localStorage.setItem('userId', userId); 
-                // Redirige con el ID en el parámetro de consulta
                 window.location.href = 'index2.html?id=' + encodeURIComponent(userId);
             };
         } else {

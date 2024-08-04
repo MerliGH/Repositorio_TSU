@@ -18,12 +18,16 @@
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
 </head>
 <body>
+
+   
+    
     <div id="wrapper">
         <nav class="navbar navbar-default navbar-cls-top" role="navigation" style="margin-bottom: 0">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
                 </button>
-                <a class="navbar-brand" href="index2.html"><i>MineControl ® </i></a>
+                <a class="navbar-brand" href="#"><i>MineControl ® </i></a>
+                
             </div>
             <div style="color: white; padding: 15px 50px 5px 50px; float: right; font-size: 16px;">
                 <i class="align-left">¿No te convence? Puedes pensarlo, ¡aquí te esperaremos!</i>
@@ -44,26 +48,29 @@
                         <div class="service-row">
                             <div class="service-box">
                                 <i class="bi bi-star-fill service-icon"></i>
-                                <h3>Plan Mensual</h3>
+                                <h3>Plan Mensual</h3> 
                                 <p>Accede a todas las funcionalidades de nuestro software durante un mes. Ideal para una evaluación inicial o necesidades temporales en la gestión de tus minas.
                                     ¡Pruebalo y conocenos!
                                 </p>
                                 <h4>Por solo: $400 MX </h4>
-                                <button class="btn btn-danger">Quiero plan mensual</button>
+                                <button id="monthly-plan-btn">Quiero plan Mensual</button>
+
+
                             </div>
                             <div class="service-box">
                                 <i class="bi bi-cogs service-icon"></i>
                                 <h3>Plan semestral</h3>
                                 <p>Opta por el plan semestral para una gestión más estable de tus minas, con un ahorro en comparación con el mensual. Perfecto para proyectos de mediana duración y para una supervisión continua.</p>
                                 <h4>Por solo: $2200 MX</h4>
-                                <button class="btn btn-danger">Quiero plan semestral</button>
+                                <button class="btn btn-danger" onclick="window.location.href='index2.html';">Quiero plan semestral</button>
+
                             </div>
                             <div class="service-box">
                                 <i class="bi bi-diamond service-icon"></i>
                                 <h3>Plan anual</h3>
                                 <p>Elige el plan anual para una gestión completa de tus minas durante todo el año. Obtén el mejor valor y asegúrate una supervisión ininterrumpida con acceso total a todas las funciones del software.</p>
                                 <h4>Por solo: $4000 MX</h4>
-                                <button class="btn btn-danger">Quiero plan anual</button>
+                                <button class="btn btn-danger" onclick="window.location.href='index2.html';">Quiero plan anual</button>
                             </div>
                         </div>
                     </div>
@@ -115,6 +122,27 @@
     <script src="assets/js/morris/raphael-2.1.0.min.js"></script>
     <script src="assets/js/morris/morris.js"></script>
     <script src="assets/js/custom2.js"></script>
-    <script src="path/to/your/updateLink.js"></script>
+    <script src="assets/js/updateLink.js"></script>
+    <script src="assets/js/admin.js"></script>
+    <script>
+        window.onload = function() {
+            const userId = localStorage.getItem('userId');
+            
+            if (userId) {
+                console.log('ID de usuario:', userId);
+                // Usa el ID del usuario según sea necesario aquí
+                document.getElementById('user-name').textContent = 'Usuario ID: ' + userId;
+                
+                // Genera un nuevo enlace basado en el ID del usuario
+                const dynamicLink = document.createElement('a');
+                dynamicLink.href = 'your-page.html?id=' + encodeURIComponent(userId);
+                dynamicLink.textContent = 'Ir a la página con ID de usuario';
+                document.body.appendChild(dynamicLink);
+            } else {
+                console.log('No user ID found in localStorage');
+                document.getElementById('user-name').textContent = 'No ID found';
+            }
+        };
+    </script>
 </body>
 </html>
