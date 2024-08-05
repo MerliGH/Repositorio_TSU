@@ -129,4 +129,24 @@ p {
 /* Color del icono de FontAwesome */
 .fa {
   color: #ffffff;
+
+
+
+}#monthly-plan-btn, #semestral-plan-btn, #anual-plan-btn {
+  background-color: #17433b; 
+  color: white; /* Color del texto blanco */
+  border: 2px solid black; /* Borde de 2px de grosor y color negro */
+  border-radius: 3px; /* Bordes redondeados */
+  padding: 10px 20px; /* Espaciado interno */
+  font-size: 16px; /* Tamaño de fuente */
+  cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+  transition: background-color 0.3s ease, border-color 0.3s ease; /* Transición suave para el cambio de color de fondo y borde */
 }
+
+/* Estilo para el estado hover de los botones */
+#monthly-plan-btn:hover, #semestral-plan-btn:hover, #anual-plan-btn:hover {
+  background-color: #058989; /* Color de fondo más oscuro al pasar el ratón */
+  border-color: #000000; /* Color de borde más oscuro al pasar el ratón */
+  color: rgb(255, 255, 255);
+}
+

@@ -6,6 +6,7 @@
   height: 60px;
   font-size: 30px;
   font-weight: 700;
+  margin-right: auto;
 }
 
 .nav-second-level li,
@@ -83,6 +84,8 @@
 .navbar-cls-top {
   background: #0f2424 !important;
   border-bottom: none;
+  
+  
 }
 .navbar-cls-top .navbar-brand:hover {
   background: #abd6d6;
@@ -243,3 +246,10 @@
     background-color: #b7e3d9 !important;
     color: #0f2424;
 } */
+
+.nav>li>a:focus, .nav>li>a:hover {
+  text-decoration: none;
+  background-color: #173a37 !important;
+  border: 1px solid rgb(31, 38, 37) !important;
+  
+}

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MineControl ®</title>
+    <!-- PAGE ICON-->
+    <link rel="shortcut icon" type="image/x-icon" href="assets/img/AC.ico">
+    <!-- BOOTSTRAP STYLES-->
+    <link href="assets/css/bootstrap.css" rel="stylesheet" />
+    <!-- FONTAWESOME STYLES-->
+    <link href="assets/css/font-awesome.css" rel="stylesheet" />
+    <!-- CUSTOM STYLES -->
+    <link href="components/navbar/navbar.css" rel="stylesheet" type="text/css" />
+    <link href="components/content/content.css" rel="stylesheet" type="text/css" />
+    <link href="assets/css/custom2.css" rel="stylesheet" />
+    <!-- MORRIS CHART STYLES-->
+    <link href="assets/js/morris/morris-0.4.3.min.css" rel="stylesheet" />
+    <!-- GOOGLE FONTS-->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+    <!-- BOOTSTRAP STYLES -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet" />
+    <!-- FONTAWESOME STYLES -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+     
+</head>
+
+<body>
+    <div id="wrapper">
+        <script src="components/navbar/navbar.js"></script>
+        <div id="navbar"></div>
+        <script src="components/content/content.js"></script>
+        <div id="content"></div>
+        <!-- FOOTER -->
+
+        <!-- SCRIPTS -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <script src="assets/js/admin.js"></script>
+        <script>
+            window.onload = function () {
+                const userId = localStorage.getItem('userId');
+
+                if (userId) {
+                    console.log('ID de usuario:', userId);
+                    // Usa el ID del usuario según sea necesario aquí
+                    document.getElementById('user-name').textContent = 'Usuario ID: ' + userId;
+
+                    // Genera un nuevo enlace basado en el ID del usuario
+                    const dynamicLink = document.createElement('a');
+                    dynamicLink.href = 'your-page.html?id=' + encodeURIComponent(userId);
+                    dynamicLink.textContent = 'Ir a la página con ID de usuario';
+                    document.body.appendChild(dynamicLink);
+                } else {
+                    console.log('No user ID found in localStorage');
+                    document.getElementById('user-name').textContent = 'No ID found';
+                }
+            };
+        </script>
+
+        <script>
+            function cerrarSesion() {
+                localStorage.removeItem('userId');
+                window.location.href = 'index.html'; // Redirige al usuario a la página de inicio de sesión
+            }
+        </script>
+</body>
+
+</html>

@@ -63,29 +63,24 @@
                         <div class="service-row">
                             <div class="service-box">
                                 <i class="bi bi-star-fill service-icon"></i>
-                                <h3>Plan Mensual</h3> 
-                                <p>Accede a todas las funcionalidades de nuestro software durante un mes. Ideal para una evaluación inicial o necesidades temporales en la gestión de tus minas.
-                                    ¡Pruebalo y conocenos!
-                                </p>
+                                <h3>Plan mensual</h3> 
+                                <p>Accede a todas las funcionalidades de nuestro software durante un mes. Ideal para una evaluación inicial o necesidades temporales en la gestión de tus minas en tiempo real. ¡Pruebalo y conocenos!</p>
                                 <h4>Por solo: $400 MX </h4>
-                                <button id="monthly-plan-btn">Quiero plan Mensual</button>
-
-
+                                <div id="paypal-button-container-monthly"></div> <!-- Aquí se integrará el botón de PayPal -->
                             </div>
                             <div class="service-box">
                                 <i class="bi bi-cogs service-icon"></i>
                                 <h3>Plan semestral</h3>
                                 <p>Opta por el plan semestral para una gestión más estable de tus minas, con un ahorro en comparación con el mensual. Perfecto para proyectos de mediana duración y para una supervisión continua.</p>
                                 <h4>Por solo: $2200 MX</h4>
-                                <button class="btn btn-danger" onclick="window.location.href='index2.html';">Quiero plan semestral</button>
-
+                                <div id="paypal-button-container-semester"></div> <!-- Aquí se integrará el botón de PayPal -->
                             </div>
                             <div class="service-box">
                                 <i class="bi bi-diamond service-icon"></i>
                                 <h3>Plan anual</h3>
                                 <p>Elige el plan anual para una gestión completa de tus minas durante todo el año. Obtén el mejor valor y asegúrate una supervisión ininterrumpida con acceso total a todas las funciones del software.</p>
                                 <h4>Por solo: $4000 MX</h4>
-                                <button class="btn btn-danger" onclick="window.location.href='index2.html';">Quiero plan anual</button>
+                                <div id="paypal-button-container-annual"></div> <!-- Aquí se integrará el botón de PayPal -->
                             </div>
                         </div>
                     </div>
@@ -132,25 +127,100 @@
     <script src="assets/js/custom2.js"></script>
     <script src="assets/js/updateLink.js"></script>
     <script src="assets/js/admin.js"></script>
+    
+    <!-- PayPal Buttons Integration -->
+    <script src="https://www.paypal.com/sdk/js?client-id=ASSphX2uduyfMRJLzvh76VXg-iOb7Sjd11zFhJJKVslxLJiH-Zq-zQN9dACdfW-EvM6ix5bX282boVPZ&currency=MXN"></script>
     <script>
-        window.onload = function() {
-            const userId = localStorage.getItem('userId');
-            
-            if (userId) {
-                console.log('ID de usuario:', userId);
-                // Usa el ID del usuario según sea necesario aquí
-                document.getElementById('user-name').textContent = 'Usuario ID: ' + userId;
-                
-                // Genera un nuevo enlace basado en el ID del usuario
-                const dynamicLink = document.createElement('a');
-                dynamicLink.href = 'your-page.html?id=' + encodeURIComponent(userId);
-                dynamicLink.textContent = 'Ir a la página con ID de usuario';
-                document.body.appendChild(dynamicLink);
-            } else {
-                console.log('No user ID found in localStorage');
-                document.getElementById('user-name').textContent = 'No ID found';
-            }
-        };
+        const userId = localStorage.getItem('userId');
+        console.log('Stored User ID:', userId);
+
+        function setupPaypalButtons() {
+            // Botón para el plan mensual
+            paypal.Buttons({
+                style: {
+                    color: 'blue',
+                    shape: 'pill',
+                    label: 'pay'
+                },
+                createOrder: function (data, actions) {
+                    return actions.order.create({
+                        purchase_units: [{
+                            amount: {
+                                value: '400' // El valor debe ser una cadena
+                            }
+                        }]
+                    });
+                },
+                onApprove: function (data, actions) {
+                    return actions.order.capture().then(function (details) {
+                        window.location.href = 'index2.html?id=' + encodeURIComponent(userId); 
+                    });
+                },
+                onCancel: function (data) {
+                    alert("Pago cancelado");
+                    console.log(data);
+                }
+            }).render('#paypal-button-container-monthly');
+
+            // Botón para el plan semestral
+            paypal.Buttons({
+                style: {
+                    color: 'blue',
+                    shape: 'pill',
+                    label: 'pay'
+                },
+                createOrder: function (data, actions) {
+                    return actions.order.create({
+                        purchase_units: [{
+                            amount: {
+                                value: '2200' // El valor debe ser una cadena
+                            }
+                        }]
+                    });
+                },
+                onApprove: function (data, actions) {
+                    return actions.order.capture().then(function (details) {
+                        window.location.href = 'index2.html?id=' + encodeURIComponent(userId); 
+                    });
+                },
+                onCancel: function (data) {
+                    alert("Pago cancelado");
+                    console.log(data);
+                }
+            }).render('#paypal-button-container-semester');
+
+            // Botón para el plan anual
+            paypal.Buttons({
+                style: {
+                    color: 'blue',
+                    shape: 'pill',
+                    label: 'pay'
+                },
+                createOrder: function (data, actions) {
+                    return actions.order.create({
+                        purchase_units: [{
+                            amount: {
+                                value: '4000' // El valor debe ser una cadena
+                            }
+                        }]
+                    });
+                },
+                onApprove: function (data, actions) {
+                    return actions.order.capture().then(function (details) {
+                        window.location.href = 'index2.html?id=' + encodeURIComponent(userId); 
+                    });
+                },
+                onCancel: function (data) {
+                    alert("Pago cancelado");
+                    console.log(data);
+                }
+            }).render('#paypal-button-container-annual');
+        }
+
+        // Configurar los botones de PayPal después de que el DOM esté completamente cargado
+        document.addEventListener('DOMContentLoaded', function() {
+            setupPaypalButtons();
+        });
     </script>
 </body>
 </html>

@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const monthlyPlanBtn = document.getElementById('monthly-plan-btn');
         if (monthlyPlanBtn) {
             monthlyPlanBtn.onclick = function() {
-                window.location.href = 'index2.html?id=' + encodeURIComponent(userId);
+                window.location.href = 'index2.html?id=' + encodeURIComponent(userId); 
             };
         } else {
             console.log('Botón con ID "monthly-plan-btn" no encontrado.');
@@ -32,6 +32,52 @@ document.addEventListener('DOMContentLoaded', function() {
         console.log('No user ID found in localStorage');
     }
 });
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    const userId = localStorage.getItem('userId');
+    console.log('Stored User ID:', userId); // Mensaje de depuración
+
+    if (userId) {
+        const monthlyPlanBtn = document.getElementById('semestral-plan-btn');
+        if (monthlyPlanBtn) {
+            monthlyPlanBtn.onclick = function() {
+                window.location.href = 'index2.html?id=' + encodeURIComponent(userId);
+            };
+        } else {
+            console.log('Botón con ID "semestral-plan-btn" no encontrado.');
+        }
+    } else {
+        console.log('No user ID found in localStorage');
+    }
+});
+
+
+
+
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    const userId = localStorage.getItem('userId');
+    console.log('Stored User ID:', userId); // Mensaje de depuración
+
+    if (userId) {
+        const monthlyPlanBtn = document.getElementById('anual-plan-btn');
+        if (monthlyPlanBtn) {
+            monthlyPlanBtn.onclick = function() {
+                window.location.href = 'index2.html?id=' + encodeURIComponent(userId);
+            };
+        } else {
+            console.log('Botón con ID "anual-plan-btn" no encontrado.');
+        }
+    } else {
+        console.log('No user ID found in localStorage');
+    }
+});
+
+
+
+
 
 
 

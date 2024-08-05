@@ -1,150 +1,117 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
+<head> 
     <meta charset="UTF-8">
+
+    <script src="assets/js/script.js" defer></script>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registro, Eliminación y Consulta de Empleados</title>
-    <link rel="stylesheet" href="./assets/css/registro.css">
-    <meta name="author" content="Tu Nombre">
     
-    <link rel="stylesheet" href="components/footer/footer.css">
+    <link rel="shortcut icon" type="image/x-icon" href="assets/img/AC.ico">
+    <title>AstraCloud | Registro</title>
+    <link rel="stylesheet" href="components/footer/footer.css"> 
+    <link rel="stylesheet" href="components/header/header2.css">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/fontawesome.min.css">
     <link rel="stylesheet" href="assets/css/templatemo.css">
     <link rel="stylesheet" href="assets/css/custom.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;200;300;400;500;700;900&display=swap">
-
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/estilos2.css">
+    
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    
+    <script src="assets/js/register.js"></script>
 </head>
-
 <body>
+    <div id="header-placeholder"></div>
+
+    <!-- Scripts -->
+    <script>
+        $(function(){
+            $("#header-placeholder").load("components/header/header2.html");
+        });
+    </script>
+
+    <script src="components/header/header2.js"></script>
+
     <main>
-        <section class="contact_form">
-            <div class="formulario">
-                <h1>Registro de Empleado</h1>
-                <form id="registroForm">
+        <div class="contenedor__todo">
+            <div class="caja__trasera">
+                <div class="caja__trasera-login">
+                    <h3>¿ kyyyyyyyyyyyyyyyyk</h3>
+                    <p>     .................................................................</p>
+                    <button id="btn__iniciar-sesion">Iniciar Sesión</button>
+                </div>
+                <div class="caja__trasera-register">
+                    <h3>¿Ya tienes una cuenta?</h3>
+                    <p>Inicia sesión para entrar en la página</p>
+                    <br>
+                    <a href="inicio2.html" class="btn btn-primary" id="btn__iniciar-sesion">Iniciar Sesión</a>
+                </div>
+            </div>
+
+            <div class="contenedor__login-register">
+                <form id="login-form" class="formulario__login">
+                    <h2>Iniciar Sesión</h2>
+                    <input type="text" id="login-email" placeholder="Correo electrónico">
+                    <input type="password" id="login-password" placeholder="Contraseña">
+                    <button id="login-btn" type="button" onclick="registrarse()">Entrar</button>
+                </form>
+
+                <form id="register-form" class="formulario__register">
+                    <h2>Regístrarse</h2>
                     <div class="form-group">
                         <label for="nombre">Nombre <span class="obligatorio">*</span></label>
                         <input type="text" id="nombre" name="nombre" maxlength="50" placeholder="Tu nombre" required>
+                        <div id="error-nombre" class="error-message"></div>
                     </div>
                     <div class="form-group">
                         <label for="apellidoPaterno">Apellido Paterno <span class="obligatorio">*</span></label>
                         <input type="text" id="apellidoPaterno" name="apellidoPaterno" maxlength="50" placeholder="Tu apellido paterno" required>
+                        <div id="error-apellidoPaterno" class="error-message"></div>
                     </div>
                     <div class="form-group">
                         <label for="apellidoMaterno">Apellido Materno <span class="obligatorio">*</span></label>
                         <input type="text" id="apellidoMaterno" name="apellidoMaterno" maxlength="50" placeholder="Tu apellido materno" required>
+                        <div id="error-apellidoMaterno" class="error-message"></div>
                     </div>
-                    <button type="button" onclick="registrarEmpleado()">Registrar</button>
+                    <div class="form-group">
+                        <label for="telefono">Teléfono</label>
+                        <input type="tel" id="telefono" name="telefono" maxlength="15" placeholder="Tu teléfono">
+                        <div id="error-telefono" class="error-message"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="correo">Correo Electrónico <span class="obligatorio">*</span></label>
+                        <input type="email" id="correo" name="correo" maxlength="50" placeholder="Tu correo electrónico" required>
+                        <div id="error-correo" class="error-message"></div>
+                     </div>
+                    <div class="form-group">
+                        <label for="password">Contraseña <span class="obligatorio">*</span></label>
+                        <input type="password" id="password" name="password" maxlength="50" placeholder="Tu contraseña" required>
+                        <div id="error-password" class="error-message"></div>
+                    </div>
+                    <button id="registrarse-btn" type="submit">Registrarse</button>
+
                 </form>
-                <a href="./index.html" class="cancelar">Cancelar</a>
                 <div class="aviso">
+                    <a href="./index.html" class="cancelar"></a>
                     <span class="obligatorio">*</span> Los campos son obligatorios.
                 </div>
             </div>
-        </section>
-        
-        <section class="delete_employee">
-            <div class="formulario">
-                <h1>Eliminar Empleado</h1>
-                <form id="eliminarForm">
-                    <div class="form-group">
-                        <label for="empleadoId">ID del Empleado <span class="obligatorio">*</span></label>
-                        <input type="text" id="empleadoId" name="empleadoId" maxlength="50" placeholder="ID del empleado" required>
-                    </div>
-                    <button type="button" onclick="eliminarEmpleado()">Eliminar</button>
-                </form>
-                <div class="aviso">
-                    <span class="obligatorio">*</span> El ID del empleado es obligatorio.
-                </div>
-            </div>
-        </section>
-
-        <section class="view_employees">
-            <div class="formulario">
-                <h1>Lista de Empleados</h1>
-                <button type="button" onclick="obtenerEmpleados()">Obtener Empleados</button>
-                <div id="empleadosLista">
-                    <!-- Aquí se mostrarán los empleados -->
-                </div>
-            </div>
-        </section>
+        </div>
     </main>
 
-    <script>
-        function registrarEmpleado() {
-            var empleado = {
-                nombreCompleto: {
-                    nombre: $("#nombre").val(),
-                    apPaterno: $("#apellidoPaterno").val(),
-                    apMaterno: $("#apellidoMaterno").val()
-                },
-                rol: "empresa",
-                mina_id: null,
-                status: "true"
-            };
-
-            $.ajax({
-                url: 'https://polliwog-desired-egret.ngrok-free.app/empleados/',
-                type: 'POST',
-                contentType: 'application/json',
-                data: JSON.stringify(empleado),
-                success: function(response) {
-                    if (response && response.id) {
-                        alert("Empleado registrado exitosamente");
-                        window.location.href = './index.html';
-                    } else {
-                        alert("Error: ID del empleado no recibido.");
-                    }
-                },
-                error: function(jqXHR, textStatus, errorThrown) {
-                    console.error("Error en el registro del empleado:", jqXHR.responseText);
-                    alert("Error en el registro del empleado: " + jqXHR.responseText);
-                }
-            });
-        }
-
-        function eliminarEmpleado() {
-            var empleadoId = $("#empleadoId").val();
-
-            $.ajax({
-                url: 'https://polliwog-desired-egret.ngrok-free.app/empleados/' + empleadoId,
-                type: 'DELETE',
-                success: function(response) {
-                    alert("Empleado eliminado exitosamente");
-                    $("#empleadoId").val('');
-                },
-                error: function(jqXHR, textStatus, errorThrown) {
-                    console.error("Error en la eliminación del empleado:", jqXHR.responseText);
-                    alert("Error en la eliminación del empleado: " + jqXHR.responseText);
-                }
-            });
-        }
-
-        function obtenerEmpleados() {
-            $.ajax({
-                url: 'https://polliwog-desired-egret.ngrok-free.app/usuarios/', // Endpoint para obtener empleados
-                type: 'GET',
-                success: function(response) {
-                    console.log("Empleados recibidos:", response); // Verifica la respuesta en la consola
-                    if (Array.isArray(response)) {
-                        var empleadosHtml = '<ul>';
-                        response.forEach(function(empleado) {
-                            empleadosHtml += '<li>ID: ' + empleado.id + ', Nombre: ' + empleado.nombreCompleto.nombre + ' ' + empleado.nombreCompleto.apPaterno + ' ' + empleado.nombreCompleto.apMaterno + ', Rol: ' + empleado.rol + ', Mina ID: ' + empleado.mina_id + ', Status: ' + empleado.status + '</li>';
-                        });
-                        empleadosHtml += '</ul>';
-                        $('#empleadosLista').html(empleadosHtml);
-                    } else {
-                        $('#empleadosLista').html('No se encontraron empleados.');
-                    }
-                },
-                error: function(jqXHR, textStatus, errorThrown) {
-                    console.error("Error al obtener empleados:", jqXHR.responseText);
-                    $('#empleadosLista').html('Error al obtener empleados: ' + jqXHR.responseText);
-                }
-            });
-        }
-    </script>
+    
 </body>
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <script src="components/footer/footer.js"></script>
+    
+<div id="footer-placeholder"></div>
 
-<script src="components/footer/footer.js"></script>
+<!-- Scripts -->
+<script>
+    $(function(){
+        $("#footer-placeholder").load("components/footer/footer.html");
+    });
+</script>
 </html>
