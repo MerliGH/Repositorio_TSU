@@ -125,7 +125,7 @@ $(document).ready(function() {
                             } else {
                                 alert('Error al registrar usuario.');
                             }
-                        },
+                        }, 
                         error: function(xhr, status, error) {
                             console.error("Error al registrar usuario:", status, error);
                             alert('Favor de llenar el número telefónico');

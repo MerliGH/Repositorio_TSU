@@ -54,6 +54,62 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
+document.addEventListener('DOMContentLoaded', () => {
+    // Obtén el userId de los parámetros de la URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const urlUserId = urlParams.get('id');
+    
+    // Si existe un userId en la URL, guárdalo en localStorage
+    if (urlUserId) {
+        localStorage.setItem('userId', urlUserId);
+        console.log('ID de usuario guardado desde URL:', urlUserId);
+    }
+
+    // Obtén el userId del localStorage
+    const userId = localStorage.getItem('userId');
+    if (userId) {
+        console.log('ID de usuario:', userId);
+
+        // Actualiza el contenido del DOM
+        const userNameElement = document.getElementById('user-name');
+        if (userNameElement) {
+            userNameElement.textContent = 'Usuario ID: ' + userId;
+        }
+
+        // Actualiza la URL de la página actual para incluir el userId
+        const currentUrl = new URL(window.location.href);
+        const currentParams = new URLSearchParams(currentUrl.search);
+
+        // Añade el userId a los parámetros de la URL
+        currentParams.set('id', userId);
+        currentUrl.search = currentParams.toString();
+
+        // Redirige a la misma página con el userId en la URL
+        if (window.location.search !== '?' + currentParams.toString()) {
+            window.history.replaceState(null, '', currentUrl.toString());
+        }
+
+        // Actualiza todos los enlaces para incluir el userId
+        document.querySelectorAll('a').forEach(anchor => {
+            let href = anchor.getAttribute('href');
+            if (href) {
+                const linkUrl = new URL(href, window.location.origin);
+                const linkParams = new URLSearchParams(linkUrl.search);
+
+                // Añade el userId a los parámetros de los enlaces
+                linkParams.set('id', userId);
+                linkUrl.search = linkParams.toString();
+
+                anchor.setAttribute('href', linkUrl.toString());
+            }
+        });
+    } else {
+        console.log('No user ID found in localStorage');
+    }
+});
+
+
+
 
 
 

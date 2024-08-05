@@ -1,6 +1,6 @@
 $(document).ready(function() {
     $('#obtenerUsuariosBtn').click(function() {
-        fetch('http://127.0.0.1:8000/usuarios2/')
+        fetch('http://127.0.0.1:8000/usuarios/')
             .then(response => response.json())
             .then(data => {
                 const listaUsuarios = $('#listaUsuarios');
@@ -19,29 +19,43 @@ $(document).ready(function() {
     });
 });
 
-
 // Función para iniciar sesión
 function iniciarSesion() {
     const email = $('#loginEmail').val().trim();
     const password = $('#loginPassword').val().trim();
 
     // Obtener todos los usuarios
-    fetch('http://127.0.0.1:8000/usuarios2/')
+    fetch('http://127.0.0.1:8000/usuarios/')
         .then(response => response.json())
         .then(data => {
-            let loginExitoso = false;
+            // Buscar el usuario con el correo y contraseña proporcionados
+            const usuario = data.find(user => user.correo === email && user.password === password);
 
-            // Verificar si existe el correo y la contraseña
-            data.forEach(usuario => {
-                if (usuario.correo === email && usuario.password === password) {
-                    loginExitoso = true;
-                    return; // Salir del bucle si encontramos una coincidencia
-                }
-            });
+            if (usuario) {
+                // Si el login es exitoso, obtener todos los empleados
+                fetch('http://127.0.0.1:8000/empleados/')
+                    .then(response => response.json())
+                    .then(empleados => {
+                        // Buscar el empleado cuyo empleado_id coincida con el empleado_id del usuario
+                        const empleado = empleados.find(emp => emp.id === usuario.empleado_id);
 
-            if (loginExitoso) {
-                alert('Login exitoso');
-                window.location.href = 'index.html'; // Redirigir al usuario a la página principal
+                        if (empleado) {
+                            // Redirigir según el rol del empleado
+                            if (empleado.rol === 'Empresa') {
+                                window.location.href = `index2.html?id=${encodeURIComponent(usuario.id)}`;
+                            } else if (empleado.rol === 'administrador') {
+                                window.location.href = `indexAdmin.html?id=${encodeURIComponent(usuario.id)}`;
+                            } else {
+                                alert('Correo o contraseña incorrectos.');
+                            }
+                        } else {
+                            alert('Error, favor de mandarnos mensaje en Contacto para resolver su problema.');
+                        }
+                    })
+                    .catch(error => {
+                        console.error('Error al obtener empleados:', error);
+                        alert('¿Aún sin una cuenta? ¡Haz click en registrarse!');
+                    });
             } else {
                 alert('Correo electrónico o contraseña incorrectos.');
             }

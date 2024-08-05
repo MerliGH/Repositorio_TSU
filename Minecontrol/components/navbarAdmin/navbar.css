@@ -1,0 +1,255 @@
+.navbar-cls-top .navbar-brand {
+  color: #fff !important;
+  background: #3f7f7f !important;
+  width: 260px;
+  text-align: center;
+  height: 60px;
+  font-size: 30px;
+  font-weight: 700;
+  margin-right: auto;
+}
+
+.nav-second-level li,
+.nav-third-level li {
+  border-bottom: none !important;
+  color: red !important;
+}
+
+.nav-second-level li a {
+  padding-left: 37px;
+}
+
+.nav-third-level li a {
+  padding-left: 55px;
+}
+.sidebar-collapse,
+.sidebar-collapse .nav {
+  background: none;
+}
+.sidebar-collapse .nav {
+  padding: 0;
+}
+.sidebar-collapse .nav > li > a {
+  color: #fff;
+  background: #202020;
+  text-shadow: none;
+}
+.sidebar-collapse > .nav > li > a {
+  padding: 15px 10px;
+}
+.sidebar-collapse > .nav > li {
+  border-bottom: 1px solid rgba(107, 108, 109, 0.19);
+}
+.sidebar-collapse .nav > li > a:hover,
+.sidebar-collapse .nav > li > a:focus {
+  background: #130202;
+  outline: 0;
+}
+
+.nav-second-level > li > a:before,
+.nav-third-level > li > a:before {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 20px;
+  width: 15px;
+  height: 1px;
+  background: #54b3a2;
+  top: 20px;
+}
+.nav-second-level > li > a:after,
+.nav-third-level > li > a:after {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 20px;
+  width: 1px;
+  height: 100%;
+  background: #54b3a2;
+  top: 0px;
+  z-index: 10;
+}
+.nav-second-level > li:last-child > a:after,
+.nav-third-level > li:last-child > a:after {
+  height: 50%;
+}
+.nav-third-level > li > a:after,
+.nav-third-level > li > a:before {
+  left: 40px;
+}
+.navbar-side {
+  border: none;
+  background-color: #202020 !important;
+}
+.navbar-cls-top {
+  background: #0f2424 !important;
+  border-bottom: none;
+  
+  
+}
+.navbar-cls-top .navbar-brand:hover {
+  background: #abd6d6;
+  color: #fff;
+}
+
+.navbar-default {
+  border: 0px solid black !important;
+}
+.navbar-header {
+  background: #333;
+}
+.navbar-default .navbar-toggle:hover,
+.navbar-default .navbar-toggle:focus {
+  background-color: #2e023d;
+}
+.navbar-default .navbar-toggle {
+  border-color: #fff;
+}
+
+.navbar-default .navbar-toggle .icon-bar {
+  background-color: #fff;
+}
+.nav > li > a > i {
+  margin-right: 10px;
+}
+
+
+@media (min-width: 768px) {
+  .navbar-side {
+    z-index: 1;
+    position: absolute;
+    width: 260px;
+  }
+
+  .navbar {
+    border-radius: 0px;
+  }
+}
+
+
+.nav-second-level > li > a {
+  color: #adb5bd; /* Color del texto de los submenús */
+}
+
+.nav-second-level > li > a:hover {
+  background-color: #6c757d; /* Color de fondo al pasar el ratón sobre los submenús */
+}
+
+/* Color del icono del menú desplegable */
+.nav > li > a .fa.arrow {
+  color: #ffffff;
+}
+
+.nav > li > a {
+  position: relative;
+  display: block;
+  padding: 10px 15px !important;
+}
+
+/* Estilo para el menú lateral */
+.navbar-side {
+  background-color: #343a40; /* Color de fondo del menú lateral */
+}
+
+#main-menu > li > a:hover {
+  background-color: #6c757d; /* Nuevo color gris para el fondo al pasar el ratón */
+}
+
+/* Cambia el color de fondo del submenú cuando está activo */
+.nav-second-level > li > a:active,
+.nav-second-level > li > a.active,
+.nav-second-level > li > a:focus {
+  background-color: #495057; /* Color deseado para el submenú activo */
+  color: #f3a9a9; /* Color del texto para el submenú activo */
+}
+
+/* Cambia el color de fondo del submenú al pasar el ratón */
+.nav-second-level > li > a:hover {
+  background-color: #6c757d; /* Color de fondo cuando pasas el ratón */
+  color: #ffffff; /* Color del texto cuando pasas el ratón */
+}
+
+/* Asegúrate de que el menú lateral tenga el fondo deseado */
+.navbar-side {
+  background-color: #343a40; /* Color de fondo del menú lateral */
+}
+
+/* Cambia el color del texto del submenú */
+.nav-second-level > li > a {
+  color: #adb5bd; /* Color del texto por defecto en el submenú */
+}
+
+/* Asegúrate de que el fondo de los elementos principales del menú no se ponga blanco */
+#main-menu > li > a {
+  color: #ffffff; /* Color del texto de los enlaces principales */
+}
+
+#main-menu > li > a:hover {
+  background-color: #495057; /* Color de fondo al pasar el ratón sobre los enlaces principales */
+}
+
+/* Centrar el texto y los íconos en los elementos de menú */
+.navbar-side li {
+  display: flex; /* Usa flexbox para alinear los elementos */
+  align-items: center !; /* Alinea verticalmente el contenido */
+  justify-content: center; /* Centra horizontalmente el contenido */
+  margin-bottom: 10px; /* Espaciado entre elementos de la lista */
+}
+
+/* Centrar el contenido dentro de los enlaces */
+.navbar-side a {
+  display: flex; /* Usa flexbox para alinear íconos y texto */
+  align-items: center !important; /* Alinea verticalmente los íconos y el texto */
+  justify-content: center !important; /* Centra horizontalmente el texto e íconos */
+  text-align: center;
+}
+
+#main-menu > li > a {
+  color: #ffffff; /* Color del texto de los enlaces principales */
+}
+
+#main-menu > li > a:hover {
+  background-color: #495057; /* Color de fondo al pasar el ratón sobre los enlaces */
+}
+
+/*==============================================
+    MENU STYLES    
+=============================================*/
+
+.user-image {
+  margin: 25px auto;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  border-radius: 10px;
+  max-height: 170px;
+  max-width: 170px;
+}
+
+.active-menu {
+  background-color: #779494 !important;
+}
+
+.arrow {
+  float: right;
+}
+
+.fa.arrow:before {
+  content: "\f104";
+}
+
+.active > a > .fa.arrow:before {
+  content: "\f107";
+}
+/* 
+.nav>li>a:focus, .nav>li>a:focus, .nav>li>a:hover {
+    text-decoration: none;
+    background-color: #b7e3d9 !important;
+    color: #0f2424;
+} */
+
+.nav>li>a:focus, .nav>li>a:hover {
+  text-decoration: none;
+  background-color: #173a37 !important;
+  border: 1px solid rgb(31, 38, 37) !important;
+  
+}

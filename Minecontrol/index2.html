@@ -39,24 +39,45 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
         <script src="assets/js/admin.js"></script>
         <script>
-            window.onload = function () {
-                const userId = localStorage.getItem('userId');
+          // user-global.js 
+document.addEventListener('DOMContentLoaded', () => {
+    // Obtén el userId de los parámetros de la URL
+    const urlParams = new URLSearchParams(window.location.search);
+    const urlUserId = urlParams.get('id');
+    
+    // Si existe un userId en la URL, guárdalo en localStorage
+    if (urlUserId) {
+        localStorage.setItem('userId', urlUserId);
+        console.log('ID de usuario guardado desde URL:', urlUserId);
+    } 
 
-                if (userId) {
-                    console.log('ID de usuario:', userId);
-                    // Usa el ID del usuario según sea necesario aquí
-                    document.getElementById('user-name').textContent = 'Usuario ID: ' + userId;
+    // Obtén el userId del localStorage
+    const userId = localStorage.getItem('userId');
+    if (userId) {
+        console.log('ID de usuario:', userId);
 
-                    // Genera un nuevo enlace basado en el ID del usuario
-                    const dynamicLink = document.createElement('a');
-                    dynamicLink.href = 'your-page.html?id=' + encodeURIComponent(userId);
-                    dynamicLink.textContent = 'Ir a la página con ID de usuario';
-                    document.body.appendChild(dynamicLink);
-                } else {
-                    console.log('No user ID found in localStorage');
-                    document.getElementById('user-name').textContent = 'No ID found';
+        // Actualiza el contenido del DOM
+        const userNameElement = document.getElementById('user-name');
+        if (userNameElement) {
+            userNameElement.textContent = 'Usuario ID: ' + userId;
+        }
+
+        // Actualiza todos los enlaces para incluir el userId
+        document.querySelectorAll('a').forEach(anchor => {
+            let href = anchor.getAttribute('href');
+            if (href) {
+                if (href.indexOf('?') === -1) {
+                    anchor.setAttribute('href', href + '?id=' + encodeURIComponent(userId));
+                } else if (href.indexOf('id=') === -1) {
+                    anchor.setAttribute('href', href + '&id=' + encodeURIComponent(userId));
                 }
-            };
+            }
+        });
+    } else {
+        console.log('No user ID found in localStorage');
+    }
+});
+
         </script>
 
         <script>
@@ -67,4 +88,4 @@
         </script>
 </body>
 
-</html>
+</html> 
