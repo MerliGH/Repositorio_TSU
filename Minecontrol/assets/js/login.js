@@ -19,6 +19,7 @@ $(document).ready(function() {
     });
 });
 
+
 // Función para iniciar sesión
 function iniciarSesion() {
     const email = $('#loginEmail').val().trim();

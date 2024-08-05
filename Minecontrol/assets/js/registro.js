@@ -18,3 +18,4 @@ function obtenerUsuarios() {
         })
         .catch(error => console.error('Error:', error));
 }
+
