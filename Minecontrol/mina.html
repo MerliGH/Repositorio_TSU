@@ -1,10 +1,10 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>MineControl ® |    Admin</title>
+    <title>MineControl ®</title>
     <!-- PAGE ICON-->
     <link rel="shortcut icon" type="image/x-icon" href="assets/img/AC.ico" />
 
@@ -16,7 +16,8 @@
 
     <!-- CUSTOM STYLES -->
     <link href="components/common/navbar/navbar.css" rel="stylesheet" type="text/css" />
-    <link href="components/admin/index.css" rel="stylesheet" type="text/css" />
+    <link href="components/empresa/index.css" rel="stylesheet" type="text/css" />
+    <link href="components/empresa/sectores.css" rel="stylesheet" type="text/css" />
     <link href="assets/css/custom2.css" rel="stylesheet" />
 
     <!-- MORRIS CHART STYLES -->
@@ -29,7 +30,7 @@
     <!-- FONTAWESOME STYLES -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
     <script src="assets/js/userGlobal.js"></script>
-
+    
     <!-- CUSTOM STYLES -->
     <style>
         #user-name {
@@ -37,6 +38,7 @@
             text-align: right;
             display: block;
             margin-right: 14px;
+           
             padding: 0;
         }
     </style>
@@ -48,22 +50,18 @@
             <span id="user-name"></span>
         </div>
 
-        <div hx-trigger="load" hx-get="components/common/navbar/navbarAdmin.html"></div>
-        <div hx-trigger="load" hx-get="components/admin/provedores.html"></div>
-        
-        <script src="components/navbar/welcome.js"></script>
-
+        <div hx-trigger="load" hx-get="components/common/navbar/navbar.html"></div>
+        <div hx-trigger="load" hx-get="components/empresa/mina.html"></div>
         <!-- FOOTER -->
 
         <!-- SCRIPTS -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
         <script src="https://unpkg.com/htmx.org@2.0.1" integrity="sha384-QWGpdj554B4ETpJJC9z+ZHJcA/i59TyjxEPXiiUgN2WmTyV5OEZWCD6gQhgkdpB/" crossorigin="anonymous"></script>
+        <script src="components/common/navbar/welcome.js"></script>
         <script src="assets/js/admin.js"></script>
-
         <script src="assets/js/welcome.js" defer></script>
 
-        // user-global.js
         <script>
             document.addEventListener("DOMContentLoaded", () => {
                 const urlParams = new URLSearchParams(window.location.search);

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sectores</title>
+  <title>Sistemas Embebidos</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -56,62 +56,74 @@
     <div id="page-inner">
       <div class="row">
         <div class="col-md-12">
-          <h1>Sectores</h1>
+          <h1>Sistemas Embebidos</h1>
           <br /><br />
 
           <table>
             <thead>
               <tr>
                 <th>Nombre</th>
-                <th> </th>
+                <th>Descripción</th>
+                <th>Sensor</th>
+                <th>ID Sector</th>
                 <th>Status</th>
+                <th>Fecha</th>
               </tr>
             </thead>
-            <tbody id="sectores-list"></tbody>
+            <tbody id="sistemas_embebidos-list"></tbody>
           </table>
           <script>
-            function addSectorRow(sector, root) {
+            function addSistemasEmbebidosRow(se, root) {
               const row = document.createElement("tr");
 
-              // Crear columnas para cada propiedad del sector
+              // Crear columnas para cada propiedad del sistema embebido
               const columnNombre = document.createElement("td");
-              const columnMinaId = document.createElement("td");
+              const columnDescripcion = document.createElement("td");
+              const columnSensor = document.createElement("td");
+              const columnSectorId = document.createElement("td");
               const columnStatus = document.createElement("td");
+              const columnFecha = document.createElement("td");
 
               // Asignar valores a las columnas
-              columnNombre.innerHTML = sector.nombre || 'No disponible';
-              columnStatus.innerHTML = sector.status || 'No disponible';
+              columnNombre.innerHTML = se.nombre || 'No disponible';
+              columnDescripcion.innerHTML = se.descripcion || 'No disponible';
+              columnSensor.innerHTML = se.sensor || 'No disponible';
+              columnSectorId.innerHTML = se.sectorid || 'No disponible';
+              columnStatus.innerHTML = se.status || 'No disponible';
+              columnFecha.innerHTML = se.fecha || 'No disponible';
 
               // Añadir columnas a la fila
               row.appendChild(columnNombre);
-              row.appendChild(columnMinaId);
+              row.appendChild(columnDescripcion);
+              row.appendChild(columnSensor);
+              row.appendChild(columnSectorId);
               row.appendChild(columnStatus);
+              row.appendChild(columnFecha);
 
               // Añadir fila al tbody
               root.appendChild(row);
             }
 
-            const tbody = document.querySelector("#sectores-list");
-            fetch("http://127.0.0.1:8000/sectores", {
+            const tbody = document.querySelector("#sistemas_embebidos-list");
+            fetch("https://polliwog-desired-egret.ngrok-free.app/sistemas_embebidos", {
               headers: {
                 Accept: "application/json",
               },
             })
               .then((response) => {
-                console.log({ response });
                 if (!response.ok) {
-                  throw new Error("No se pueden obtener sectores");
+                  throw new Error("No se pueden obtener los sistemas embebidos");
                 }
                 return response.json();
               })
-              .then((sectores) => {
-                for (const sector of sectores) {
-                  addSectorRow(sector, tbody);
+              .then((sistemas_embebidos) => {
+                for (const se of sistemas_embebidos) {
+                  addSistemasEmbebidosRow(se, tbody);
                 }
               })
               .catch((error) => {
                 console.error("Error:", error);
-                alert("Ocurrió un error al obtener sectores");
+                alert("Ocurrió un error al obtener los sistemas embebidos");
               });
           </script>
         </div>

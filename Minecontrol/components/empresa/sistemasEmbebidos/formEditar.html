@@ -1,0 +1,108 @@
+<form id="editar-empleado">
+  <h2>Actualizar mina</h2>
+  <div class="form-group">
+    <label for="nombre">Nombre sector:</label>
+    <input
+      type="text"
+      class="form-control"
+      id="nombre"
+      name="nombre"
+      required
+    />
+    <span class="error-message" id="error-nombre"></span>
+  </div>
+
+  <div class="form-group">
+    <label for="mina_id">Mina:</label>
+    <select
+      class="form-control"
+      id="mina_id"
+      name="mina_id"
+      required
+    ></select>
+    <span class="error-message" id="error-mina_id"></span>
+  </div>
+
+  <div class="form-group">
+    <label for="status">Status:</label>
+    <input
+      type="text"
+      class="form-control"
+      id="status"
+      name="status"
+      required
+    />
+    <span class="error-message" id="error-status"></span>
+  </div>
+  <button type="submit" class="btn btn-primary">Guardar cambios</button>
+</form>
+
+<script>
+  function addMinaOption(mina, root) {
+    const option = document.createElement("option");
+    option.value = mina.id;
+    option.innerHTML = mina.nombre;
+    root.appendChild(option);
+  }
+
+  const selectMina = document.querySelector("#mina_id");
+  fetch("http://127.0.0.1:8000/minas", {
+    headers: {
+      Accept: "application/json",
+    },
+  })
+    .then((response) => {
+      if (!response.ok) {
+        return alert("No se pueden obtener minas");
+      }
+
+      return response.json();
+    })
+    .then((minas) => {
+      for (const mina of minas) {
+        addMinaOption(mina, selectMina);
+      }
+    })
+    .catch((error) => {
+      console.error("Error:", error);
+      alert("Ocurrió un error al obtener minas");
+    });
+</script>
+
+<script>
+  const sectorForm = JSON.parse(sessionStorage.getItem("sector-details"));
+  document.querySelector("#editar-empleado input#nombre").value =
+    sectorForm.nombre;
+  document.querySelector("#editar-empleado select#mina_id").value =
+    sectorForm.mina_id;
+  document.querySelector("#editar-empleado input#status").value =
+    sectorForm.status;
+
+  document
+    .getElementById("editar-empleado")
+    .addEventListener("submit", async function (event) {
+      event.preventDefault();
+      const data = new FormData(event.target);
+
+      // Registrar el empleado
+      $.ajax({
+        url: `http://127.0.0.1:8000/sectores/${sectorForm.id}`,
+        type: "PUT",
+        contentType: "application/json",
+        data: JSON.stringify({
+          nombre: data.get("nombre"),
+          mina_id: data.get("mina_id"),
+          status: data.get("status"),
+        }),
+        success: function (response) {
+          location.href = `sectores.html?id=${encodeURIComponent(
+            localStorage.getItem("userId")
+          )}`;
+        },
+        error: function (xhr, status, error) {
+          console.error("Error al actualizar sector:", status, error);
+          alert("Error al actualizar sector.");
+        },
+      });
+    });
+</script>

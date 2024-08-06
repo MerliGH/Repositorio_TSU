@@ -41,10 +41,9 @@ function iniciarSesion() {
                     .then(empleados => {
                         // Buscar el empleado cuyo empleado_id coincida con el empleado_id del usuario
                         const empleado = empleados.find(emp => emp.id === usuario.empleado_id);
-
-                        console.log({empleado})
-
+                        
                         if (empleado) {
+                            console.log("Empleado encontrado:", empleado);
                             // Redirigir según el rol del empleado
                             sessionStorage.setItem('empleadoRol', empleado.rol);
                             if (empleado.rol === 'Empresa') {
@@ -52,18 +51,18 @@ function iniciarSesion() {
                             } else if (empleado.rol === 'administrador') {
                                 window.location.href = `${pagesAdmin.index}?id=${encodeURIComponent(usuario.id)}`;
                             } else {
-                                alert('Correo o contraseña incorrectos.');
+                                alert('Rol no reconocido.');
                             }
                         } else {
-                            alert('Error, favor de mandarnos mensaje en Contacto para resolver su problema.');
+                            alert('Empleado no encontrado para el usuario.');
                         }
                     })
                     .catch(error => {
                         console.error('Error al obtener empleados:', error);
-                        alert('¿Aún sin una cuenta? ¡Haz click en registrarse!');
+                        alert('Error al obtener empleados.');
                     });
             } else {
-                alert('Correo electrónico o contraseña incorrectos.');
+                alert('Usuario no encontrado.');
             }
         })
         .catch(error => {

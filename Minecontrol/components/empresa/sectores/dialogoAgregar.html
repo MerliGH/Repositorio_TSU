@@ -1,0 +1,101 @@
+<dialog open>
+  <form id="editar-empleado">
+    <h2>Agregar sector</h2>
+    <div class="form-group">
+      <label for="nombre">Nombre sector:</label>
+      <input type="text" class="form-control" id="nombre" name="nombre" required />
+      <span class="error-message" id="error-nombre"></span>
+    </div>
+
+    <div class="form-group">
+      <label for="mina_id">Mina:</label>
+      <select class="form-control" id="mina_id" name="mina_id" required></select>
+      <span class="error-message" id="error-mina_id"></span>
+    </div>
+
+    <div class="form-group">
+      <label for="status">Status:</label>
+      <input type="text" class="form-control" id="status" name="status" required />
+      <span class="error-message" id="error-status"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Guardar cambios</button>
+  </form>
+</dialog>
+
+<style>
+  /* Estilo para el backdrop */
+  dialog::backdrop {
+    background: rgba(0, 0, 0, 0.3);
+  }
+
+  /* Estilo para el diálogo */
+  dialog {
+    position: fixed; /* Asegúrate de que el diálogo esté fijo en la ventana */
+    right: 0; /* Mueve el diálogo hacia la derecha */
+    margin-right: 50px; /* Ajusta el margen para el espacio a la derecha */
+    margin-top: -160px; /* Opcional: Ajusta el margen superior */
+  }
+</style>
+
+<script>
+  function addMinaOption(mina, root) {
+    const option = document.createElement("option");
+    option.value = mina.id;
+    option.innerHTML = mina.nombre;
+    root.appendChild(option);
+  }
+
+  const selectMina = document.querySelector("#mina_id");
+  fetch("http://127.0.0.1:8000/minas", {
+    headers: {
+      Accept: "application/json",
+    },
+  })
+    .then((response) => {
+      if (!response.ok) {
+        return alert("No se pueden obtener minas");
+      }
+      return response.json();
+    })
+    .then((minas) => {
+      for (const mina of minas) {
+        addMinaOption(mina, selectMina);
+      }
+    })
+    .catch((error) => {
+      console.error("Error:", error);
+      alert("Ocurrió un error al obtener minas");
+    });
+</script>
+
+<script>
+  document
+    .getElementById("editar-empleado")
+    .addEventListener("submit", function (event) {
+      event.preventDefault();
+      const data = new FormData(event.target);
+
+      fetch("http://127.0.0.1:8000/sectores", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          nombre: data.get("nombre"),
+          mina_id: data.get("mina_id"),
+          status: data.get("status"),
+        }),
+      })
+        .then((response) => {
+          if (response.ok) {
+            location.reload();
+          } else {
+            alert("Ocurrió un error al guardar los cambios");
+          }
+        })
+        .catch((error) => {
+          console.error("Error:", error);
+          alert("Ocurrió un error al guardar los cambios");
+        });
+    });
+</script>

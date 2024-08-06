@@ -1,0 +1,124 @@
+<form id="actualizar-proveedor">
+  <h2>Actualizar proveedor</h2>
+  <div class="form-group">
+    <label for="nombre">Nombre:</label>
+    <input type="text" class="form-control" id="nombre" name="nombre" required />
+    <span class="error-message" id="error-nombre"></span>
+  </div>
+  <div class="form-group">
+    <label for="apPaterno">Apellido Paterno:</label>
+    <input type="text" class="form-control" id="apPaterno" name="apPaterno" required />
+    <span class="error-message" id="error-apPaterno"></span>
+  </div>
+  <div class="form-group">
+    <label for="apMaterno">Apellido Materno:</label>
+    <input type="text" class="form-control" id="apMaterno" name="apMaterno" required />
+    <span class="error-message" id="error-apMaterno"></span>
+  </div>
+  <div class="form-group">
+    <label for="nombreEmpresa">Nombre de la Empresa:</label>
+    <input type="text" class="form-control" id="nombreEmpresa" name="nombreEmpresa" required />
+    <span class="error-message" id="error-nombreEmpresa"></span>
+  </div>
+  <div class="form-group">
+    <label for="telefono">Teléfono:</label>
+    <input type="text" class="form-control" id="telefono" name="telefono" required />
+    <span class="error-message" id="error-telefono"></span>
+  </div>
+  <div class="form-group">
+    <label for="email">Email:</label>
+    <input type="text" class="form-control" id="email" name="email" required />
+    <span class="error-message" id="error-email"></span>
+  </div>
+  <div class="form-group">
+    <label for="calle">Calle:</label>
+    <input type="text" class="form-control" id="calle" name="calle" required />
+    <span class="error-message" id="error-calle"></span>
+  </div>
+  <div class="form-group">
+    <label for="numero">Número:</label>
+    <input type="text" class="form-control" id="numero" name="numero" required />
+    <span class="error-message" id="error-numero"></span>
+  </div>
+  <div class="form-group">
+    <label for="colonia">Colonia:</label>
+    <input type="text" class="form-control" id="colonia" name="colonia" required />
+    <span class="error-message" id="error-colonia"></span>
+  </div>
+  <div class="form-group">
+    <label for="codigo_postal">Código Postal:</label>
+    <input type="text" class="form-control" id="codigo_postal" name="codigo_postal" required />
+    <span class="error-message" id="error-codigo_postal"></span>
+  </div>
+  <div class="form-group">
+    <label for="estado">Estado:</label>
+    <input type="text" class="form-control" id="estado" name="estado" required />
+    <span class="error-message" id="error-estado"></span>
+  </div>
+  <div class="form-group">
+    <label for="status">Status:</label>
+    <input type="text" class="form-control" id="status" name="status" required />
+    <span class="error-message" id="error-status"></span>
+  </div>
+  <button type="submit" class="btn btn-primary">Actualizar</button>
+</form>
+
+<script>
+  const proveedorForm = JSON.parse(sessionStorage.getItem('proveedor-details'));
+  document.querySelector('#actualizar-proveedor input#nombre').value = proveedorForm.nombreCompleto.nombre;
+  document.querySelector('#actualizar-proveedor input#apPaterno').value = proveedorForm.nombreCompleto.apPaterno;
+  document.querySelector('#actualizar-proveedor input#apMaterno').value = proveedorForm.nombreCompleto.apMaterno;
+  document.querySelector('#actualizar-proveedor input#nombreEmpresa').value = proveedorForm.nombreEmpresa;
+  document.querySelector('#actualizar-proveedor input#telefono').value = proveedorForm.contacto.telefono;
+  document.querySelector('#actualizar-proveedor input#email').value = proveedorForm.contacto.email;
+  document.querySelector('#actualizar-proveedor input#calle').value = proveedorForm.direccion.calle;
+  document.querySelector('#actualizar-proveedor input#numero').value = proveedorForm.direccion.numero;
+  document.querySelector('#actualizar-proveedor input#colonia').value = proveedorForm.direccion.colonia;
+  document.querySelector('#actualizar-proveedor input#codigo_postal').value = proveedorForm.direccion.codigo_postal;
+  document.querySelector('#actualizar-proveedor input#estado').value = proveedorForm.direccion.estado;
+  document.querySelector('#actualizar-proveedor input#status').value = proveedorForm.status;
+
+  document
+    .getElementById("actualizar-proveedor")
+    .addEventListener("submit", async function (event) {
+      event.preventDefault();
+      const data = new FormData(event.target);
+
+      const updatedProveedor = {
+        nombreCompleto: {
+          nombre: data.get("nombre"),
+          apPaterno: data.get("apPaterno"),
+          apMaterno: data.get("apMaterno")
+        },
+        nombreEmpresa: data.get("nombreEmpresa"),
+        contacto: {
+          telefono: data.get("telefono"),
+          email: data.get("email")
+        },
+        direccion: {
+          calle: data.get("calle"),
+          numero: data.get("numero"),
+          colonia: data.get("colonia"),
+          codigo_postal: data.get("codigo_postal"),
+          estado: data.get("estado")
+        },
+        status: data.get("status")
+      };
+
+      $.ajax({
+        url: `http://127.0.0.1:8000/proveedores/${proveedorForm.id}`,
+        type: "PUT",
+        contentType: "application/json",
+        data: JSON.stringify(updatedProveedor),
+        success: function (response) {
+          const userId = localStorage.getItem('userId');
+          window.location.href = `proveedores.html?id=${userId}`;
+        },
+        error: function (xhr, status, error) {
+          console.error("Error al actualizar proveedor:", status, error);
+          alert("Error al actualizar proveedor.");
+        },
+      });
+    });
+</script>
+

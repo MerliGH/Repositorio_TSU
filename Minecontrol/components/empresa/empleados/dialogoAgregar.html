@@ -1,0 +1,172 @@
+<script src="https://unpkg.com/htmx.org@1.9.12/dist/ext/client-side-templates.js"></script>
+<dialog open>
+  <form id="agregar-empleado">
+    <h2>Registro de un administrador</h2>
+    <div class="form-group">
+      <label for="nombre">Nombre:</label>
+      <input
+        type="text"
+        class="form-control"
+        id="nombre"
+        name="nombre"
+        required
+      />
+      <span class="error-message" id="error-nombre"></span>
+    </div>
+    <div class="form-group">
+      <label for="apellidoPaterno">Apellido Paterno:</label>
+      <input
+        type="text"
+        class="form-control"
+        id="apellidoPaterno"
+        name="apellidoPaterno"
+        required
+      />
+      <span class="error-message" id="error-apellidoPaterno"></span>
+    </div>
+    <div class="form-group">
+      <label for="apellidoMaterno">Apellido Materno:</label>
+      <input
+        type="text"
+        class="form-control"
+        id="apellidoMaterno"
+        name="apellidoMaterno"
+        required
+      />
+      <span class="error-message" id="error-apellidoMaterno"></span>
+    </div>
+
+    <label for="pet-select">Elige una mina:</label>
+
+    <select name="minas" id="minas-select" hx-trigger="load" hx-get="http://127.0.0.1:8000/minas/" mustache-array-template="">
+      <option value="">Selecciona la mina a asignar </option>
+      <option value="goldfish">Buenavista del Cobre</option>
+      <option value="goldfish2">Salinas Monreal</option>
+      <option value="goldfish3">Colon Lunas</option>
+      <option value="goldfish4">Camino heroes</option>
+    </select>
+
+    <template id="option">
+        {{}}
+        <option value="{% id %}">{% nombre %}</option>
+    </template>
+
+    <div class="form-group">
+      <label for="telefono">Teléfono:</label>
+      <input type="tel" class="form-control" id="telefono" name="telefono" />
+      <span class="error-message" id="error-telefono"></span>
+    </div>
+    <div class="form-group">
+      <label for="correo">Correo Electrónico:</label>
+      <input
+        type="email"
+        class="form-control"
+        id="correo"
+        name="correo"
+        required
+      />
+      <span class="error-message" id="error-correo"></span>
+    </div>
+    <div class="form-group">
+      <label for="password">Contraseña:</label>
+      <input
+        type="password"
+        class="form-control"
+        id="password"
+        name="password"
+        required
+      />
+      <span class="error-message" id="error-password"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Registrarse</button>
+  </form>
+</dialog>
+
+
+<style>
+    /* Estilo para el backdrop */
+    dialog::backdrop {
+        background: rgba(0, 0, 0, 0.3);
+    }
+
+    /* Estilo para el diálogo */
+    dialog {
+        position: fixed; /* Asegúrate de que el diálogo esté fijo en la ventana */
+        right: 0; /* Mueve el diálogo hacia la derecha */
+        margin-right: 50px; /* Ajusta el margen para el espacio a la derecha */
+        margin-top: -160px; /* Opcional: Ajusta el margen superior */
+        
+    }
+</style>
+
+<script>
+ document
+  .getElementById("agregar-empleado")
+  .addEventListener("submit", async function (event) {
+    event.preventDefault();
+    const data = new FormData(event.target);
+
+    // Crear el objeto empleado
+    var empleado = {
+      nombreCompleto: {
+        nombre: data.get("nombre"),
+        apPaterno: data.get("apellidoPaterno"),
+        apMaterno: data.get("apellidoMaterno"),
+      },
+      rol: "administrador",
+      mina_id: "", //parte del select 
+      status: "true",
+    };
+
+    // Crear el objeto usuario (sin empleado_id todavía)
+    var usuario = {
+      empleado_id: null,
+      password: data.get("password"),
+      telefono: data.get("telefono") || null,
+      correo: data.get("correo"),
+      status: "true",
+    };
+
+    // Registrar el empleado
+    $.ajax({
+      url: "https://polliwog-desired-egret.ngrok-free.app/empleados/",
+      type: "POST",
+      contentType: "application/json",
+      data: JSON.stringify(empleado),
+      success: function (response) {
+        if (response && response.id) {
+          // Obtener el ID del empleado registrado
+          console.log('id: ', response.id);
+          usuario.empleado_id = response.id;
+
+          // Registrar el usuario con el empleado_id
+          $.ajax({
+            url: "https://polliwog-desired-egret.ngrok-free.app/usuarios/",
+            type: "POST",
+            contentType: "application/json",
+            data: JSON.stringify(usuario),
+            success: function (response) {
+              if (response && response.id) {
+                alert("Registro completado con éxito.");
+                window.location.reload();
+              } else {
+                alert("Error al registrar usuario.");
+              }
+            },
+            error: function (xhr, status, error) {
+              console.error("Error al registrar usuario:", status, error);
+              alert("Favor de llenar el número telefónico");
+            },
+          });
+        } else {
+          alert("Error al registrar empleado.");
+        }
+      },
+      error: function (xhr, status, error) {
+        console.error("Error al registrar empleado:", status, error);
+        alert("Error al registrar empleado.");
+      },
+    });
+  });
+
+</script>

@@ -1,0 +1,26 @@
+<div id="page-wrapper">
+    <div id="page-inner">
+      <div class="row">
+        <div class="col-md-12">
+            <h1>Detalles</h1>
+            <div id="edit-mina">
+                <p id="direccion">Direccion: </p>
+                <button
+                  hx-trigger="click"
+                  hx-target="#edit-mina"
+                  hx-get="components/empresa/minas/formEditar.html"
+                  hx-swap="outerHTML"
+                >
+                  Editar
+                </button>
+            </div>
+            <script>
+                const mina = JSON.parse(sessionStorage.getItem('mina-details'));
+                const { calle, numero, colonia, codigo_postal, estado } = mina.direccion;
+                document.querySelector('#direccion').innerHTML += [calle, numero, colonia, codigo_postal, estado].filter(Boolean).join(' ');
+                document.querySelector('#status').innerHTML += [status].filter(Boolean).join(' ');
+            </script>
+      </div>
+    </div>
+  </div>
+</div>

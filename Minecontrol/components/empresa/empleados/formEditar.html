@@ -1,0 +1,106 @@
+<form id="editar-empleado">
+  <h2>Actualizar empleado</h2>
+  <div class="form-group">
+    <label for="nombre">Nombre:</label>
+    <input type="text" class="form-control" id="nombre" name="nombre" required />
+    <span class="error-message" id="error-nombre"></span>
+  </div>
+  <div class="form-group">
+    <label for="apellidoPaterno">Apellido Paterno:</label>
+    <input type="text" class="form-control" id="apellidoPaterno" name="apellidoPaterno" required />
+    <span class="error-message" id="error-apellidoPaterno"></span>
+  </div>
+  <div class="form-group">
+    <label for="apellidoMaterno">Apellido Materno:</label>
+    <input type="text" class="form-control" id="apellidoMaterno" name="apellidoMaterno" required />
+    <span class="error-message" id="error-apellidoMaterno"></span>
+  </div>
+
+  <div class="form-group">
+    <label for="telefono">Teléfono:</label>
+    <input type="tel" class="form-control" id="telefono" name="telefono" />
+    <span class="error-message" id="error-telefono"></span>
+  </div>
+  <div class="form-group">
+    <label for="correo">Correo Electrónico:</label>
+    <input type="email" class="form-control" id="correo" name="correo" required />
+    <span class="error-message" id="error-correo"></span>
+  </div>
+  <div class="form-group">
+    <label for="correo">Status</label>
+    <input type="status" class="form-control" id="status" name="status" required />
+    <span class="error-message" id="error-status"></span>
+  </div>
+  <button type="submit" class="btn btn-primary">Guardar cambios</button>
+</form>
+
+<script>
+  const empleadoForm = JSON.parse(sessionStorage.getItem('empleado-details'));
+  const usuarioForm = JSON.parse(sessionStorage.getItem('user-details'));
+  document.querySelector('#editar-empleado input#nombre').value = empleadoForm.nombreCompleto.nombre;
+  document.querySelector('#editar-empleado input#apellidoPaterno').value = empleadoForm.nombreCompleto.apPaterno;
+  document.querySelector('#editar-empleado input#apellidoMaterno').value = empleadoForm.nombreCompleto.apMaterno;
+  document.querySelector('#editar-empleado input#telefono').value = usuarioForm.telefono;
+  document.querySelector('#editar-empleado input#correo').value = usuarioForm.correo;
+  document.querySelector('#editar-empleado input#status').value = usuarioForm.status;
+  document
+    .getElementById("editar-empleado")
+    .addEventListener("submit", async function (event) {
+      event.preventDefault();
+      const data = new FormData(event.target);
+
+      // Registrar el empleado
+      $.ajax({
+        url: `http://127.0.0.1:8000/empleados/${empleadoForm.id}`,
+        type: "PUT",
+        contentType: "application/json",
+        data: JSON.stringify({
+        nombreCompleto: {
+          nombre: data.get("nombre"),
+          apPaterno: data.get("apellidoPaterno"),
+          apMaterno: data.get("apellidoMaterno"),
+        },
+        rol: empleadoForm.rol,
+        mina_id: empleadoForm.mina_id,
+        status: empleadoForm.status,
+      }),
+        success: function (response) {
+          if (response && response.message === 'Empleado actualizado exitosamente') {
+            // Obtener el ID del empleado registrado
+            usuarioForm.empleado_id = response.id;
+
+            // Registrar el usuario con el empleado_id
+            $.ajax({
+              url: `http://127.0.0.1:8000/usuarios/${usuarioForm.id}`,
+              type: "PUT",
+              contentType: "application/json",
+              data: JSON.stringify({
+                  telefono: data.get("telefono") || null,
+                  correo: data.get("correo"),
+                  status: "true",
+              }),
+              success: function (response) {
+                if (response && response.id) {
+                  alert("Registro actualizado con éxito.");
+                  window.location.reload();
+                } else {
+                  alert("Error al actualizar usuario.");
+                }
+              },
+              error: function (xhr, status, error) {
+                console.error("Error al actualizar usuario:", status, error);
+                alert("Favor de llenar el número telefónico");
+              },
+            });
+          } else {
+            alert("Error al actualizar empleado.");
+          }
+        },
+        error: function (xhr, status, error) {
+          console.error("Error al actualizar empleado:", status, error);
+          alert("Error al actualizar empleado.");
+        },
+      });
+    });
+
+</script>

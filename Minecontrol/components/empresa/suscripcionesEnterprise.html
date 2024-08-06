@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sectores</title>
+  <title>Suscripciones</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -56,43 +56,48 @@
     <div id="page-inner">
       <div class="row">
         <div class="col-md-12">
-          <h1>Sectores</h1>
+          <h1>Suscripciones</h1>
           <br /><br />
 
           <table>
             <thead>
               <tr>
-                <th>Nombre</th>
-                <th> </th>
+                <th>Tipo</th>
+                <th>Fecha Inicio</th>
+                <th>Fecha Fin</th>
                 <th>Status</th>
               </tr>
             </thead>
-            <tbody id="sectores-list"></tbody>
+            <tbody id="suscripciones-list"></tbody>
           </table>
           <script>
-            function addSectorRow(sector, root) {
+            function addSuscripcionRow(suscripcion, root) {
               const row = document.createElement("tr");
 
-              // Crear columnas para cada propiedad del sector
-              const columnNombre = document.createElement("td");
-              const columnMinaId = document.createElement("td");
+              // Crear columnas para cada propiedad de la suscripción
+              const columnTipo = document.createElement("td");
+              const columnFechaInicio = document.createElement("td");
+              const columnFechaFin = document.createElement("td");
               const columnStatus = document.createElement("td");
 
               // Asignar valores a las columnas
-              columnNombre.innerHTML = sector.nombre || 'No disponible';
-              columnStatus.innerHTML = sector.status || 'No disponible';
+              columnTipo.innerHTML = suscripcion.tipo || 'No disponible';
+              columnFechaInicio.innerHTML = suscripcion.fecha_inicio || 'No disponible';
+              columnFechaFin.innerHTML = suscripcion.fecha_fin || 'No disponible';
+              columnStatus.innerHTML = suscripcion.status || 'No disponible';
 
               // Añadir columnas a la fila
-              row.appendChild(columnNombre);
-              row.appendChild(columnMinaId);
+              row.appendChild(columnTipo);
+              row.appendChild(columnFechaInicio);
+              row.appendChild(columnFechaFin);
               row.appendChild(columnStatus);
 
               // Añadir fila al tbody
               root.appendChild(row);
             }
 
-            const tbody = document.querySelector("#sectores-list");
-            fetch("http://127.0.0.1:8000/sectores", {
+            const tbody = document.querySelector("#suscripciones-list");
+            fetch("http://127.0.0.1:8000/suscripciones", {
               headers: {
                 Accept: "application/json",
               },
@@ -100,18 +105,18 @@
               .then((response) => {
                 console.log({ response });
                 if (!response.ok) {
-                  throw new Error("No se pueden obtener sectores");
+                  throw new Error("No se pueden obtener suscripciones");
                 }
                 return response.json();
               })
-              .then((sectores) => {
-                for (const sector of sectores) {
-                  addSectorRow(sector, tbody);
+              .then((suscripciones) => {
+                for (const suscripcion of suscripciones) {
+                  addSuscripcionRow(suscripcion, tbody);
                 }
               })
               .catch((error) => {
                 console.error("Error:", error);
-                alert("Ocurrió un error al obtener sectores");
+                alert("Ocurrió un error al obtener suscripciones");
               });
           </script>
         </div>

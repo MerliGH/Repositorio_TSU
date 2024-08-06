@@ -1,0 +1,196 @@
+<dialog open>
+  <form id="agregar-proveedor">
+    <h2>Agregar proveedor</h2>
+    <div class="form-group">
+      <label for="nombre">Nombre:</label>
+      <input
+        type="text"
+        class="form-control"
+        id="nombre"
+        name="nombre"
+        required
+      />
+      <span class="error-message" id="error-nombre"></span>
+    </div>
+    <div class="form-group">
+      <label for="apPaterno">Apellido Paterno:</label>
+      <input
+        type="text"
+        class="form-control"
+        id="apPaterno"
+        name="apPaterno"
+        required
+      />
+      <span class="error-message" id="error-apPaterno"></span>
+    </div>
+    <div class="form-group">
+      <label for="apMaterno">Apellido Materno:</label>
+      <input
+        type="text"
+        class="form-control"
+        id="apMaterno"
+        name="apMaterno"
+        required
+      />
+      <span class="error-message" id="error-apMaterno"></span>
+    </div>
+    <div class="form-group">
+      <label for="nombreEmpresa">Nombre de la Empresa:</label>
+      <input
+        type="text"
+        class="form-control"
+        id="nombreEmpresa"
+        name="nombreEmpresa"
+        required
+      />
+      <span class="error-message" id="error-nombreEmpresa"></span>
+    </div>
+    <div class="form-group">
+      <label for="telefono">Teléfono:</label>
+      <input
+        type="text"
+        class="form-control"
+        id="telefono"
+        name="telefono"
+        required
+      />
+      <span class="error-message" id="error-telefono"></span>
+    </div>
+    <div class="form-group">
+      <label for="email">Email:</label>
+      <input
+        type="text"
+        class="form-control"
+        id="email"
+        name="email"
+        required
+      />
+      <span class="error-message" id="error-email"></span>
+    </div>
+    <div class="form-group">
+      <label for="calle">Calle:</label>
+      <input
+        type="text"
+        class="form-control"
+        id="calle"
+        name="calle"
+        required
+      />
+      <span class="error-message" id="error-calle"></span>
+    </div>
+    <div class="form-group">
+      <label for="numero">Número:</label>
+      <input
+        type="text"
+        class="form-control"
+        id="numero"
+        name="numero"
+        required
+      />
+      <span class="error-message" id="error-numero"></span>
+    </div>
+    <div class="form-group">
+      <label for="colonia">Colonia:</label>
+      <input
+        type="text"
+        class="form-control"
+        id="colonia"
+        name="colonia"
+        required
+      />
+      <span class="error-message" id="error-colonia"></span>
+    </div>
+    <div class="form-group">
+      <label for="codigo_postal">Código Postal:</label>
+      <input
+        type="text"
+        class="form-control"
+        id="codigo_postal"
+        name="codigo_postal"
+        required
+      />
+      <span class="error-message" id="error-codigo_postal"></span>
+    </div>
+    <div class="form-group">
+      <label for="estado">Estado:</label>
+      <input
+        type="text"
+        class="form-control"
+        id="estado"
+        name="estado"
+        required
+      />
+      <span class="error-message" id="error-estado"></span>
+    </div>
+    <div class="form-group">
+      <label for="status">Status:</label>
+      <input
+        type="text"
+        class="form-control"
+        id="status"
+        name="status"
+        required
+      />
+      <span class="error-message" id="error-status"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Guardar</button>
+  </form>
+</dialog>
+
+<style>
+  /* Estilo para el backdrop */
+  dialog::backdrop {
+    background: rgba(0, 0, 0, 0.3);
+  }
+
+  dialog {
+    overflow: scroll;
+    max-height: 60vh;
+  }
+
+  /* Estilo para el diálogo */
+  dialog {
+    position: fixed; /* Asegúrate de que el diálogo esté fijo en la ventana */
+    right: 0; /* Mueve el diálogo hacia la derecha */
+    margin-right: 50px; /* Ajusta el margen para el espacio a la derecha */
+    margin-top: -160px; /* Opcional: Ajusta el margen superior */
+  }
+</style>
+
+<script>
+  document
+    .getElementById("agregar-proveedor")
+    .addEventListener("submit", async function (event) {
+      event.preventDefault();
+      const data = new FormData(event.target);
+
+      $.ajax({
+        url: "http://127.0.0.1:8000/proveedores",
+        type: "POST",
+        contentType: "application/json",
+        data: JSON.stringify({
+          nombreCompleto: {
+            nombre: data.get("nombre"),
+            apPaterno: data.get("apPaterno"),
+            apMaterno: data.get("apMaterno"),
+          },
+          nombreEmpresa: data.get("nombreEmpresa"),
+          contacto: {
+            telefono: data.get("telefono"),
+            email: data.get("email"),
+          },
+          direccion: {
+            calle: data.get("calle"),
+            numero: data.get("numero"),
+            colonia: data.get("colonia"),
+            codigo_postal: data.get("codigo_postal"),
+            estado: data.get("estado"),
+          },
+          status: data.get("status"),
+        }),
+        success: async function (response) {
+          location.reload();
+        },
+      });
+    });
+</script>

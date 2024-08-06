@@ -1,0 +1,26 @@
+<div id="page-wrapper">
+    <div id="page-inner">
+      <div class="row">
+        <div class="col-md-12">
+            <h1>Detalles</h1>
+            <div id="edit-sector">
+                <p id="nombre">nombre: </p>
+                <p id="status">status: </p>
+                <button
+                  hx-trigger="click"
+                  hx-target="#edit-sector"
+                  hx-get="components/empresa/proveedores/formEditar.html"
+                  hx-swap="outerHTML"
+                >
+                  Editar
+                </button>
+            </div>
+            <script>
+                const sector = JSON.parse(sessionStorage.getItem('proveedor-details'));
+                document.querySelector('#nombre').innerHTML += sector.nombreEmpresa;
+                document.querySelector('#status').innerHTML += sector.status;
+            </script>
+      </div>
+    </div>
+  </div>
+</div>

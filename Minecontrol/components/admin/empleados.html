@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sectores</title>
+  <title>Empleados</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -56,34 +56,43 @@
     <div id="page-inner">
       <div class="row">
         <div class="col-md-12">
-          <h1>Sectores</h1>
-          <br /><br />
+          <h1>Empleados</h1>
+          <br><br>
+          <div id="add-form"></div>
 
           <table>
             <thead>
               <tr>
-                <th>Nombre</th>
-                <th> </th>
+                <th>Nombre Completo</th>
+                <th>Rol</th>
+                <th>ID Mina</th>
                 <th>Status</th>
               </tr>
             </thead>
-            <tbody id="sectores-list"></tbody>
+            <tbody id="empleados-list"></tbody>
           </table>
           <script>
-            function addSectorRow(sector, root) {
+            function addEmpleadoRow(empleado, root) {
               const row = document.createElement("tr");
 
-              // Crear columnas para cada propiedad del sector
+              // Crear columnas para cada propiedad del empleado
               const columnNombre = document.createElement("td");
+              const columnRol = document.createElement("td");
               const columnMinaId = document.createElement("td");
               const columnStatus = document.createElement("td");
 
               // Asignar valores a las columnas
-              columnNombre.innerHTML = sector.nombre || 'No disponible';
-              columnStatus.innerHTML = sector.status || 'No disponible';
+              const { nombre, apPaterno, apMaterno } = empleado.nombreCompleto;
+              columnNombre.innerHTML = [nombre, apPaterno, apMaterno]
+                .filter(Boolean)
+                .join(" ");
+              columnRol.innerHTML = empleado.rol || 'No disponible';
+              columnMinaId.innerHTML = empleado.mina_id || 'No disponible';
+              columnStatus.innerHTML = empleado.status || 'No disponible';
 
               // Añadir columnas a la fila
               row.appendChild(columnNombre);
+              row.appendChild(columnRol);
               row.appendChild(columnMinaId);
               row.appendChild(columnStatus);
 
@@ -91,27 +100,26 @@
               root.appendChild(row);
             }
 
-            const tbody = document.querySelector("#sectores-list");
-            fetch("http://127.0.0.1:8000/sectores", {
+            const tbody = document.querySelector("#empleados-list");
+            fetch("http://127.0.0.1:8000/empleados", {
               headers: {
                 Accept: "application/json",
               },
             })
               .then((response) => {
-                console.log({ response });
                 if (!response.ok) {
-                  throw new Error("No se pueden obtener sectores");
+                  throw new Error("No se pueden obtener empleados");
                 }
                 return response.json();
               })
-              .then((sectores) => {
-                for (const sector of sectores) {
-                  addSectorRow(sector, tbody);
+              .then((empleados) => {
+                for (const empleado of empleados) {
+                  addEmpleadoRow(empleado, tbody);
                 }
               })
               .catch((error) => {
                 console.error("Error:", error);
-                alert("Ocurrió un error al obtener sectores");
+                alert("Ocurrió un error al obtener empleados");
               });
           </script>
         </div>

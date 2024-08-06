@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alertas</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+    }
+    #page-wrapper {
+      padding: 20px;
+    }
+    #page-inner {
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      padding: 30px; /* Aumentado el padding */
+      margin-bottom: 30px; /* Añadido margen inferior */
+    }
+    h1 {
+      color: #333;
+      margin-bottom: 30px; /* Aumentado el margen inferior */
+      font-size: 2em; /* Aumentado el tamaño de fuente */
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+      margin-bottom: 20px; /* Añadido margen inferior */
+    }
+    table, th, td {
+      border: 1px solid #ddd;
+    }
+    th, td {
+      padding: 12px;
+      text-align: left;
+    }
+    th {
+      background-color: #f2f2f2;
+    }
+    tbody tr:nth-child(even) {
+      background-color: #f9f9f9;
+    }
+    tbody tr:hover {
+      background-color: #f1f1f1;
+    }
+  </style>
+</head>
+<body>
+  <div id="page-wrapper">
+    <div id="page-inner">
+      <div class="row">
+        <div class="col-md-12">
+          <h1>Alertas</h1>
+          <br />
+          
+          <table>
+            <thead>
+              <tr>
+                <th>Descripción</th>
+                <th>Fecha</th>
+                <th>Hora de Alerta</th>
+                <th>Sistema Embebido ID</th>
+                <th>Estatus</th>
+              </tr>
+            </thead>
+            <tbody id="alertas-list"></tbody>
+          </table>
+          <script>
+            function addAlertaRow(alerta, root) {
+              const row = document.createElement("tr");
+
+              // Crear columnas para cada propiedad de la alerta
+              const columnDescripcion = document.createElement("td");
+              const columnFecha = document.createElement("td");
+              const columnHoraAlerta = document.createElement("td");
+              const columnSistemaEmbebidoId = document.createElement("td");
+              const columnEstatus = document.createElement("td");
+
+              // Asignar valores a las columnas
+              columnDescripcion.innerHTML = alerta.descripcion || 'No disponible';
+              columnFecha.innerHTML = alerta.fecha || 'No disponible';
+              columnHoraAlerta.innerHTML = alerta.hora_alerta || 'No disponible';
+              columnSistemaEmbebidoId.innerHTML = alerta.sistema_embebido_id || 'No disponible';
+              columnEstatus.innerHTML = alerta.estatus || 'No disponible';
+
+              // Añadir columnas a la fila
+              row.appendChild(columnDescripcion);
+              row.appendChild(columnFecha);
+              row.appendChild(columnHoraAlerta);
+              row.appendChild(columnSistemaEmbebidoId);
+              row.appendChild(columnEstatus);
+
+              // Añadir fila al tbody
+              root.appendChild(row);
+            }
+
+            const tbody = document.querySelector("#alertas-list");
+            fetch("http://127.0.0.1:8000/alertas", {
+              headers: {
+                Accept: "application/json",
+              },
+            })
+              .then((response) => {
+                console.log({ response });
+                if (!response.ok) {
+                  throw new Error("No se pueden obtener alertas");
+                }
+                return response.json();
+              })
+              .then((alertas) => {
+                for (const alerta of alertas) {
+                  addAlertaRow(alerta, tbody);
+                }
+              })
+              .catch((error) => {
+                console.error("Error:", error);
+                alert("Ocurrió un error al obtener alertas");
+              });
+          </script>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

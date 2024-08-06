@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sectores</title>
+  <title>Informes</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -28,8 +28,7 @@
     }
     table {
       width: 100%;
-      border-collapse: separate; /* Cambiar para usar border-spacing */
-      border-spacing: 0 10px; /* Espacio entre filas */
+      border-collapse: collapse;
       margin-top: 20px;
       margin-bottom: 20px;
     }
@@ -56,43 +55,56 @@
     <div id="page-inner">
       <div class="row">
         <div class="col-md-12">
-          <h1>Sectores</h1>
+          <h1>Informes</h1>
           <br /><br />
 
           <table>
             <thead>
               <tr>
-                <th>Nombre</th>
-                <th> </th>
-                <th>Status</th>
+                <th>Fecha</th>
+                <th>Descripción</th>
+                <th>Tipo de Análisis</th>
+                <th>Resultado de Análisis</th>
+                <th>ID Mina</th>
+                <th>ID Sector</th>
               </tr>
             </thead>
-            <tbody id="sectores-list"></tbody>
+            <tbody id="minas-list"></tbody>
           </table>
           <script>
-            function addSectorRow(sector, root) {
+            function addMinaRow(informe, root) {
               const row = document.createElement("tr");
 
-              // Crear columnas para cada propiedad del sector
-              const columnNombre = document.createElement("td");
+              // Crear columnas para cada propiedad del informe
+              const columnFecha = document.createElement("td");
+              const columnDescripcion = document.createElement("td");
+              const columnTipoAnalisis = document.createElement("td");
+              const columnResultadoAnalisis = document.createElement("td");
               const columnMinaId = document.createElement("td");
-              const columnStatus = document.createElement("td");
+              const columnSectorId = document.createElement("td");
 
               // Asignar valores a las columnas
-              columnNombre.innerHTML = sector.nombre || 'No disponible';
-              columnStatus.innerHTML = sector.status || 'No disponible';
+              columnFecha.innerHTML = informe.fecha || 'No disponible';
+              columnDescripcion.innerHTML = informe.descripcion || 'No disponible';
+              columnTipoAnalisis.innerHTML = informe.tipo_analisis || 'No disponible';
+              columnResultadoAnalisis.innerHTML = informe.resultado_analisis || 'No disponible';
+              columnMinaId.innerHTML = informe.mina_id || 'No disponible';
+              columnSectorId.innerHTML = informe.sector_id || 'No disponible';
 
               // Añadir columnas a la fila
-              row.appendChild(columnNombre);
+              row.appendChild(columnFecha);
+              row.appendChild(columnDescripcion);
+              row.appendChild(columnTipoAnalisis);
+              row.appendChild(columnResultadoAnalisis);
               row.appendChild(columnMinaId);
-              row.appendChild(columnStatus);
+              row.appendChild(columnSectorId);
 
               // Añadir fila al tbody
               root.appendChild(row);
             }
 
-            const tbody = document.querySelector("#sectores-list");
-            fetch("http://127.0.0.1:8000/sectores", {
+            const tbody = document.querySelector("#minas-list");
+            fetch("http://127.0.0.1:8000/informes", {
               headers: {
                 Accept: "application/json",
               },
@@ -100,18 +112,18 @@
               .then((response) => {
                 console.log({ response });
                 if (!response.ok) {
-                  throw new Error("No se pueden obtener sectores");
+                  throw new Error("No se pueden obtener informes");
                 }
                 return response.json();
               })
-              .then((sectores) => {
-                for (const sector of sectores) {
-                  addSectorRow(sector, tbody);
+              .then((informes) => {
+                for (const informe of informes) {
+                  addMinaRow(informe, tbody);
                 }
               })
               .catch((error) => {
                 console.error("Error:", error);
-                alert("Ocurrió un error al obtener sectores");
+                alert("Ocurrió un error al obtener informes");
               });
           </script>
         </div>

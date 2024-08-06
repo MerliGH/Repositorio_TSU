@@ -1,0 +1,140 @@
+<script src="https://unpkg.com/htmx.org@1.9.12/dist/ext/client-side-templates.js"></script>
+<dialog open>
+  <form id="agregar-mina">
+    <h2>Agregar mina</h2>
+    <div class="form-group">
+      <label for="calle">nombre:</label>
+      <input
+        type="text"
+        class="form-control"
+        id="nombre"
+        name="nombre"
+        required
+      />
+      <span class="error-message" id="error-nombre"></span>
+    </div>
+    <div class="form-group">
+      <label for="calle">calle:</label>
+      <input
+        type="text"
+        class="form-control"
+        id="calle"
+        name="calle"
+        required
+      />
+      <span class="error-message" id="error-calle"></span>
+    </div>
+    <div class="form-group">
+      <label for="numero">numero:</label>
+      <input
+        type="text"
+        class="form-control"
+        id="numero"
+        name="numero"
+        required
+      />
+      <span class="error-message" id="error-numero"></span>
+    </div>
+    <div class="form-group">
+      <label for="colonia">colonia:</label>
+      <input
+        type="text"
+        class="form-control"
+        id="colonia"
+        name="colonia"
+        required
+      />
+      <span class="error-message" id="error-colonia"></span>
+    </div>
+    <div class="form-group">
+      <label for="codigo_postal">codigo_postal:</label>
+      <input
+        type="text"
+        class="form-control"
+        id="codigo_postal"
+        name="codigo_postal"
+        required
+      />
+      <span class="error-message" id="error-codigo_postal"></span>
+    </div>
+    <div class="form-group">
+      <label for="estado">estado:</label>
+      <input
+        type="text"
+        class="form-control"
+        id="estado"
+        name="estado"
+        required
+      />
+      <span class="error-message" id="error-estado"></span>
+    </div>
+    <div class="form-group">
+      <label for="status">status:</label>
+      <input
+        type="text"
+        class="form-control"
+        id="status"
+        name="status"
+        required
+      />
+      <span class="error-message" id="error-status"></span>
+    </div>
+    <button type="submit" class="btn btn-primary">Registrar</button>
+  </form>
+</dialog>
+
+<style>
+  /* Estilo para el backdrop */
+  dialog::backdrop {
+    background: rgba(0, 0, 0, 0.3);
+  }
+
+  /* Estilo para el diálogo */
+  dialog {
+    position: fixed; /* Asegúrate de que el diálogo esté fijo en la ventana */
+    right: 0; /* Mueve el diálogo hacia la derecha */
+    margin-right: 50px; /* Ajusta el margen para el espacio a la derecha */
+    margin-top: -160px; /* Opcional: Ajusta el margen superior */
+  }
+</style>
+
+<script>
+  document
+    .getElementById("agregar-mina")
+    .addEventListener("submit", async function (event) {
+      event.preventDefault();
+      const data = new FormData(event.target);
+
+      // Crear el objeto empleado
+      var mina = {
+        nombreCompleto: {
+          nombre: data.get("nombre"),
+          apPaterno: data.get("apellidoPaterno"),
+          apMaterno: data.get("apellidoMaterno"),
+        },
+        rol: "administrador",
+        mina_id: "", //parte del select
+        status: "true",
+      };
+
+      $.ajax({
+        url: "http://127.0.0.1:8000/minas",
+        type: "POST",
+        contentType: "application/json",
+        data: JSON.stringify({
+          nombre: data.get("nombre"),
+          direccion: {
+            calle: data.get("calle"),
+            numero: data.get("numero"),
+            colonia: data.get("colonia"),
+            codigo_postal: data.get("codigo_postal"),
+            estado: data.get("estado"),
+          },
+          status: data.get("status"),
+        }),
+        success: function (response) {
+          location.reload();
+        },
+      });
+    });
+</script>

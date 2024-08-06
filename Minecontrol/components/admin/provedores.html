@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Proveedores</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+    }
+    #page-wrapper {
+      padding: 20px;
+    }
+    #page-inner {
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      padding: 30px;
+      margin-bottom: 30px;
+    }
+    h1 {
+      color: #333;
+      margin-bottom: 30px;
+      font-size: 2em;
+    }
+    table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0 10px;
+      margin-top: 20px;
+      margin-bottom: 20px;
+    }
+    table, th, td {
+      border: 1px solid #ddd;
+    }
+    th, td {
+      padding: 12px;
+      text-align: left;
+    }
+    th {
+      background-color: #f2f2f2;
+    }
+    tbody tr:nth-child(even) {
+      background-color: #f9f9f9;
+    }
+    tbody tr:hover {
+      background-color: #f1f1f1;
+    }
+  </style>
+</head>
+<body>
+  <div id="page-wrapper">
+    <div id="page-inner">
+      <div class="row">
+        <div class="col-md-12">
+          <h1>Proveedores</h1>
+          <br><br>
+          <table>
+            <thead>
+              <tr>
+                <th>Nombre Completo</th>
+                <th>Nombre Empresa</th>
+                <th>Teléfono</th>
+                <th>Email</th>
+                <th>Dirección</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody id="proveedores-list"></tbody>
+          </table>
+          <script>
+            function addProveedorRow(proveedor, root) {
+              const row = document.createElement("tr");
+
+              // Crear columnas para cada propiedad del proveedor
+              const columnNombreCompleto = document.createElement("td");
+              const columnNombreEmpresa = document.createElement("td");
+              const columnTelefono = document.createElement("td");
+              const columnEmail = document.createElement("td");
+              const columnDireccion = document.createElement("td");
+              const columnStatus = document.createElement("td");
+
+              // Asignar valores a las columnas
+              const { nombre, apPaterno, apMaterno } = proveedor.nombreCompleto;
+              columnNombreCompleto.innerHTML = [nombre, apPaterno, apMaterno]
+                .filter(Boolean)
+                .join(" ");
+              columnNombreEmpresa.innerHTML = proveedor.nombreEmpresa || 'No disponible';
+              columnTelefono.innerHTML = proveedor.contacto.telefono || 'No disponible';
+              columnEmail.innerHTML = proveedor.contacto.email || 'No disponible';
+              columnDireccion.innerHTML = [
+                proveedor.direccion.calle || 'No disponible',
+                proveedor.direccion.numero || '',
+                proveedor.direccion.colonia || '',
+                proveedor.direccion.codigo_postal || '',
+                proveedor.direccion.estado || ''
+              ].filter(Boolean).join(", ");
+              columnStatus.innerHTML = proveedor.status || 'No disponible';
+
+              // Añadir columnas a la fila
+              row.appendChild(columnNombreCompleto);
+              row.appendChild(columnNombreEmpresa);
+              row.appendChild(columnTelefono);
+              row.appendChild(columnEmail);
+              row.appendChild(columnDireccion);
+              row.appendChild(columnStatus);
+
+              // Añadir fila al tbody
+              root.appendChild(row);
+            }
+
+            const tbody = document.querySelector("#proveedores-list");
+            fetch("http://127.0.0.1:8000/proveedores", {
+              headers: {
+                Accept: "application/json",
+              },
+            })
+              .then((response) => {
+                if (!response.ok) {
+                  throw new Error("No se pueden obtener proveedores");
+                }
+                return response.json();
+              })
+              .then((proveedores) => {
+                for (const proveedor of proveedores) {
+                  addProveedorRow(proveedor, tbody);
+                }
+              })
+              .catch((error) => {
+                console.error("Error:", error);
+                alert("Ocurrió un error al obtener proveedores");
+              });
+          </script>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

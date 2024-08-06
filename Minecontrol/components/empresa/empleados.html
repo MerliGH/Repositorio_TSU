@@ -1,1 +1,94 @@
-<h1>Empleados</h1>
+<div id="page-wrapper">
+  <div id="page-inner">
+    <div class="row">
+      <div class="col-md-12">
+        <h1>Empleados</h1>
+<br>
+        <button
+          hx-trigger="click"
+          hx-target="#add-form"
+          hx-get="components/empresa/empleados/dialogoAgregar.html"
+          hx-swap="outerHTML"
+        >
+          Agregar empleado
+        </button>
+        <br><br>______________________________________________________________________________________________________________________________________________________<br><br><br>
+        <div id="add-form"></div>
+
+        <table>
+          <thead>
+            <tr>
+              <td><b>------------ Nombre -------------</b></td>
+              <td><b>--- Acciones --- </b></td>
+            </tr>
+          </thead>
+          <tbody id="empleados-list"></tbody>
+        </table>
+        <script>
+          function addEmpleadoRow(empleado, root) {
+            const row = document.createElement("tr");
+            const columnNombre = document.createElement("td");
+            const columnVerEmpleados = document.createElement("td");
+            const editarEmpleadoBtn = document.createElement("button");
+            const borrarEmpleadoBtn = document.createElement("button");
+            const { nombre, apPaterno, apMaterno } = empleado.nombreCompleto;
+            columnNombre.innerHTML = [nombre, apPaterno, apMaterno]
+              .filter(Boolean)
+              .join(" ");
+            editarEmpleadoBtn.innerHTML = "Editar Empleado";
+            borrarEmpleadoBtn.innerHTML = "Borrar Empleado";
+            editarEmpleadoBtn.onclick = () => {
+              sessionStorage.setItem('empleado-details', JSON.stringify(empleado));
+              location.href = 'empleado.html'
+            }; 
+            borrarEmpleadoBtn.onclick = async () => {
+              await fetch(`http://127.0.0.1:8000/empleados/${empleado.id}`, {method: 'DELETE'});
+              fetch('http://127.0.0.1:8000/usuarios', {
+                    method: 'GET',
+                    headers: {
+                        Accept: "application/json",
+                    },
+                }).then((response) => response.json()).then(async (usuarios) => {
+                    const [usuario] = usuarios.filter(usuario => usuario.empleado_id === empleado.id);
+                    if (usuario) {
+                      await fetch(`http://127.0.0.1:8000/usuarios/${usuario.id}`, {method: 'DELETE'});
+                    }
+                    location.reload();
+                });
+              
+            };
+            columnVerEmpleados.appendChild(editarEmpleadoBtn);
+            columnVerEmpleados.appendChild(borrarEmpleadoBtn);
+            row.appendChild(columnNombre);
+            row.appendChild(columnVerEmpleados);
+            root.appendChild(row);
+          }
+
+          const tbody = document.querySelector("#empleados-list");
+          fetch("http://127.0.0.1:8000/empleados", {
+            headers: {
+              Accept: "application/json",
+            },
+          })
+            .then((response) => {
+              console.log({ response });
+              if (!response.ok) {
+                return alert("No se pueden obtener empleados");
+              }
+
+              return response.json();
+            })
+            .then((empleados) => {
+              for (const empleado of empleados) {
+                addEmpleadoRow(empleado, tbody);
+              }
+            })
+            .catch((error) => {
+              console.error("Error:", error);
+              alert("Ocurrió un error al obtener empleados");
+            });
+        </script>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,80 @@
+<div id="page-wrapper">
+  <div id="page-inner">
+    <div class="row">
+      <div class="col-md-12">
+        <h1>Sistemas Embebidos</h1>
+        <br />
+        <button
+          hx-trigger="click"
+          hx-target="#add-form"
+          hx-get="components/empresa/sistemasEmbebidos/dialogoAgregar.html"
+          hx-swap="outerHTML"
+        >
+          Agregar sistemas emebebidos
+        </button>
+        <br /><br />______________________________________________________________________________________________________________________________________________________<br /><br /><br />
+        <div id="add-form"></div>
+
+        <table>
+          <thead>
+            <tr>
+              <td><b>------------ Nombre -------------</b></td>
+              <td><b>--- Acciones --- </b></td>
+            </tr>
+          </thead>
+          <tbody id="sectores-list"></tbody>
+        </table>
+        <script>
+          function addMinaRow(se, root) {
+            const row = document.createElement("tr");
+            const columnNombre = document.createElement("td");
+            const columnAcciones = document.createElement("td");
+            const editarBtn = document.createElement("button");
+            const borrarBtn = document.createElement("button");
+            columnNombre.innerHTML = se.nombre
+            editarBtn.innerHTML = "Editar";
+            borrarBtn.innerHTML = "Borrar";
+            editarBtn.onclick = () => {
+              sessionStorage.setItem("sistemaEmbebido-details", JSON.stringify(se));
+              location.href = "sistemaEmbebido.html";
+            };
+            borrarBtn.onclick = async () => {
+              await fetch(`https://polliwog-desired-egret.ngrok-free.app/sistemas_embebidos/${se.id}`, {
+                method: "DELETE",
+              });
+              location.reload();
+            };
+            columnAcciones.appendChild(editarBtn);
+            columnAcciones.appendChild(borrarBtn);
+            row.appendChild(columnNombre);
+            row.appendChild(columnAcciones);
+            root.appendChild(row);
+          }
+
+          const tbody = document.querySelector("#sistemas_embebidos-list");
+          fetch("https://polliwog-desired-egret.ngrok-free.app/sistemas_embebidos", {
+            headers: {
+              Accept: "application/json",
+            },
+          })
+            .then((response) => {
+              if (!response.ok) {
+                return alert("No se pueden obtener empleados");
+              }
+
+              return response.json();
+            })
+            .then((sistemas_embebidos) => {
+              for (const se of sistemas_embebidos) {
+                addMinaRow(se, tbody);
+              }
+            })
+            .catch((error) => {
+              console.error("Error:", error);
+              alert("Ocurrió un error al obtener empleados");
+            });
+        </script>
+      </div>
+    </div>
+  </div>
+</div>

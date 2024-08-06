@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sectores</title>
+  <title>Minas</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -56,43 +56,60 @@
     <div id="page-inner">
       <div class="row">
         <div class="col-md-12">
-          <h1>Sectores</h1>
+          <h1>Minas</h1>
           <br /><br />
 
           <table>
             <thead>
               <tr>
                 <th>Nombre</th>
-                <th> </th>
+                <th>Calle</th>
+                <th>Número</th>
+                <th>Colonia</th>
+                <th>Código Postal</th>
+                <th>Estado</th>
                 <th>Status</th>
               </tr>
             </thead>
-            <tbody id="sectores-list"></tbody>
+            <tbody id="minas-list"></tbody>
           </table>
           <script>
-            function addSectorRow(sector, root) {
+            function addMinaRow(mina, root) {
               const row = document.createElement("tr");
 
-              // Crear columnas para cada propiedad del sector
+              // Crear columnas para cada propiedad de la mina
               const columnNombre = document.createElement("td");
-              const columnMinaId = document.createElement("td");
+              const columnCalle = document.createElement("td");
+              const columnNumero = document.createElement("td");
+              const columnColonia = document.createElement("td");
+              const columnCodigoPostal = document.createElement("td");
+              const columnEstado = document.createElement("td");
               const columnStatus = document.createElement("td");
 
               // Asignar valores a las columnas
-              columnNombre.innerHTML = sector.nombre || 'No disponible';
-              columnStatus.innerHTML = sector.status || 'No disponible';
+              columnNombre.innerHTML = mina.nombre || 'No disponible';
+              columnCalle.innerHTML = mina.direccion.calle || 'No disponible';
+              columnNumero.innerHTML = mina.direccion.numero || 'No disponible';
+              columnColonia.innerHTML = mina.direccion.colonia || 'No disponible';
+              columnCodigoPostal.innerHTML = mina.direccion.codigo_postal || 'No disponible';
+              columnEstado.innerHTML = mina.direccion.estado || 'No disponible';
+              columnStatus.innerHTML = mina.status || 'No disponible';
 
               // Añadir columnas a la fila
               row.appendChild(columnNombre);
-              row.appendChild(columnMinaId);
+              row.appendChild(columnCalle);
+              row.appendChild(columnNumero);
+              row.appendChild(columnColonia);
+              row.appendChild(columnCodigoPostal);
+              row.appendChild(columnEstado);
               row.appendChild(columnStatus);
 
               // Añadir fila al tbody
               root.appendChild(row);
             }
 
-            const tbody = document.querySelector("#sectores-list");
-            fetch("http://127.0.0.1:8000/sectores", {
+            const tbody = document.querySelector("#minas-list");
+            fetch("http://127.0.0.1:8000/minas", {
               headers: {
                 Accept: "application/json",
               },
@@ -100,18 +117,18 @@
               .then((response) => {
                 console.log({ response });
                 if (!response.ok) {
-                  throw new Error("No se pueden obtener sectores");
+                  throw new Error("No se pueden obtener minas");
                 }
                 return response.json();
               })
-              .then((sectores) => {
-                for (const sector of sectores) {
-                  addSectorRow(sector, tbody);
+              .then((minas) => {
+                for (const mina of minas) {
+                  addMinaRow(mina, tbody);
                 }
               })
               .catch((error) => {
                 console.error("Error:", error);
-                alert("Ocurrió un error al obtener sectores");
+                alert("Ocurrió un error al obtener minas");
               });
           </script>
         </div>
@@ -120,3 +137,4 @@
   </div>
 </body>
 </html>
+
