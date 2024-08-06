@@ -9,7 +9,7 @@
     <!-- MORRIS CHART STYLES-->
     <link href="assets/js/morris/morris-0.4.3.min.css" rel="stylesheet" />
     <!-- CUSTOM STYLES-->
-    <link href="components/navbar/navbar.css" rel="stylesheet" type="text/css" />
+    <link href="components/common/navbar/navbar.css" rel="stylesheet" type="text/css" />
     <link href="assets/css/custom2.css" rel="stylesheet" />
     <!-- GOOGLE FONTS-->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
@@ -37,21 +37,7 @@
 </head>
 <body>
     <div id="wrapper">
-        <nav class="navbar navbar-default navbar-cls-top" role="navigation" style="margin-bottom: 0">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
-                </button>
-                <a class="navbar-brand" href="#"><i>MineControl ® </i></a>
-                
-            </div>
-            <div style="color: white; padding: 15px 50px 5px 50px; float: right; font-size: 16px;">
-                <i class="align-left">- ¿No te convence? Puedes pensarlo, ¡aquí te esperaremos! -</i>
-
-                 <a href="index.html" class="btn btn-danger ">Regresar</a>
-
-            </div>
-        </nav>
-        <nav class="navbar-default navbar-side" role="navigation"></nav>
+        <div hx-trigger="load" hx-get="components/common/navbar/navbarEmpty.html"></div>
         <div id="page-wrapper">
             <div id="page-inner">
                 <div class="row">
@@ -127,6 +113,7 @@
     <script src="assets/js/custom2.js"></script>
     <script src="assets/js/updateLink.js"></script>
     <script src="assets/js/admin.js"></script>
+    <script src="https://unpkg.com/htmx.org@2.0.1" integrity="sha384-QWGpdj554B4ETpJJC9z+ZHJcA/i59TyjxEPXiiUgN2WmTyV5OEZWCD6gQhgkdpB/" crossorigin="anonymous"></script>
     
     <!-- PayPal Buttons Integration -->
     <script src="https://www.paypal.com/sdk/js?client-id=ASSphX2uduyfMRJLzvh76VXg-iOb7Sjd11zFhJJKVslxLJiH-Zq-zQN9dACdfW-EvM6ix5bX282boVPZ&currency=MXN"></script>
@@ -209,7 +196,7 @@ function setupPaypalButtons() {
                     .then(response => response.json())
                     .then(paymentResult => {
                         console.log('Payment registered:', paymentResult);
-                        window.location.href = `index2.html?id=${encodeURIComponent(userId)}`;
+                        window.location.href = `empresa.html?id=${encodeURIComponent(userId)}`;
                     })
                     .catch(error => {
                         console.error('Error registering payment:', error);
@@ -289,7 +276,7 @@ function setupPaypalButtons() {
                     .then(response => response.json())
                     .then(paymentResult => {
                         console.log('Payment registered:', paymentResult);
-                        window.location.href = `index2.html?id=${encodeURIComponent(userId)}`;
+                        window.location.href = `empresa.html?id=${encodeURIComponent(userId)}`;
                     })
                     .catch(error => {
                         console.error('Error registering payment:', error);
@@ -370,7 +357,7 @@ function setupPaypalButtons() {
                     .then(response => response.json())
                     .then(paymentResult => {
                         console.log('Payment registered:', paymentResult);
-                        window.location.href = `index2.html?id=${encodeURIComponent(userId)}`;
+                        window.location.href = `empresa.html?id=${encodeURIComponent(userId)}`;
                     })
                     .catch(error => {
                         console.error('Error registering payment:', error);

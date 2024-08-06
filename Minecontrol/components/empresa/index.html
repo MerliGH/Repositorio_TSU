@@ -1,0 +1,55 @@
+<div id="page-wrapper">
+    <div id="page-inner">
+        <div class="row">
+            <div class="col-md-12">
+                <h2>★ Panel empresarial ★</h2>
+                <h5>Welcome <span id="user-name">Loading...</span>. Love to see you back. </h5>
+                <!-- Sección Minas -->
+                <div id="minas-section">
+                    <h3>Minas</h3>
+                    <!-- Botón para obtener todas las minas -->
+                    <button onclick="getMinas()">Obtener Minasfuncion</button>
+                    <button id="obtenerMinasBtn">Obtener Minasbtn</button>
+                    <!-- Sección para mostrar las minas -->
+                    <ul id="minas-list"></ul>
+                    <!-- Formulario para añadir una nueva mina -->
+                    <h4>Agregar Nueva Mina</h4>
+                    <form id="add-mina-form">
+                        <label for="mina-name">Nombre de Mina:</label>
+                        <input type="text" id="mina-name" name="name" required />
+                        <button type="button" onclick="addMina()">Agregar Mina</button>
+                    </form>
+                    <!-- Formulario para actualizar una mina -->
+                    <h4>Actualizar Mina</h4>
+                    <form id="update-mina-form">
+                        <label for="update-mina-id">ID de Mina:</label>
+                        <input type="text" id="update-mina-id" name="id" required />
+                        <label for="update-mina-name">Nuevo Nombre:</label>
+                        <input type="text" id="update-mina-name" name="name" required />
+                        <button type="button" onclick="updateMina()">Actualizar Mina</button>
+                    </form>
+                    <!-- Formulario para eliminar una mina -->
+                    <h4>Eliminar Mina</h4>
+                    <form id="delete-mina-form">
+                        <label for="delete-mina-id">ID de Mina:</label>
+                        <input type="text" id="delete-mina-id" name="id" required />
+                        <button type="button" onclick="deleteMina()">Eliminar Mina</button>
+                    </form>
+                    <!-- Sección para mostrar las minas -->
+                    <div id="minas-list"></div>
+                </div>
+            </div>
+        </div>
+        <!-- ROW -->
+        <hr />
+        <div class="row">
+            <!-- Panels go here -->
+        </div>
+        <!-- /ROW -->
+        <hr />
+        <div class="row">
+            <!-- More panels and content go here -->
+        </div>
+        <!-- /ROW -->
+    </div>
+</div>

@@ -1,0 +1,30 @@
+Admin - casi todo solo lectura
+    alertasAdmin -- Crear, leer, editar 
+    indexAdmin  -- (Lectura)
+    sectoresAdmin -- (Lectura)
+    sistemasEmbebidosAdmin -- (Lectura)
+    sensoresAdmin -- (Lectura)
+    empleadosAdmin -- (Lectura)
+    informesAdmin -- Crear, leer, editar
+    provedoresAdmin -- Crear, leer, editar
+    
+Empresa -- TODOS LOS CRUD 
+    index2 --- Lectura 
+    sectores //Minas y sectores
+    sistemasEmbebidos
+    sensores
+    empleados
+    alertas
+    informes
+    suscripcionesEnterprise --Lectura
+    pagos --Lectura
+    provedores 
+    
+---
+
+SPA
+
+- navbar, fijo
+- sidemenu, fijo
+- content, dinamico
+

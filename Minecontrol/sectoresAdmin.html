@@ -4,89 +4,109 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>MineControl ®</title>
+    <title>MineControl ® |    Admin</title>
     <!-- PAGE ICON-->
-    <link rel="shortcut icon" type="image/x-icon" href="assets/img/AC.ico">
-    <!-- BOOTSTRAP STYLES-->
-    <link href="assets/css/bootstrap.css" rel="stylesheet" />
-    <!-- FONTAWESOME STYLES-->
-    <link href="assets/css/font-awesome.css" rel="stylesheet" />
-        <!-- CUSTOM STYLES -->
-    <link href="components/navbar/navbar.css" rel="stylesheet" type="text/css" />
-    <link href="components/content/content.css" rel="stylesheet" type="text/css" />
+    <link rel="shortcut icon" type="image/x-icon" href="assets/img/AC.ico" />
+
+    <!-- BOOTSTRAP STYLES -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet" />
+
+    <!-- FONTAWESOME STYLES -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+
+    <!-- CUSTOM STYLES -->
+    <link href="components/common/navbar/navbar.css" rel="stylesheet" type="text/css" />
+    <link href="components/admin/index.css" rel="stylesheet" type="text/css" />
     <link href="assets/css/custom2.css" rel="stylesheet" />
-    <!-- MORRIS CHART STYLES-->
+
+    <!-- MORRIS CHART STYLES -->
     <link href="assets/js/morris/morris-0.4.3.min.css" rel="stylesheet" />
-    <!-- GOOGLE FONTS-->
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+
+    <!-- GOOGLE FONTS -->
+    <link href="http://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css" />
     <!-- BOOTSTRAP STYLES -->
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet" />
     <!-- FONTAWESOME STYLES -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
     <script src="assets/js/userGlobal.js"></script>
-     
+
+    <!-- CUSTOM STYLES -->
+    <style>
+        #user-name {
+            color: white;
+            text-align: right;
+            display: block;
+            margin-right: 14px;
+            padding: 0;
+        }
+    </style>
 </head>
 
 <body>
     <div id="wrapper">
-        <script src="components/navbarAdmin/navbar.js"></script>
-        <div id="navbar"></div>
-        <script src="components/contentAdmin/content.js"></script>
-        <div id="content"></div>
-        <!-- FOOTER -->
+        <div>
+            <span id="user-name"></span>
+        </div>
+
+        <div hx-trigger="load" hx-get="components/common/navbar/navbarAdmin.html"></div>
+        <div hx-trigger="load" hx-get="components/admin/sectores.html"></div>
 
         <!-- SCRIPTS -->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <script src="https://unpkg.com/htmx.org@2.0.1" integrity="sha384-QWGpdj554B4ETpJJC9z+ZHJcA/i59TyjxEPXiiUgN2WmTyV5OEZWCD6gQhgkdpB/" crossorigin="anonymous"></script>
+        <script src="components/navbar/welcome.js"></script>
         <script src="assets/js/admin.js"></script>
+
+        <script src="assets/js/welcome.js" defer></script>
+
+        // user-global.js
         <script>
-           // user-global.js
-document.addEventListener('DOMContentLoaded', () => {
-    // Obtén el userId de los parámetros de la URL
-    const urlParams = new URLSearchParams(window.location.search);
-    const urlUserId = urlParams.get('id');
-    
-    // Si existe un userId en la URL, guárdalo en localStorage
-    if (urlUserId) {
-        localStorage.setItem('userId', urlUserId);
-        console.log('ID de usuario guardado desde URL:', urlUserId);
-    } 
+            document.addEventListener("DOMContentLoaded", () => {
+                const urlParams = new URLSearchParams(window.location.search);
+                const urlUserId = urlParams.get("id");
 
-    // Obtén el userId del localStorage
-    const userId = localStorage.getItem('userId');
-    if (userId) {
-        console.log('ID de usuario:', userId);
-
-        // Actualiza el contenido del DOM
-        const userNameElement = document.getElementById('user-name');
-        if (userNameElement) {
-            userNameElement.textContent = 'Usuario ID: ' + userId;
-        }
-
-        // Actualiza todos los enlaces para incluir el userId
-        document.querySelectorAll('a').forEach(anchor => {
-            let href = anchor.getAttribute('href');
-            if (href) {
-                if (href.indexOf('?') === -1) {
-                    anchor.setAttribute('href', href + '?id=' + encodeURIComponent(userId));
-                } else if (href.indexOf('id=') === -1) {
-                    anchor.setAttribute('href', href + '&id=' + encodeURIComponent(userId));
+                if (urlUserId) {
+                    localStorage.setItem("userId", urlUserId);
+                    console.log("ID de usuario guardado desde URL:", urlUserId);
                 }
-            }
-        });
-    } else {
-        console.log('No user ID found in localStorage');
-    }
-});
 
-        </script>
+                const userId = localStorage.getItem("userId");
+                if (userId) {
+                    console.log("ID de usuario:", userId);
 
-        <script>
+                    const userNameElement = document.getElementById("user-name");
+                    if (userNameElement) {
+                        // userNameElement.textContent = 'Usuario ID: ' + userId;
+                    }
+
+                    document.querySelectorAll("a").forEach((anchor) => {
+                        let href = anchor.getAttribute("href");
+                        if (href) {
+                            if (href.indexOf("?") === -1) {
+                                anchor.setAttribute(
+                                    "href",
+                                    href + "?id=" + encodeURIComponent(userId)
+                                );
+                            } else if (href.indexOf("id=") === -1) {
+                                anchor.setAttribute(
+                                    "href",
+                                    href + "&id=" + encodeURIComponent(userId)
+                                );
+                            }
+                        }
+                    });
+                } else {
+                    console.log("No user ID found in localStorage");
+                }
+            });
+
             function cerrarSesion() {
-                localStorage.removeItem('userId');
-                window.location.href = 'index.html'; // Redirige al usuario a la página de inicio de sesión
+                localStorage.removeItem("userId");
+                window.location.href = "index.html"; // Redirige al usuario a la página de inicio de sesión
             }
         </script>
+    </div>
 </body>
 
 </html>

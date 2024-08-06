@@ -73,7 +73,7 @@ document.addEventListener('DOMContentLoaded', () => {
         // Actualiza el contenido del DOM
         const userNameElement = document.getElementById('user-name');
         if (userNameElement) {
-            userNameElement.textContent = 'Usuario ID: ' + userId;
+         //   userNameElement.textContent = 'Usuario ID: ' + userId;
         }
 
         // Actualiza la URL de la página actual para incluir el userId
@@ -246,3 +246,25 @@ function deleteMina() {
     .catch(error => console.error('Error:', error));
 }
 
+
+
+
+
+
+document.addEventListener('DOMContentLoaded', function() {
+    // Obtén el userId del localStorage
+    const userId = localStorage.getItem('userId');
+    console.log('ID de usuario desde localStorage:', userId);
+
+    // Actualiza el contenido del DOM para mostrar un mensaje de bienvenida
+    const userNameElement = document.getElementById('user-name');
+    if (userNameElement) {
+        if (userId) {
+            //userNameElement.textContent = `Welcome, User ID: ${userId}`;
+        } else {
+            userNameElement.textContent = 'Welcome!';
+        }
+    } else {
+        console.error('Elemento con ID "user-name" no encontrado.');
+    }
+});

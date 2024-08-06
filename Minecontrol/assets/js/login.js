@@ -19,6 +19,9 @@ $(document).ready(function() {
     });
 });
 
+const pagesAdmin = { index: 'admin.html' };
+const pagesEmpresa = { index: 'empresa.html' }; 
+
 // Función para iniciar sesión
 function iniciarSesion() {
     const email = $('#loginEmail').val().trim();
@@ -39,12 +42,15 @@ function iniciarSesion() {
                         // Buscar el empleado cuyo empleado_id coincida con el empleado_id del usuario
                         const empleado = empleados.find(emp => emp.id === usuario.empleado_id);
 
+                        console.log({empleado})
+
                         if (empleado) {
                             // Redirigir según el rol del empleado
+                            sessionStorage.setItem('empleadoRol', empleado.rol);
                             if (empleado.rol === 'Empresa') {
-                                window.location.href = `index2.html?id=${encodeURIComponent(usuario.id)}`;
+                                window.location.href = `${pagesEmpresa.index}?id=${encodeURIComponent(usuario.id)}`;
                             } else if (empleado.rol === 'administrador') {
-                                window.location.href = `indexAdmin.html?id=${encodeURIComponent(usuario.id)}`;
+                                window.location.href = `${pagesAdmin.index}?id=${encodeURIComponent(usuario.id)}`;
                             } else {
                                 alert('Correo o contraseña incorrectos.');
                             }

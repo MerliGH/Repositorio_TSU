@@ -253,3 +253,147 @@
     <script src="components/footer/footer.js"></script>
 
 </html>
+
+
+
+
+    <!-- Scripts -->
+    <script>
+        $(document).ready(function() {
+            var userName = localStorage.getItem('nombreUsuario');
+            var userToken = localStorage.getItem('userToken');
+            if (userName && userToken) {
+                $("#join-banner").html('<p>Bienvenido, ' + userName + '</p>');
+                $("#infobanner1, #infobanner2").hide();
+                $("#linkPlantas, #linkPerfil, #linkLogout, #linkCarrito").show();
+            } else {
+                $("#linkPlantas, #linkPerfil, #linkLogout, #linkCarrito").hide();
+            }
+        });
+
+        function logout() {
+            localStorage.removeItem('userToken');
+            localStorage.removeItem('nombreUsuario');
+            localStorage.removeItem('cart');
+            alert("Sesión cerrada correctamente");
+            window.location.href = 'index.html';
+        }
+    </script>
+
+
+
+<!-- White Boxes Section -->
+<div id="additional-text-container">
+    <p class="additional-text">Todo al alcance de tu mano</p>
+</div>
+
+
+<div class="white-boxes-container">
+    <div class="header-text">
+        <p class="mano"></p>
+        
+    </div>
+    <div class="white-box">
+        <h3>Uso de indicadores</h3>
+        <img src="assets/img/gauge.png" alt="Uso de indicadores" class="white-box-image">
+        <p class="mano1">Con nuestro software <i>MineControl ®</i> de AstraCloud ™, podrá revisar los niveles
+            de diversas lecturas de sensores, tal como evaluar la temperatura, el monitoreo de polvo,
+            o ver a que magnitud se estan exponiendo sus trabajadores al Monoxido de Carbono,
+             por mencionar algunos.
+
+
+        </p>
+    </div>
+    <div class="white-box">
+        <h3>Gráficos</h3>
+        <img src="assets/img/temp.png" alt="Gráficos" class="white-box-image4">
+        
+        <p class="mano1">Podrá ver el comportaminento de los sensores en las minas en tiempo real, 
+            nunca más tendrá retardos con las alertas o cosas inusuales en el sector minero.
+        </p>
+    </div>
+    <div class="white-box">
+        <h3>Tecnología de IoT</h3>
+        <img src="assets/img/iot.png" alt="Sistemas embebidos" class="white-box-image2">
+        
+        <p class="mano1">Los tiempos cambian para mejorar, es por ello que brindamos una solución tecnológica implementando Internet de las cosas en nuestros
+            sistemas embebidos, conectados a traves de wifi, donde enviamos los datos a una base de datos en la nube.
+        </p>
+    </div>
+    <div class="white-box">
+        <h3>Seguridad desde cualquier sitio</h3>
+        <img src="assets/img/app.png" alt="Suscripciones a tu tiempo" class="white-box-image3">
+        
+        <p>Nuestro software no solo esta disponible para navegadores web, <i><b>
+            ¡ahora también desde tu dispositivo movil!</b></i>
+         
+        </p>
+    </div>
+</div>
+
+<div id="additional-text-container">
+    <p class="additional-text">¡Contamos con opciones que se ajustan a tu bolsillo!</p>
+</div>
+
+ 
+
+
+<div class="boxes-container">
+    <div class="headerZ-text">
+        <p class="pie">Gestiona tus suscripciones</p>
+        <p class="pieses">En AstraCloud, entendemos que cada cliente tiene necesidades y presupuestos únicos. Por eso, ofrecemos una gama de opciones de suscripción flexibles, diseñadas para adaptarse a cualquier situación y garantizar que obtenga el máximo valor según sus requerimientos específicos. Desde planes mensuales ideales para evaluaciones iniciales, hasta opciones semestrales y anuales que proporcionan una gestión continua y eficiente, estamos comprometidos a ofrecer soluciones que se ajusten perfectamente a sus necesidades.</p>
+    </div>
+    <div class="subscription-box">
+        <h3>Mensual</h3>
+        <img src="assets/img/SEMESTRAL.png" alt="Suscripción Mensual" class="subscription-image2">
+        <p class="subscription-description">Accede a todas las funcionalidades de nuestro software durante un mes. Ideal para una evaluación inicial o necesidades temporales en la gestión de tus minas.</p>
+    </div>
+    <div class="subscription-box">
+        <h3>Semestral</h3>
+        <img src="assets/img/MENSUAL.png" alt="Suscripción Semestral" class="subscription-image1">
+        <p class="subscription-description">Opta por el plan semestral para una gestión más estable de tus minas, con un ahorro en comparación con el mensual. Perfecto para proyectos de mediana duración y para una supervisión continua.</p>
+    </div>
+    <div class="subscription-box">
+        <h3>Anual</h3>
+        <img src="assets/img/ANUAL.png" alt="Suscripción Anual" class="subscription-image">
+        <p class="subscription-description">Elige el plan anual para una gestión completa de tus minas durante todo el año. Obtén el mejor valor y asegúrate una supervisión ininterrumpida con acceso total a todas las funciones del software.</p>
+    </div>
+    <!-- Texto antes del botón -->
+    <div class="headerZ-text">
+        <p class="pie">¿Quieres saber más sobre nuestras opciones de suscripción y cómo pueden adaptarse a tus necesidades? 
+            <br><i>¡Conoce más!</i></p>
+    </div>
+    <!-- Botón para obtener suscripción -->
+
+    <div class="text-center mt-3">
+        <a href="servicios.html" class="btn btn-primary2">Obtener informacion</a>
+    </div></div>
+
+
+
+
+
+
+
+   
+    <div id="additional-text-container">
+        <p class="additional-text">¿Qué esperas? 
+        <a href="registro.html" class="additional-text link-highlight">¡Innova tu sector industrial con tecnología de IoT!</a></p>
+    </div>
+
+</body>
+
+<div id="footer-container"></div>
+  <div id="footer-placeholder"></div>
+
+    <!-- Scripts -->
+    <script>
+        $(function(){
+            $("#footer-placeholder").load("components/footer/footer.html");
+        });
+    </script>
+
+
+    <script src="components/footer/footer.js"></script>
+
+</html>
