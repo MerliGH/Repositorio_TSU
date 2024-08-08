@@ -100,7 +100,7 @@ $(document).ready(function() {
         };
     
         $.ajax({
-            url: 'https://polliwog-desired-egret.ngrok-free.app/empleados/',
+            url: 'http://127.0.0.1:8000/empleados/',
             type: 'POST',
             contentType: 'application/json',
             data: JSON.stringify(empleado),
@@ -108,7 +108,7 @@ $(document).ready(function() {
                 if (response && response.id) {
                     usuario.empleado_id = response.id;
                     $.ajax({
-                        url: 'https://polliwog-desired-egret.ngrok-free.app/usuarios/',
+                        url: 'http://127.0.0.1:8000/usuarios/',
                         type: 'POST',
                         contentType: 'application/json',
                         data: JSON.stringify(usuario),

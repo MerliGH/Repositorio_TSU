@@ -1,0 +1,51 @@
+<script src="https://cdnjs.cloudflare.com/ajax/libs/paho-mqtt/1.1.0/mqttws31.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+    // Configura el cliente MQTT
+    var client = new Paho.MQTT.Client('broker.mqtt.com', 1883, 'clientId');
+
+    client.onMessageArrived = function(message) {
+        var data = JSON.parse(message.payloadString);
+        updateChart(data);
+    };
+
+    client.connect({ onSuccess: onConnect });
+
+    function onConnect() {
+        console.log('Conectado');
+        client.subscribe('tu_tema');
+    }
+</script>
+
+<canvas id="myChart" width="400" height="200"></canvas>
+
+<script>
+    var ctx = document.getElementById('myChart').getContext('2d');
+    var myChart = new Chart(ctx, {
+        type: 'line',
+        data: {
+            labels: [], // Etiquetas para el gráfico
+            datasets: [{
+                label: 'Datos',
+                data: [], // Datos para el gráfico
+                borderColor: 'rgba(75, 192, 192, 1)',
+                borderWidth: 1
+            }]
+        },
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+
+    function updateChart(data) {
+        // Actualiza los datos y etiquetas del gráfico
+        myChart.data.labels.push(new Date().toLocaleTimeString());
+        myChart.data.datasets[0].data.push(data.valor); // Cambia esto según tus datos
+        myChart.update();
+    }
+</script>

@@ -19,6 +19,7 @@
           <thead>
             <tr>
               <td><b>------------ Nombre -------------</b></td>
+              <td><b>------- Estado -------</b></td>
               <td><b>--- Acciones --- </b></td>
             </tr>
           </thead>
@@ -28,25 +29,33 @@
           function addMinaRow(mina, root) {
             const row = document.createElement("tr");
             const columnNombre = document.createElement("td");
+            const columnEstado = document.createElement("td");
             const columnAcciones = document.createElement("td");
             const editarBtn = document.createElement("button");
             const borrarBtn = document.createElement("button");
-            columnNombre.innerHTML = mina.nombre
+            
+            columnNombre.innerHTML = mina.nombre;
+            columnEstado.innerHTML = mina.status;  // Muestra el estado de la mina
+
             editarBtn.innerHTML = "Editar Mina";
             borrarBtn.innerHTML = "Borrar Mina";
+            
             editarBtn.onclick = () => {
               sessionStorage.setItem("mina-details", JSON.stringify(mina));
               location.href = "mina.html";
             };
+
             borrarBtn.onclick = async () => {
               await fetch(`http://127.0.0.1:8000/minas/${mina.id}`, {
                 method: "DELETE",
               });
               location.reload();
             };
+
             columnAcciones.appendChild(editarBtn);
             columnAcciones.appendChild(borrarBtn);
             row.appendChild(columnNombre);
+            row.appendChild(columnEstado);  // Agrega la columna de estado
             row.appendChild(columnAcciones);
             root.appendChild(row);
           }
@@ -60,7 +69,7 @@
             .then((response) => {
               console.log({ response });
               if (!response.ok) {
-                return alert("No se pueden obtener empleados");
+                return alert("No se pueden obtener minas");
               }
 
               return response.json();
@@ -72,7 +81,7 @@
             })
             .catch((error) => {
               console.error("Error:", error);
-              alert("Ocurrió un error al obtener empleados");
+              alert("Ocurrió un error al obtener minas");
             });
         </script>
       </div>

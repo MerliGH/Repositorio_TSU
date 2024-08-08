@@ -34,7 +34,7 @@ function iniciarSesion() {
             // Buscar el usuario con el correo y contraseña proporcionados
             const usuario = data.find(user => user.correo === email && user.password === password);
 
-            if (usuario) {
+            if (usuario) { 
                 // Si el login es exitoso, obtener todos los empleados
                 fetch('http://127.0.0.1:8000/empleados/')
                     .then(response => response.json())
