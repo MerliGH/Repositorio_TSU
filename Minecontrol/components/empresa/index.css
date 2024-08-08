@@ -9,7 +9,7 @@
     background: #202020;
   }
 
-  #page-wrapper {
+#page-wrapper {
     padding: 15px 15px;
     min-height: 600px;
     background: #ccd3d9;
@@ -165,3 +165,81 @@
       min-height: 1200px;
     }
   }
+
+
+
+
+
+
+
+  /* Estilo general para la tabla */
+table {
+  width: 100% !important;
+  border-collapse: collapse !important; /* Cambiado a collapse para que los bordes no sobresalgan */
+  border-spacing: 0 !important; /* Espacio entre filas eliminado */
+  margin-top: 20px !important;
+  margin-bottom: 20px !important;
+  background-color: #f9f9f9 !important; /* Fondo general de la tabla */
+}
+
+/* Bordes y esquinas menos redondeadas */
+table, th, td {
+  border: 1px solid #ddd !important; /* Bordes suaves en gris claro */
+  border-radius: 4px !important; /* Esquinas menos redondeadas */
+}
+
+/* Estilo de las celdas */
+th, td {
+  padding: 12px !important; /* Padding aumentado para mayor comodidad */
+  text-align: left !important;
+  font-size: 16px !important; /* Tamaño de fuente legible */
+}
+
+/* Estilo de los encabezados */
+th {
+  background-color: #047b7c !important; /* Color verde para el encabezado */
+  color: white !important;
+  font-weight: bold !important; /* Texto en negrita */
+}
+
+/* Colores alternos para las filas */
+tbody tr:nth-child(even) {
+  background-color: #cdeef0 !important; /* Verde muy claro para filas pares */
+}
+
+tbody tr:nth-child(odd) {
+  background-color: #f5f5f5 !important; /* Gris claro para filas impares */
+}
+
+/* Color de fila en hover */
+tbody tr:hover {
+  background-color: #c7edee!important; /* Verde pastel para hover */
+  transition: background-color 0.3s ease; /* Transición suave */
+}
+
+/* Estilo general para los botones */
+button {
+  background-color: #047b7c !important; /* Color verde para los botones */
+  border: none !important;
+  color: rgb(255, 255, 255) !important;
+  padding: 12px 20px !important; /* Padding aumentado para un botón más grande */
+  text-align: center !important;
+  font-size: 16px !important; /* Tamaño de fuente aumentado */
+  margin: 4px 2px !important;
+  border-radius: 4px !important; /* Esquinas menos redondeadas */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1) !important; /* Sombra sutil */
+}
+
+
+
+
+
+
+button:hover {
+  background-color: #047b7c !important; /* Color verde más oscuro en hover */
+  transform: translateY(-2px); /* Efecto de elevación en hover */
+}
+
+button.delete {
+  background-color: #f44336 !important; /* Rojo para eliminar */
+}

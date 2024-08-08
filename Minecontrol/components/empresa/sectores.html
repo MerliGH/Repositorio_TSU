@@ -1,81 +1,168 @@
-<div id="page-wrapper">
-  <div id="page-inner">
-    <div class="row">
-      <div class="col-md-12">
-        <h1>Sectores</h1>
-        <br />
-        <button
-          hx-trigger="click"
-          hx-target="#add-form"
-          hx-get="components/empresa/sectores/dialogoAgregar.html"
-          hx-swap="outerHTML"
-        >
-          Agregar sector
-        </button>
-        <br /><br />______________________________________________________________________________________________________________________________________________________<br /><br /><br />
-        <div id="add-form"></div>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sectores</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+    }
+    #page-wrapper {
+      padding: 20px;
+    }
+    #page-inner {
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      padding: 30px;
+      margin-bottom: 30px;
+    }
+    h1 {
+      color: #333;
+      margin-bottom: 30px;
+      font-size: 2em;
+    }
+    table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0 10px; /* Espacio entre filas */
+      margin-top: 20px;
+      margin-bottom: 20px;
+    }
+    table, th, td {
+      border: 1px solid #ddd;
+    }
+    th, td {
+      padding: 12px;
+      text-align: left;
+    }
+    th {
+      background-color: #f2f2f2;
+    }
+    thead th {
+      background-color: #e0f7fa; /* Color de fondo para el encabezado */
+      color: #00796b; /* Color del texto del encabezado */
+    }
+    tbody tr:nth-child(even) {
+      background-color: #f9f9f9;
+    }
+    tbody tr:hover {
+      background-color: #f1f1f1;
+    }
+    td.actions {
+      background-color: #e0f2f1; /* Color de fondo para la columna de acciones */
+    }
+    button {
+      background-color: #4CAF50;
+      border: none;
+      color: white;
+      padding: 8px 12px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 14px;
+      margin: 2px 1px;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+    button.edit {
+      background-color: #2196F3; /* Azul para editar */
+    }
+    button.delete {
+      background-color: #f44336; /* Rojo para borrar */
+    }
+  </style>
+</head>
+<body>
+  <div id="page-wrapper">
+    <div id="page-inner">
+      <div class="row">
+        <div class="col-md-12">
+          <h1>Sectores</h1>
+          <br />
+          <button
+            hx-trigger="click"
+            hx-target="#add-form"
+            hx-get="components/empresa/sectores/dialogoAgregar.html"
+            hx-swap="outerHTML"
+          >
+            Agregar sector
+          </button>
+          <br /><br />______________________________________________________________________________________________________________________________________________________<br /><br /><br />
+          <div id="add-form"></div>
 
-        <table>
-          <thead>
-            <tr>
-              <td><b>------------ Nombre -------------</b></td>
-              <td><b>--- Acciones --- </b></td>
-            </tr>
-          </thead>
-          <tbody id="sectores-list"></tbody>
-        </table>
-        <script>
-          function addMinaRow(sector, root) {
-            const row = document.createElement("tr");
-            const columnNombre = document.createElement("td");
-            const columnAcciones = document.createElement("td");
-            const editarBtn = document.createElement("button");
-            const borrarBtn = document.createElement("button");
-            columnNombre.innerHTML = sector.nombre
-            editarBtn.innerHTML = "Editar Sector";
-            borrarBtn.innerHTML = "Borrar Sector";
-            editarBtn.onclick = () => {
-              sessionStorage.setItem("sector-details", JSON.stringify(sector));
-              location.href = "sector.html";
-            };
-            borrarBtn.onclick = async () => {
-              await fetch(`http://127.0.0.1:8000/sectores/${sector.id}`, {
-                method: "DELETE",
+          <table>
+            <thead>
+              <tr>
+                <th>Nombre</th>
+                <th>Acciones</th>
+              </tr>
+            </thead>
+            <tbody id="sectores-list"></tbody>
+          </table>
+          <script>
+            function addMinaRow(sector, root) {
+              const row = document.createElement("tr");
+              const columnNombre = document.createElement("td");
+              const columnAcciones = document.createElement("td");
+              const editarBtn = document.createElement("button");
+              const borrarBtn = document.createElement("button");
+
+              columnNombre.innerHTML = sector.nombre;
+              editarBtn.innerHTML = "Editar Sector";
+              editarBtn.classList.add("edit");
+              borrarBtn.innerHTML = "Borrar Sector";
+              borrarBtn.classList.add("delete");
+
+              editarBtn.onclick = () => {
+                sessionStorage.setItem("sector-details", JSON.stringify(sector));
+                location.href = "sector.html";
+              };
+
+              borrarBtn.onclick = async () => {
+                await fetch(`http://127.0.0.1:8000/sectores/${sector.id}`, {
+                  method: "DELETE",
+                });
+                location.reload();
+              };
+
+              columnAcciones.appendChild(editarBtn);
+              columnAcciones.appendChild(borrarBtn);
+              columnAcciones.classList.add("actions");
+              row.appendChild(columnNombre);
+              row.appendChild(columnAcciones);
+              root.appendChild(row);
+            }
+
+            const tbody = document.querySelector("#sectores-list");
+            fetch("http://127.0.0.1:8000/sectores", {
+              headers: {
+                Accept: "application/json",
+              },
+            })
+              .then((response) => {
+                if (!response.ok) {
+                  return alert("No se pueden obtener sectores");
+                }
+                return response.json();
+              })
+              .then((sectores) => {
+                for (const sector of sectores) {
+                  addMinaRow(sector, tbody);
+                }
+              })
+              .catch((error) => {
+                console.error("Error:", error);
+                alert("Ocurrió un error al obtener sectores");
               });
-              location.reload();
-            };
-            columnAcciones.appendChild(editarBtn);
-            columnAcciones.appendChild(borrarBtn);
-            row.appendChild(columnNombre);
-            row.appendChild(columnAcciones);
-            root.appendChild(row);
-          }
-
-          const tbody = document.querySelector("#sectores-list");
-          fetch("http://127.0.0.1:8000/sectores", {
-            headers: {
-              Accept: "application/json",
-            },
-          })
-            .then((response) => {
-              console.log({ response });
-              if (!response.ok) {
-                return alert("No se pueden obtener empleados");
-              }
-
-              return response.json();
-            })
-            .then((sectores) => {
-              for (const sector of sectores) {
-                addMinaRow(sector, tbody);
-              }
-            })
-            .catch((error) => {
-              console.error("Error:", error);
-              alert("Ocurrió un error al obtener empleados");
-            });
-        </script>
+          </script>
+        </div>
       </div>
     </div>
   </div>
-</div>
+</body>
+</html>

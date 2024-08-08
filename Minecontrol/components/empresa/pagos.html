@@ -1,55 +1,109 @@
-<div id="page-wrapper">
-  <div id="page-inner">
-    <div class="row">
-      <div class="col-md-12">
-        <h1>Pagos</h1>
-        <br /><br />______________________________________________________________________________________________________________________________________________________<br /><br /><br />
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pagos</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+    }
+    #page-wrapper {
+      padding: 20px;
+    }
+    #page-inner {
+      background-color: #fff;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      padding: 30px;
+      margin-bottom: 30px;
+    }
+    h1 {
+      color: #333;
+      margin-bottom: 30px;
+      font-size: 2em;
+    }
+    table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0 10px; /* Espacio entre filas */
+      margin-top: 20px;
+      margin-bottom: 20px;
+    }
+    table, th, td {
+      border: 1px solid #ddd;
+    }
+    th, td {
+      padding: 12px;
+      text-align: left;
+    }
+    th {
+      background-color: #e0f7fa; /* Color de fondo para el encabezado */
+      color: #00796b; /* Color del texto del encabezado */
+    }
+    tbody tr:nth-child(even) {
+      background-color: #f9f9f9;
+    }
+    tbody tr:hover {
+      background-color: #f1f1f1;
+    }
+  </style>
+</head>
+<body>
+  <div id="page-wrapper">
+    <div id="page-inner">
+      <div class="row">
+        <div class="col-md-12">
+          <h1>Pagos</h1>
+          <br /><br />______________________________________________________________________________________________________________________________________________________<br /><br /><br />
 
-        <table>
-          <thead>
-            <tr>
-              <td><b>------------ Fecha de pago -------------</b></td>
+          <table>
+            <thead>
+              <tr>
+                <th>Fecha de pago</th>
+              </tr>
+            </thead>
+            <tbody id="minas-list"></tbody>
+          </table>
+          <script>
+            function addMinaRow(pagos, root) {
+              const row = document.createElement("tr");
+              const columnFechaPago = document.createElement("td");
 
-            </tr>
-          </thead>
-          <tbody id="minas-list"></tbody>
-        </table>
-        <script>
-          function addMinaRow(pagos, root) {
-            const row = document.createElement("tr");
-            const columnNombre = document.createElement("td");
-           
-            columnNombre.innerHTML = pagos.fecha_pago
-          
-            row.appendChild(columnNombre);
-            root.appendChild(row);
-          }
+              columnFechaPago.innerHTML = pagos.fecha_pago;
 
-          const tbody = document.querySelector("#minas-list");
-          fetch("http://127.0.0.1:8000/pagos", {
-            headers: {
-              Accept: "application/json",
-            },
-          })
-            .then((response) => {
-              console.log({ response });
-              if (!response.ok) {
-                return alert("No se pueden obtener empleados");
-              }
+              row.appendChild(columnFechaPago);
+              root.appendChild(row);
+            }
 
-              return response.json();
+            const tbody = document.querySelector("#minas-list");
+            fetch("http://127.0.0.1:8000/pagos", {
+              headers: {
+                Accept: "application/json",
+              },
             })
-            .then((minas) => {
-              for (const mina of minas) {
-                addMinaRow(mina, tbody);
-              }
-            })
-            .catch((error) => {
-              console.error("Error:", error);
-              alert("Ocurrió un error al obtener empleados");
-            });
-        </script>
+              .then((response) => {
+                if (!response.ok) {
+                  return alert("No se pueden obtener pagos");
+                }
+                return response.json();
+              })
+              .then((pagos) => {
+                for (const pago of pagos) {
+                  addMinaRow(pago, tbody);
+                }
+              })
+              .catch((error) => {
+                console.error("Error:", error);
+                alert("Ocurrió un error al obtener pagos");
+              });
+          </script>
+        </div>
       </div>
     </div>
   </div>
-</div>
+</body>
+</html>

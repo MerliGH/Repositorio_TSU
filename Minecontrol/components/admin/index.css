@@ -1,167 +1,298 @@
+/* Estilos Generales */
+body {
+  font-family: Arial, sans-serif;
+}
+
+#page-wrapper {
+  background-size: cover !important;
+  background-position: center !important;
+  background-repeat: no-repeat !important;
+  padding: 15px 15px;
+  min-height: 600px;
+  background: #ccd3d9;
+}
+
+#wrapper {
+  width: 100%;
+  background: #202020;
+}
+
+#page-inner {
+  width: 100%;
+  margin: 10px 20px 10px 0px;
+  background-color: #fff !important;
+  padding: 10px;
+  min-height: 120px;
+  margin-top: 60px;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.no-border {
+  border: 1px solid #f3f3f3;
+}
+
+/* Tabla */
+/* General Table Styles */
+/* General Table Styles */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Extra Column for Spacing */
+tbody td.empty-column {
+  width: 20px !important; /* Espacio extra entre columnas */
+}
+
+
+
+
+
+
+/* Otros estilos */
+.panel-back {
+  background-color: #f8f8f8;
+}
+
+.noti-box {
+  min-height: 100px;
+  padding: 20px;
+}
+
+.noti-box .icon-box {
+  display: block;
+  float: left;
+  margin: 0 15px 10px 0;
+  width: 70px;
+  height: 70px;
+  line-height: 75px;
+  vertical-align: middle;
+  text-align: center;
+  font-size: 40px;
+}
+
+.text-box p {
+  margin: 0 0 3px;
+}
+
+.main-text {
+  font-size: 25px;
+  font-weight: 600;
+}
+
+.set-icon {
+  border-radius: 50px;
+}
+
+.bg-color-green {
+  background-color: #00ce6f;
+  color: #fff;
+}
+
+.bg-color-blue {
+  background-color: #a95df0;
+  color: #fff;
+}
+
+.bg-color-red {
+  background-color: #db0630;
+  color: #fff;
+}
+
+.bg-color-brown {
+  background-color: #b94a00;
+  color: #fff;
+}
+
+.icon-box-right {
+  display: block;
+  float: right;
+  margin: 0 15px 10px 0;
+  width: 70px;
+  height: 70px;
+  line-height: 75px;
+  vertical-align: middle;
+  text-align: center;
+  font-size: 40px;
+}
+
+.main-temp-back {
+  background: #8702a8;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 300;
+  text-align: center;
+}
+
+.main-temp-back .text-temp {
+  font-size: 40px;
+}
+
+.back-dash {
+  padding: 20px;
+  font-size: 20px;
+  font-weight: 500;
+  border-radius: 0px;
+  background-color: #2ea7eb;
+  color: #fff;
+}
+
+.back-dash p {
+  padding-top: 16px;
+  font-size: 13px;
+  color: #fff;
+  line-height: 25px;
+  text-align: justify;
+}
+
+.back-footer-green {
+  background-color: #009b50;
+  border-top: 0px solid #fff;
+}
+
+.back-footer-red {
+  background-color: #af0000;
+  border-top: 0px solid #fff;
+}
+
+.color-bottom-txt {
+  color: #000;
+  font-size: 16px;
+  line-height: 30px;
+}
+
+/* Chat Panel */
+.chat-panel .panel-body {
+  height: 450px;
+  overflow-y: scroll;
+}
+
+.chat-box {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.chat-box li {
+  margin-bottom: 15px;
+  padding-bottom: 5px;
+  border-bottom: 1px dotted #808080;
+}
+
+.chat-box li.left .chat-body {
+  margin-left: 90px;
+}
+
+.chat-box li .chat-body p {
+  margin: 0;
+  color: #8d8888;
+}
+
+.chat-img > img {
+  margin-left: 20px;
+}
+
+@media (min-width: 768px) {
   #page-wrapper {
-    background-size: cover !important; /* Ajusta el tamaño del fondo al contenedor */
-    background-position: center !important; /* Centra la imagen de fondo */
-    background-repeat: no-repeat !important; /* Evita que la imagen de fondo se repita */
+    margin: 0 0 0 260px;
+    padding: 15px 30px;
+    min-height: 1200px;
   }
+}
 
-  #wrapper {
-    width: 100%;
-    background: #202020;
-  }
 
-  #page-wrapper {
-    padding: 15px 15px;
-    min-height: 600px;
-    background: #ccd3d9;
-  }
-  #page-inner {
-    width: 100%;
-    margin: 10px 20px 10px 0px;
-    background-color: #fff !important;
-    padding: 10px;
-    min-height: 120px;
-    margin-top: 60px;
-  }
 
-  .text-center {
-    text-align: center;
-  }
-  .no-boder {
-    border: 1px solid #f3f3f3;
-  }
 
-  /*==============================================
-    DASHBOARD STYLES    
-  =============================================*/
-  .panel-back {
-    background-color: #f8f8f8;
-  }
-  .noti-box {
-    min-height: 100px;
-    padding: 20px;
-  }
 
-  .noti-box .icon-box {
-    display: block;
-    float: left;
-    margin: 0 15px 10px 0;
-    width: 70px;
-    height: 70px;
-    line-height: 75px;
-    vertical-align: middle;
-    text-align: center;
-    font-size: 40px;
-  }
-  .text-box p {
-    margin: 0 0 3px;
-  }
-  .main-text {
-    font-size: 25px;
-    font-weight: 600;
-  }
-  .set-icon {
-    -webkit-border-radius: 50px;
-    -moz-border-radius: 50px;
-    border-radius: 50px;
-  }
-  .bg-color-green {
-    background-color: #00ce6f;
-    color: #fff;
-  }
-  .bg-color-blue {
-    background-color: #a95df0;
-    color: #fff;
-  }
-  .bg-color-red {
-    background-color: #db0630;
-    color: #fff;
-  }
-  .bg-color-brown {
-    background-color: #b94a00;
-    color: #fff;
-  }
 
-  .icon-box-right {
-    display: block;
-    float: right;
-    margin: 0 15px 10px 0;
-    width: 70px;
-    height: 70px;
-    line-height: 75px;
-    vertical-align: middle;
-    text-align: center;
-    font-size: 40px;
-  }
 
-  .main-temp-back {
-    background: #8702a8;
-    color: #ffffff;
-    font-size: 16px;
-    font-weight: 300;
-    text-align: center;
+  /* Estilo general para la tabla */
+  table {
+    width: 100% !important;
+    border-collapse: collapse !important; /* Cambiado a collapse para que los bordes no sobresalgan */
+    border-spacing: 0 !important; /* Espacio entre filas eliminado */
+    margin-top: 20px !important;
+    margin-bottom: 20px !important;
+    background-color: #f9f9f9 !important; /* Fondo general de la tabla */
   }
-  .main-temp-back .text-temp {
-    font-size: 40px;
+  
+  /* Bordes y esquinas menos redondeadas */
+  table, th, td {
+    border: 1px solid #ddd !important; /* Bordes suaves en gris claro */
+    border-radius: 4px !important; /* Esquinas menos redondeadas */
   }
-  .back-dash {
-    padding: 20px;
-    font-size: 20px;
-    font-weight: 500;
-    -webkit-border-radius: 0px;
-    -moz-border-radius: 0px;
-    border-radius: 0px;
-    background-color: #2ea7eb;
-    color: #fff;
+  
+  /* Estilo de las celdas */
+  th, td {
+    padding: 12px !important; /* Padding aumentado para mayor comodidad */
+    text-align: left !important;
+    font-size: 16px !important; /* Tamaño de fuente legible */
   }
-  .back-dash p {
-    padding-top: 16px;
-    font-size: 13px;
-    color: #fff;
-    line-height: 25px;
-    text-align: justify;
+  
+  /* Estilo de los encabezados */
+  th {
+    background-color: #047b7c !important; /* Color verde para el encabezado */
+    color: white !important;
+    font-weight: bold !important; /* Texto en negrita */
   }
-  .back-footer-green {
-    background-color: #009b50;
-    border-top: 0px solid #fff;
+  
+  /* Colores alternos para las filas */
+  tbody tr:nth-child(even) {
+    background-color: #cdeef0 !important; /* Verde muy claro para filas pares */
   }
-  .back-footer-red {
-    background-color: #af0000;
-    border-top: 0px solid #fff;
+  
+  tbody tr:nth-child(odd) {
+    background-color: #f5f5f5 !important; /* Gris claro para filas impares */
   }
-  .color-bottom-txt {
-    color: #000;
-    font-size: 16px;
-    line-height: 30px;
+  
+  /* Color de fila en hover */
+  tbody tr:hover {
+    background-color: #c7edee!important; /* Verde pastel para hover */
+    transition: background-color 0.3s ease; /* Transición suave */
   }
-  /*CHAT PANEL*/
-  .chat-panel .panel-body {
-    height: 450px;
-    overflow-y: scroll;
+  
+  /* Estilo general para los botones */
+  button {
+    background-color: #047b7c !important; /* Color verde para los botones */
+    border: none !important;
+    color: rgb(255, 255, 255) !important;
+    padding: 12px 20px !important; /* Padding aumentado para un botón más grande */
+    text-align: center !important;
+    font-size: 16px !important; /* Tamaño de fuente aumentado */
+    margin: 4px 2px !important;
+    border-radius: 4px !important; /* Esquinas menos redondeadas */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1) !important; /* Sombra sutil */
   }
-  .chat-box {
-    margin: 0;
-    padding: 0;
-    list-style: none;
+  
+  
+  
+  
+  
+  
+  button:hover {
+    background-color: #047b7c !important; /* Color verde más oscuro en hover */
+    transform: translateY(-2px); /* Efecto de elevación en hover */
   }
-  .chat-box li {
-    margin-bottom: 15px;
-    padding-bottom: 5px;
-    border-bottom: 1px dotted #808080;
+  
+  button.delete {
+    background-color: #f44336 !important; /* Rojo para eliminar */
   }
-  .chat-box li.left .chat-body {
-    margin-left: 90px;
-  }
-  .chat-box li .chat-body p {
-    margin: 0;
-    color: #8d8888;
-  }
-  .chat-img > img {
-    margin-left: 20px;
-  }
-  @media (min-width: 768px) {
-    #page-wrapper {
-      margin: 0 0 0 260px;
-      padding: 15px 30px;
-      min-height: 1200px;
-    }
-  }
+  

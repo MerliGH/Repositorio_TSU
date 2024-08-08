@@ -23,13 +23,92 @@
     <link href="assets/js/morris/morris-0.4.3.min.css" rel="stylesheet" />
 
     <!-- GOOGLE FONTS -->
-    <link href="http://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css" />
-    <!-- BOOTSTRAP STYLES -->
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css" rel="stylesheet" />
-    <!-- FONTAWESOME STYLES -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet" type="text/css" />
+
+    <!-- Highcharts -->
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+
+    <!-- JUST GAGE -->
+    <script src="/mygauge/justgage/raphael-2.1.4.min.js"></script>
+    <script src="/mygauge/justgage/justgage.js"></script>
+
+    <!-- JQUERY -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- BOOTSTRAP JS -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <!-- HTMX -->
+    <script src="https://unpkg.com/htmx.org@2.0.1" integrity="sha384-QWGpdj554B4ETpJJC9z+ZHJcA/i59TyjxEPXiiUgN2WmTyV5OEZWCD6gQhgkdpB/" crossorigin="anonymous"></script>
+
+    <!-- CUSTOM JS -->
     <script src="assets/js/userGlobal.js"></script>
-    
+    <script src="components/common/navbar/welcome.js"></script>
+    <script src="assets/js/admin.js"></script>
+    <style>
+        .card {
+            width: 220px;
+            height: 150px;
+            background-color: #af7ac5; /* Lila pastel */
+            color: white;
+            text-align: center;
+            padding: 10px;
+            margin-top: 10px;
+        }
+        .card2 {
+            width: 220px;
+            height: 150px;
+            background-color: #3498db; /* Azul pastel */
+            color: rgb(255, 255, 255);
+            text-align: center;
+            padding: 10px;
+            margin-top: 10px;
+        }
+        .card3 {
+            width: 220px;
+            height: 150px;
+            background-color: #16a085; /* Esmeralda */
+            color: rgb(255, 255, 255);
+            text-align: center;
+            padding: 10px;
+            margin-top: 10px;
+        }
+        .sensor {
+            font-size: 36px;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+        .container {
+            margin-bottom: 20px;
+        }
+        #user-name {
+            color: white;
+            text-align: right;
+            display: block;
+            margin-right: 14px;
+            padding: 0;
+        }
+    </style>
+</head>
+
+
+
+
+
+<body>
+    <div id="wrapper">
+        <div>
+            <span id="user-name"></span>
+        </div>
+
+        <div hx-trigger="load" hx-get="components/common/navbar/navbar.html"></div>
+        <div hx-trigger="load" hx-get="components/empresa/index.html"></div>
+
+
+
+
+
+
     <!-- CUSTOM STYLES -->
     <style>
         #user-name {
@@ -43,14 +122,9 @@
     </style>
 </head>
 
-<body>
-    <div id="wrapper">
-        <div>
-            <span id="user-name"></span>
-        </div>
 
-        <div hx-trigger="load" hx-get="components/common/navbar/navbar.html"></div>
-        <div hx-trigger="load" hx-get="components/empresa/index.html"></div>
+
+<body>
         <!-- FOOTER -->
 
         <!-- SCRIPTS -->
@@ -59,6 +133,15 @@
         <script src="https://unpkg.com/htmx.org@2.0.1" integrity="sha384-QWGpdj554B4ETpJJC9z+ZHJcA/i59TyjxEPXiiUgN2WmTyV5OEZWCD6gQhgkdpB/" crossorigin="anonymous"></script>
         <script src="components/common/navbar/welcome.js"></script>
         <script src="assets/js/admin.js"></script>
+
+
+        
+
+
+
+
+
+
 
         <script>
             document.addEventListener("DOMContentLoaded", () => {

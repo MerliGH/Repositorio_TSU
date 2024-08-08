@@ -1,19 +1,566 @@
-<div id="page-wrapper">
-    <div id="page-inner">
-        <div class="row">
-            <div class="col-md-12">
-                <h2>★ Panel empresarial ★</h2>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel Empresarial</title>
+    <!-- Incluye Bootstrap CSS -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Estilos personalizados */
+        #page-wrapper {
+            padding: 20px;
+        }
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .card {
+            margin: 20px auto;
+            text-align: center;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        .card-body {
+            padding: 20px;
+        }
+        .card-title {
+            margin-bottom: 10px;
+        }
+        .row {
+            margin-bottom: 20px;
+        }
+        .table {
+            margin: 20px auto;
+        }
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .col-md-3 {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .col-md-6 {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="page-wrapper">
+        <div id="page-inner">
+            <div class="row">
+                <div class="col-md-12">
+                    <h2>★ Panel Empresarial ★</h2>
+                </div>
+            </div>
+            <hr />
+            <div class="row">
+                <!-- Tables for sensors -->
+                <div class="container">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Polvo</th>
+                                <th>Monóxido de Carbono</th>
+                                <th>Dióxido de Carbono</th>
+                                <th>Etanol</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <div id="sensor1_gauge" style="width:100%; height:320px"></div>
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Polvo</h5>
+                                            <div class="sensor" id="sensor1"></div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div id="sensor2_gauge" style="width:100%; height:320px"></div>
+                                    <div class="card card2">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Monóxido de Carbono</h5>
+                                            <div class="sensor" id="sensor2"></div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div id="sensor3_gauge" style="width:100%; height:320px"></div>
+                                    <div class="card card3">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Dióxido de Carbono</h5>
+                                            <div class="sensor" id="sensor3"></div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div id="sensor4_gauge" style="width:100%; height:320px"></div>
+                                    <div class="card card4">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Etanol</h5>
+                                            <div class="sensor" id="sensor4"></div>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Hidrógeno</th>
+                                <th>Amonio</th>
+                                <th>Metano</th>
+                                <th>Dióxido de Nitrógeno</th>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div id="sensor5_gauge" style="width:100%; height:320px"></div>
+                                    <div class="card card5">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Hidrógeno</h5>
+                                            <div class="sensor" id="sensor5"></div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div id="sensor6_gauge" style="width:100%; height:320px"></div>
+                                    <div class="card card2">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Amonio</h5>
+                                            <div class="sensor" id="sensor6"></div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div id="sensor7_gauge" style="width:100%; height:320px"></div>
+                                    <div class="card card3">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Metano</h5>
+                                            <div class="sensor" id="sensor7"></div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <div id="sensor8_gauge" style="width:100%; height:320px"></div>
+                                    <div class="card card4">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Dióxido de Nitrógeno</h5>
+                                            <div class="sensor" id="sensor8"></div>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <hr />
+            <div class="row">
+                <!-- Tables for charts -->
+                <div class="container">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th>Gráfico Polvo</th>
+                                <th>Gráfico Monóxido de Carbono</th>
+                                <th>Gráfico Dióxido de Carbono</th>
+                                <th>Gráfico Etanol</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <div id="chart_sensor1_container" style="min-width: 100%; height: 400px; margin: 0 auto"></div>
+                                </td>
+                                <td>
+                                    <div id="chart_sensor2_container" style="min-width: 100%; height: 400px; margin: 0 auto"></div>
+                                </td>
+                                <td>
+                                    <div id="chart_sensor3_container" style="min-width: 100%; height: 400px; margin: 0 auto"></div>
+                                </td>
+                                <td>
+                                    <div id="chart_sensor4_container" style="min-width: 100%; height: 400px; margin: 0 auto"></div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>Gráfico Hidrógeno</th>
+                                <th>Gráfico Amonio</th>
+                                <th>Gráfico Metano</th>
+                                <th>Gráfico Dióxido de Nitrógeno</th>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div id="chart_sensor5_container" style="min-width: 100%; height: 400px; margin: 0 auto"></div>
+                                </td>
+                                <td>
+                                    <div id="chart_sensor6_container" style="min-width: 100%; height: 400px; margin: 0 auto"></div>
+                                </td>
+                                <td>
+                                    <div id="chart_sensor7_container" style="min-width: 100%; height: 400px; margin: 0 auto"></div>
+                                </td>
+                                <td>
+                                    <div id="chart_sensor8_container" style="min-width: 100%; height: 400px; margin: 0 auto"></div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <hr />
+            <div class="row">
+                <!-- Panels go here -->
+            </div>
+            <hr />
+            <div class="row">
+                <div class="container">
+                    <div class="row">
+                        <!-- Polvo -->
+                        <div class="col-md-3">
+                            <div id="sensor1_gauge" style="width:400px; height:320px"></div>
+                            <div class="card">
+                                <div class="card-body">
+                                    <h5 class="card-title">Polvo</h5>
+                                    <div class="sensor" id="sensor1"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Monóxido de Carbono -->
+                        <div class="col-md-3">
+                            <div id="sensor2_gauge" style="width:400px; height:320px"></div>
+                            <div class="card card2">
+                                <div class="card-body">
+                                    <h5 class="card-title">Monóxido de Carbono</h5>
+                                    <div class="sensor" id="sensor2"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Dióxido de Carbono -->
+                        <div class="col-md-3">
+                            <div id="sensor3_gauge" style="width:400px; height:320px"></div>
+                            <div class="card card3">
+                                <div class="card-body">
+                                    <h5 class="card-title">Dióxido de Carbono</h5>
+                                    <div class="sensor" id="sensor3"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Etanol -->
+                        <div class="col-md-3">
+                            <div id="sensor4_gauge" style="width:400px; height:320px"></div>
+                            <div class="card card4">
+                                <div class="card-body">
+                                    <h5 class="card-title">Etanol</h5>
+                                    <div class="sensor" id="sensor4"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Repeat similar rows for other sensors -->
+                </div>
+            </div>
         </div>
-        <!-- ROW -->
-        <hr />
-        <div class="row">
-            <!-- Panels go here -->
-        </div>
-        <!-- /ROW -->
-        <hr />
-        <div class="row">
-            <!-- More panels and content go here -->
+    </div>
+    <!-- Incluye Bootstrap JS y dependencias -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <!-- Incluye Highcharts o librerías necesarias -->
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <!-- Tu código JS aquí -->
+
+
+<script>
+
+
+var gauges = [];
+var charts = [];
+var sensorNames = [
+    'polvo',
+    'monoxido_de_carbono',
+    'dioxido_de_carbono',
+    'etanol',
+    'hidrogeno',
+    'amonio',
+    'metano',
+    'dioxido_de_nitrogeno'
+];
+
+var sensorTitles = [
+    'Polvo (P)',
+    'Monóxido de Carbono (CO)',
+    'Dióxido de Carbono (CO2)',
+    'Etanol (Et)',
+    'Hidrógeno (H2)',
+    'Amonio (NH3)',
+    'Metano (CH4)',
+    'Dióxido de Nitrógeno (NO2)'
+];
+
+function getLevelColor(value, min, max) {
+    var percentage = (value - min) / (max - min) * 100;
+
+    if (percentage <= 50) {
+        return "#00FF00"; // Verde
+    } else if (percentage <= 70) {
+        return "#FFFF00"; // Amarillo
+    } else {
+        return "#FF0000"; // Rojo
+    }
+}
+
+function initGauges() {
+    var minValues = [0, 0, 0, 0, 0, 0, 0, 0];
+    var maxValues = [1000, 1000, 5000, 1000, 1000, 1000, 10000, 200, 100];
+
+    sensorTitles.forEach(function(title, index) {
+        gauges[index] = new JustGage({
+            id: 'sensor' + (index + 1) + '_gauge',
+            value: 0,
+            min: minValues[index],
+            max: maxValues[index],
+            decimals: 2,
+            title: title,
+            levelColors: [getLevelColor(0, minValues[index], maxValues[index])] // Establece el color inicial
+        });
+    });
+}
+
+
+
+
+
+
+var histories = {};
+
+// Inicializa el historial de cada sensor en la función initCharts
+function initCharts() {
+sensorNames.forEach(function(name, index) {
+    histories[name] = []; // Inicializa el historial vacío para cada sensor
+
+    charts[index] = Highcharts.chart('chart_sensor' + (index + 1) + '_container', {
+        chart: {
+            type: 'spline'
+        },
+        title: {
+            text: sensorTitles[index]
+        },
+        xAxis: {
+            type: 'datetime',
+            labels: {
+                rotation: -35,
+                format: '{value:%d %b %Y --- %H:%M}'
+            }
+        },
+        yAxis: {
+            title: {
+                text: sensorTitles[index]
+            }
+        },
+        series: [{
+            name: sensorTitles[index],
+            data: [] // Empieza con un array vacío
+        }]
+    });
+});
+}
+
+
+
+
+
+
+
+
+function updateGauges(data) {
+sensorNames.forEach(function(name, index) {
+    var value = data[name] !== undefined ? data[name] : 0;
+    if (typeof value === 'string') {
+        value = parseFloat(value); // Convierte a número si es una cadena
+    }
+    if (!isNaN(value)) { // Asegúrate de que el valor sea numérico
+        // Actualiza el gauge
+        gauges[index].refresh(value);
+
+        // Actualiza el color del gauge
+        var minValue = gauges[index].config.min;
+        var maxValue = gauges[index].config.max;
+        gauges[index].config.levelColors = [getLevelColor(value, minValue, maxValue)];
+        gauges[index].refresh(value); // Refresca para aplicar el nuevo color
+
+        // Actualiza el valor en el card
+        document.getElementById('sensor' + (index + 1)).innerText = value;
+    }
+});
+}
+
+
+
+
+function updateCharts(data) {
+sensorNames.forEach(function(name, index) {
+    var chart = charts[index];
+    if (chart) {
+        console.log('Actualizando gráfico para:', name);
+        var series = chart.series[0];
+        var value = data[name] !== undefined ? data[name] : 0;
+
+        if (typeof value === 'string') {
+            value = parseFloat(value); // Convierte a número si es una cadena
+        }
+
+        if (!isNaN(value)) { // Asegúrate de que el valor sea numérico
+            var timestamp = new Date(data.fecha).getTime(); // Convierte la fecha a milisegundos
+
+            // Agrega el nuevo valor al historial
+            histories[name].push([timestamp, value]);
+
+            // Mantén solo los últimos 15 valores
+            if (histories[name].length > 15) {
+                histories[name].shift(); // Elimina el valor más antiguo
+            }
+
+            // Actualiza la gráfica con el historial de los últimos 15 valores
+            series.setData(histories[name], true, false); // Actualiza el gráfico
+
+            // Verificar el historial para depuración
+            console.log('Historial de datos para ' + name + ':', histories[name]);
+        }
+    }
+});
+}
+
+//----------------------------------------------------------------------------------------------------------------------
+
+//----------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+$(document).ready(function() {
+    if (gauges.length === 0) {  // Verifica si los gauges ya están inicializados
+        initGauges();
+    }
+    if (charts.length === 0) {  // Verifica si los gráficos ya están inicializados
+        initCharts();
+    }
+    $.ajax({
+        url: 'https://polliwog-desired-egret.ngrok-free.app/sensores/',
+        method: 'GET',
+        success: function(data) {
+            console.log('Datos recibidos:', data);
+
+            if (Array.isArray(data) && data.length > 0) {
+                // Procesa el último objeto de la respuesta
+                const lastData = data[data.length - 1];
+                // Asegúrate de que todos los valores sean numéricos
+                const numericData = sensorNames.reduce((acc, name) => {
+                    let value = lastData[name] !== undefined ? lastData[name] : 0;
+                    if (typeof value === 'string') {
+                        value = parseFloat(value); // Convierte a número si es una cadena
+                    }
+                    acc[name] = !isNaN(value) ? value : 0; // Asegúrate de que el valor sea numérico
+                    return acc;
+                }, { fecha: lastData.fecha });
+
+                console.log('Últimos datos procesados:', lastData);
+                // Actualiza los gauges y gráficos con los datos numéricos
+                updateGauges(numericData);
+                updateCharts(numericData);
+            }
+        },
+        error: function(xhr, status, error) {
+            console.error('Error en la solicitud:', status, error);
+        }
+    });
+});
+
+</script>
+
+
+
+            
         </div>
         <!-- /ROW -->
     </div>
 </div>
+
+
+
+<style>
+    .table th, .table td {
+        text-align: center;
+        vertical-align: middle;
+    }
+    .table th:nth-child(1), .table td:nth-child(1) { width: 25%; } /* Ajusta según sea necesario */
+    .table th:nth-child(2), .table td:nth-child(2) { width: 25%; } /* Ajusta según sea necesario */
+    .table th:nth-child(3), .table td:nth-child(3) { width: 25%; } /* Ajusta según sea necesario */
+    .table th:nth-child(4), .table td:nth-child(4) { width: 25%; } /* Ajusta según sea necesario */
+    </style>
+    
+
+    <style>
+    /* Estilos personalizados */
+    #page-wrapper {
+        padding: 20px;
+    }
+    h2, th {
+        text-align: center !important;
+        margin-bottom: 20px;
+    }
+    
+    .card {
+        margin: 20px auto;
+        text-align: center;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    .card-body {
+        padding: 20px;
+    }
+    .card-title {
+        margin-bottom: 10px;
+        text-align: center; /* Centra el texto del título dentro de la tarjeta */
+    }
+    .row {
+        margin-bottom: 20px;
+    }
+    .table {
+        margin: 20px auto;
+    }
+    .table th, .table td {
+        text-align: center;
+        vertical-align: middle;
+    }
+    .table th:nth-child(1), .table td:nth-child(1) { width: 25%; } /* Ajusta según sea necesario */
+    .table th:nth-child(2), .table td:nth-child(2) { width: 25%; } /* Ajusta según sea necesario */
+    .table th:nth-child(3), .table td:nth-child(3) { width: 25%; } /* Ajusta según sea necesario */
+    .table th:nth-child(4), .table td:nth-child(4) { width: 25%; } /* Ajusta según sea necesario */
+    .container {
+        width: 100%;
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+    .col-md-3 {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-bottom: 20px;
+    }
+    .col-md-6 {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 20px;
+    }
+
+
+    
+</style>
