@@ -163,7 +163,7 @@
             <hr />
             <div class="row">
                 <!-- Tables for charts -->
-                <div class="container">
+                <div class="container"style="display: none;">
                     <table class="table table-bordered">
                         <thead>
                             <tr>
@@ -217,50 +217,6 @@
                 <!-- Panels go here -->
             </div>
             <hr />
-            <div class="row">
-                <div class="container">
-                    <div class="row">
-                        <!-- Polvo -->
-                        <div class="col-md-3">
-                            <div id="sensor1_gauge" style="width:400px; height:320px"></div>
-                            <div class="card">
-                                <div class="card-body">
-                                    <h5 class="card-title">Polvo</h5>
-                                    <div class="sensor" id="sensor1"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Monóxido de Carbono -->
-                        <div class="col-md-3">
-                            <div id="sensor2_gauge" style="width:400px; height:320px"></div>
-                            <div class="card card2">
-                                <div class="card-body">
-                                    <h5 class="card-title">Monóxido de Carbono</h5>
-                                    <div class="sensor" id="sensor2"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Dióxido de Carbono -->
-                        <div class="col-md-3">
-                            <div id="sensor3_gauge" style="width:400px; height:320px"></div>
-                            <div class="card card3">
-                                <div class="card-body">
-                                    <h5 class="card-title">Dióxido de Carbono</h5>
-                                    <div class="sensor" id="sensor3"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Etanol -->
-                        <div class="col-md-3">
-                            <div id="sensor4_gauge" style="width:400px; height:320px"></div>
-                            <div class="card card4">
-                                <div class="card-body">
-                                    <h5 class="card-title">Etanol</h5>
-                                    <div class="sensor" id="sensor4"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                     <!-- Repeat similar rows for other sensors -->
                 </div>
             </div>
@@ -293,13 +249,13 @@ var sensorNames = [
 
 var sensorTitles = [
     'Polvo (P)',
-    'Monóxido de Carbono (CO)',
-    'Dióxido de Carbono (CO2)',
+    'Monóxido \nde Carbono (CO)',
+    'Dióxido \nde Carbono (CO2)',
     'Etanol (Et)',
     'Hidrógeno (H2)',
     'Amonio (NH3)',
     'Metano (CH4)',
-    'Dióxido de Nitrógeno (NO2)'
+    'Dióxido de \nNitrógeno (NO2)'
 ];
 
 function getLevelColor(value, min, max) {
@@ -394,7 +350,7 @@ sensorNames.forEach(function(name, index) {
         gauges[index].refresh(value); // Refresca para aplicar el nuevo color
 
         // Actualiza el valor en el card
-        document.getElementById('sensor' + (index + 1)).innerText = value;
+        document.getElementById('sensor' + (index + 1)).innerText = value ;
     }
 });
 }
